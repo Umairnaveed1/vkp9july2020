@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\OfficeManager\OfficeManager;
 use App\Models\Agents\Agent;
-
+use Session;
 
 
 class OfficeController extends Controller
@@ -21,6 +21,7 @@ class OfficeController extends Controller
     }
     public function create(Request $request)
     {
+
        $offices = OfficeManager::with('agent')
            ->orderBy('created_at','desc')
            ->paginate(10);
@@ -31,6 +32,7 @@ class OfficeController extends Controller
             return 'agent found';
         }
         else{
+ 
             return view('agent.office_manager.create', compact('offices'));
         }
 
@@ -43,7 +45,7 @@ class OfficeController extends Controller
 
             'office_description' => 'required|max:255',
             'office_address' => 'required',
-            'office_phone' => 'required|numeric',
+            'office_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'office_fax' => 'required|alpha_num',
             'office_email' => 'required|email',
             'manager' => 'required',

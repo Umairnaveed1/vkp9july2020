@@ -20,17 +20,20 @@
                         <div class="row">
                             <div class="col-xl-12 col-12 col-md-12">
                                 <div class="card-body">
-                                    @if ($errors->any())
+                               <!--      @if ($errors->any())
                                         <div class="alert alert-danger">
                                             <ul>
                                                 @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
+
+                                                    <li>{{ ($error)}}</li>
                                                 @endforeach
                                             </ul>
                                         </div><br />
-                                    @endif
-                                    @if(session()->get('success'))
-                                        <div class="alert alert-success">
+                                    @endif -->
+
+
+                               <!--      @if(session()->get('success'))
+                                        <div class="alert aledrt-success">
                                             {{ session()->get('success') }}
                                         </div><br />
                                     @endif
@@ -38,7 +41,8 @@
                                             <div class="alert alert-danger">
                                                 {{ session()->get('error') }}
                                             </div><br />
-                                        @endif
+                                        @endif -->
+
                                 </div>
 
                             </div>
@@ -70,35 +74,45 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
+      <!--                                             @if($errors->has('office_description'))
+    <div class="error alert alert-danger">{{ $errors->first('office_description') }}</div>
+@endif -->
                         <label class="col-form-label">Office Description :	</label>
 
-                        <input type="text" name="office_description" value="" required="" placeholder="Office Description" class="form-control @error('office_description') is-invalid @enderror">
+                        <input type="text" name="office_description" value="{{ old('office_description') }}" required="" placeholder="Office Description" class="form-control @error('office_description') is-invalid @enderror">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
+   <!--     @if($errors->has('office_address'))
+    <div class="error alert alert-danger">{{ $errors->first('office_address') }}</div>
+@endif -->
                         <label class="col-form-label">Office Address :	</label>
 
-                        <textarea required="" name="office_address" value="" class="form-control text_area_office "></textarea>
+                        <textarea required="" name="office_address" value="{{ old('office_address') }}" class="form-control text_area_office @error('office_address') is-invalid @enderror">{{ old('office_address') }}</textarea>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
-
+<!--   @if($errors->has('office_phone'))
+    <div class="error alert alert-danger">{{ $errors->first('office_phone') }}</div>
+@endif -->
                         <label class="col-form-label">Office Phone :	</label>
 
-                        <input type="text" name="office_phone" required="" data-parsley-maxlength="6" placeholder="" class="form-control @error('office_phone') is-invalid @enderror">
+                        <input type="text" name="office_phone" value="{{ old('office_phone') }}"  required=""  placeholder="" class="form-control @error('office_phone') is-invalid @enderror">
 
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
-
+<!--   @if($errors->has('office_fax'))
+    <div class="error alert alert-danger">{{ $errors->first('office_fax') }}</div>
+@endif -->
                         <label class="col-form-label">Office Fax :	</label>
 
-                        <input type="text" name="office_fax" required="" data-parsley-length="[5,10]" placeholder="" class="form-control @error('office_fax') is-invalid @enderror">
+                        <input type="text" name="office_fax"  value="{{ old('office_fax') }}" required="" data-parsley-length="[5,10]" placeholder="" class="form-control @error('office_fax') is-invalid @enderror">
                     </div>
                 </div>
 
@@ -107,25 +121,31 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
+     <!--                     @if($errors->has('office_email'))
+    <div class="error alert alert-danger">{{ $errors->first('office_email') }}</div>
+@endif -->
                         <label class="col-form-label">Office Email :	</label>
 
-                        <input type="text" name="office_email" required="" data-parsley-min="6" placeholder="" class="form-control">
+                        <input type="text" name="office_email" value="{{ old('office_email') }}" required="" data-parsley-min="6" placeholder="" class="form-control  @error('office_email') is-invalid @enderror">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
+  <!--                                      @if($errors->has('manager'))
+    <div class="error alert alert-danger">{{ $errors->first('manager') }}</div>
+@endif -->
                         <label class="col-form-label">Manager :</label>
 
 
-                        <select name="manager" class="form-control">
+                        <select name="manager" class="form-control @error('manager') is-invalid @enderror">
 
-                            <option selected="selected" value="0">----------Select-----------</option>
-                            <option value="26">A.Atencio PLLC</option>
+                            <option selected="selected" value="{{ old('manager') }}">----------Select-----------</option>
+                            <option value="A.Atencio PLLC"  >A.Atencio PLLC</option>
                             <option value="152">Administration</option>
-                            <option value="20">Alice</option>
-                            <option value="200">Amy</option>
-                            <option value="41">Andrea</option>
-                            <option value="184">Angie</option>
+                            <option value="Alice">Alice</option>
+                            <option value="Amy">Amy</option>
+                            <option value="Andrea">Andrea</option>
+                            <option value="Angie">Angie</option>
                             <option value="34">Ashley R Atencio PLLC</option>
                             <option value="207">Barbara</option>
                             <option value="198">Brandon </option>
@@ -167,12 +187,15 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="form-group">
+     <!--                                  @if($errors->has('Co-Manager'))
+    <div class="error alert alert-danger">{{ $errors->first('Co-Manager') }}</div>
+@endif -->
                         <label class="col-form-label">Co-Manager :</label>
 
 
-                        <select name="co_manager" class="form-control">
+                        <select name="co_manager" class="form-control @error('manager') is-invalid @enderror">
 
-                            <option selected="selected" value="0">----------Select-----------</option>
+                            <option selected="selected" value="{{old('co_manager')}}">----------Select-----------</option>
                             <option value="26">A.Atencio PLLC</option>
                             <option value="152">Administration</option>
                             <option value="20">Alice</option>
