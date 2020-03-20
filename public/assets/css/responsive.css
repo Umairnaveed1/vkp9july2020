@@ -1,0 +1,139 @@
+
+/* for above extra large screen col-xl-12 */
+@media (min-width: 1501px) and (max-width: 1700px){
+
+}
+/* for extra large screen col-xl-12  */
+@media (min-width: 1200px) and (max-width: 1500px){
+
+}
+/* for large screen col-lg-12  */
+@media (min-width: 992px) and (max-width: 1199px){
+    .comp_h1 {
+        font-size: 36px !important;
+    }
+    .dwn_head_text_p {
+        font-size: 24px !important;
+    }
+}
+/* for medium screen col-md-12  */
+@media (min-width: 768px) and (max-width: 991px){
+
+    .comp_main_text {
+        line-height: normal;
+        padding: 16px 20px 0 30px;
+    }
+    .comp_h1 {
+        font-size: 30px !important;
+    }
+    .dwn_head_text_p {
+        font-size: 18px !important;
+    }
+
+
+
+
+    /* .cust_tab_ul .nav-link {
+        padding: 20px 15px;
+    }
+    .cust_tab_ul li a {
+        font-size: 13px !important;
+    } */
+
+}
+/* for small screen col-sm-12  */
+@media (min-width: 576px) and (max-width: 767px){
+    .cust_tab_ul .nav-link {
+        padding: 15px 10px !important;
+    }
+    .cust_tab_ul li a {
+        font-size: 10px !important;
+    }
+    .comp_h1 {
+        font-size: 20px !important;
+    }
+    .dwn_head_text_p {
+        font-size: 13px !important;
+    }
+    .comp_main_text
+    {
+        margin-top:66px;
+    }
+    .memb_log_h2
+    {
+        font-size: 23px !important;
+    }
+    .main_header{
+
+        height: 187px;
+
+    }
+}
+
+@media (min-width: 320px) and (max-width: 575px){
+    .body_main{
+        width: 100%;
+        margin-top: -229px;
+        height: 229px;
+        background-image:none;
+    }
+    .login_input {
+        width: auto;
+    }
+    .login_input input {
+        width: 100%;
+    }
+
+    .comp_h1 {
+        font-size: 20px !important;
+    }
+    .dwn_head_text_p {
+        font-size: 13px !important;
+    }
+    .comp_main_text
+    {
+
+        margin: auto;
+        float: none;
+        width: 195px;
+        padding-right: 0px;
+        margin-top:20px;
+    }
+    .logo_sect {
+        text-align: center;
+    }
+    .memb_log_h2
+    {
+        font-size: 23px !important;
+    }
+    .main_header{
+
+        height: 243px;
+
+    }
+    .logo_sect {
+        padding: 27px 0px 0 0px;
+    }
+    .field_sec_main
+    {
+        padding:15px;
+    }
+    .login_box_area {
+        margin-top: 19px;
+    }
+    .field_sec_main
+    {
+        min-height:auto;
+    }
+}
+
+
+/* for medium mobile screen col-12  */
+@media (min-width: 436px) and (max-width: 575px){
+
+}
+/* for extra small iphone screen col-12 */
+@media (min-width: 320px) and (max-width: 435px){
+
+}
+/* for copy media queries end
