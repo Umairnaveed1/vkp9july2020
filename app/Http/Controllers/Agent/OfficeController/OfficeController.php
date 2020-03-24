@@ -8,10 +8,17 @@ use App\User;
 use App\Models\OfficeManager\OfficeManager;
 use App\Models\Agents\Agent;
 use Session;
+use Auth;
 
 
 class OfficeController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
       //  $offices = OfficeManager::all();
@@ -25,16 +32,10 @@ class OfficeController extends Controller
        $offices = OfficeManager::with('agent')
            ->orderBy('created_at','desc')
            ->paginate(10);
+           dd($offices);
        //dd($offices)->toArray();
 
-        if($request->hasAny('$offices->agent'))
-        {
-            return 'agent found';
-        }
-        else{
- 
-            return view('agent.office_manager.create', compact('offices'));
-        }
+        
 
 
     }

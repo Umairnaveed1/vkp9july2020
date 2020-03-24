@@ -14,7 +14,7 @@
  
             <div class="col-sm-6">
               <div class="logo_sect">
-                <img class="logo" src="./public/assets/images/logo.png">
+                <img class="logo" src="{{ ('assets/images/logo.png') }}">
               </div>
             </div>
               <div class="col-sm-6">
@@ -48,7 +48,7 @@
   <div class="form-group login_input">
    
     <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="User Name">
-     <img src="./public/assets/images/user_icon.png" width="27" height="27" alt="">
+     <img src="{{asset('assets/images/user_icon.png') }}" width="27" height="27" alt="">
      @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
   </div>
   <div class="form-group login_input">
     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" id="pwd">
-    <img src="./public/assets/images/pass_icon.png" width="27" height="27" alt="">
+    <img src="{{asset('assets/images/pass_icon.png')}}" width="27" height="27" alt="">
     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
 </label>
   
   <button type="submit" class="btn_submit_login">
-      <img src="./public/assets/images/btn_submit.png" width="210" height="51" alt="">
+      <img src="{{ asset('assets/images/btn_submit.png') }}" width="210" height="51" alt="">
   </button>
 </form>
                   

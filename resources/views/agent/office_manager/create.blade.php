@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-12 col-md-12">
                                 <div class="card-body">
-                               <!--      @if ($errors->any())
+                                    @if ($errors->any())
                                         <div class="alert alert-danger">
                                             <ul>
                                                 @foreach ($errors->all() as $error)
@@ -29,10 +29,8 @@
                                                 @endforeach
                                             </ul>
                                         </div><br />
-                                    @endif -->
-
-
-                               <!--      @if(session()->get('success'))
+                                    @endif
+                                    @if(session()->get('success'))
                                         <div class="alert aledrt-success">
                                             {{ session()->get('success') }}
                                         </div><br />
@@ -41,7 +39,7 @@
                                             <div class="alert alert-danger">
                                                 {{ session()->get('error') }}
                                             </div><br />
-                                        @endif -->
+                                        @endif
 
                                 </div>
 
@@ -139,7 +137,7 @@
 
                         <select name="manager" class="form-control @error('manager') is-invalid @enderror">
 
-                            <option selected="selected" value="{{ old('manager') }}">----------Select-----------</option>
+                            <option selected="selected">----------Select-----------</option>
                             <option value="A.Atencio PLLC"  >A.Atencio PLLC</option>
                             <option value="152">Administration</option>
                             <option value="Alice">Alice</option>
@@ -247,9 +245,8 @@
                 </div>
             </div>
         </form>
-
-                                        <div class="col-sm-12">
-                                            </div>
+                 <div class="col-sm-12">
+                     </div>
                                     </div>
                                 </div>
 
@@ -320,7 +317,7 @@
 
   </table>
                   <div class="pagination pagination-sm float-right">
-                      {{ $offices->appends(\Request::except('page'))->render() }}
+                      {{ $offices->links() }}
                   </div>
 
             <div class="col-sm-12">

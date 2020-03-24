@@ -85,7 +85,7 @@
                                 <div class="row">
                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 avatar_profile">
                                 
-                            <img src="{{ asset('public/assets/images/avator.png') }}" alt="">
+                            <img src="{{ asset('assets/images/avator.png') }}" alt="">
                             
                             
                             
