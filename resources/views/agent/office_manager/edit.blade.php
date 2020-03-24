@@ -60,7 +60,6 @@
                                         <div class="col-sm-12 col-12">
                                             <div class="card card_address2">
                                                 <div class="card-body add_office_cardbody">
-
                                                     <form id="validationform" method="POST" action="{{ route('office.update', $office->id) }}" data-parsley-validate="" novalidate="">
                                                         @csrf
                                                         <input type="hidden" name="agent_id" value="">

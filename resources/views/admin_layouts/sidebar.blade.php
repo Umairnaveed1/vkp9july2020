@@ -24,7 +24,7 @@
                             </li>
                             
                                <li class="nav-item ">
-                                <a class="nav-link" href="#" ><img src="{{ asset('assets/images/country_icon.png') }}" width="20" height="20" alt=""> Country State City Zip	</a>
+                                <a class="nav-link" href="{{route('country.create')}}" ><img src="{{ asset('assets/images/country_icon.png') }}" width="20" height="20" alt=""> Country State City Zip	</a>
                                 
                             </li>
                             

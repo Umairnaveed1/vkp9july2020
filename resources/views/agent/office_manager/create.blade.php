@@ -2,7 +2,7 @@
 @section('content')
     <style>
         .uper {
-            margin-top: 1%;
+            margin-top: 0.5%;
         }
     </style>
     <div class="card uper">
@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-12 col-md-12">
                                 <div class="card-body">
-                               <!--      @if ($errors->any())
+                                    @if ($errors->any())
                                         <div class="alert alert-danger">
                                             <ul>
                                                 @foreach ($errors->all() as $error)
@@ -29,11 +29,11 @@
                                                 @endforeach
                                             </ul>
                                         </div><br />
-                                    @endif -->
+                                    @endif
 
-
-                               <!--      @if(session()->get('success'))
-                                        <div class="alert aledrt-success">
+                                     
+                                    @if(session()->get('success'))
+                                        <div class="alert alert-success">
                                             {{ session()->get('success') }}
                                         </div><br />
                                     @endif
@@ -41,7 +41,7 @@
                                             <div class="alert alert-danger">
                                                 {{ session()->get('error') }}
                                             </div><br />
-                                        @endif -->
+                                        @endif
 
                                 </div>
 
@@ -277,7 +277,7 @@
         <tr>
           <td>ID</td>
           <td>office description</td>
-          <td>office addressr</td>
+          <td>office address</td>
           <td>office Phone</td>
           <td>office Fax</td>
           <td>office Email</td>

@@ -826,23 +826,23 @@ p{
 
 /*shadow start*/
 .shadow {
-    -moz-box-shadow:    3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow:         3px 3px 5px 6px #ccc;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
 }
 .shadow-inner {
-    -moz-box-shadow:    inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
 }
 .shadow-bottom {
     -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
 }
 .shadow-tl-inner{
-    box-shadow: 5px 10px inset;
-    border: 1px solid;
+     box-shadow: 5px 10px inset;
+      border: 1px solid;
 }
 /*shadow end*/
 
@@ -946,8 +946,8 @@ p{
     left: 0;
     height: 20px;
     width: 20px;
-    /*  background-color: #f4f5f8; */
-    /*  border: 1px solid #00adee; */
+/*  background-color: #f4f5f8; */
+/*  border: 1px solid #00adee; */
     background-color: transparent;
     border: 1px solid #dae1ed;
     border-radius: 1px;
@@ -955,27 +955,27 @@ p{
 
 /* On mouse-over, add a grey background color */
 .my-checkbox:hover input ~ .checkmark {
-
-    border: 1px solid #2d3543;
-
+  
+   border: 1px solid #2d3543;
+  
 }
 
 /* When the checkbox is checked, add a blue background */
 .my-checkbox input:checked ~ .checkmark {
-    background-color: #00adee;
-    border: 0px;
+  background-color: #00adee;
+   border: 0px;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 /* Show the checkmark when checked */
 .my-checkbox input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
 
 /* Style the checkmark/indicator */
@@ -992,24 +992,24 @@ p{
 }
 
 #login input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #a6b1c0;
-    opacity: 1; /* Firefox */
+  color: #a6b1c0;
+  opacity: 1; /* Firefox */
 }
 
-#login input:-ms-input-placeholder {
-    /* Internet Explorer 10-11  */
-    color:#a6b1c0;
+#login input:-ms-input-placeholder { 
+/* Internet Explorer 10-11  */
+  color:#a6b1c0;
 }
 
 #login input::-ms-input-placeholder {
     /* Microsoft Edge  */
-    color: #a6b1c0;
+   color: #a6b1c0;
 }
-.bank-s1 input::placeholder,
+.bank-s1 input::placeholder, 
 .bank-s1 textarea::placeholder,
-.bank-s1 select {
-    color: #a6b1c0!important;
-    opacity: 1;
+.bank-s1 select { 
+  color: #a6b1c0!important;
+  opacity: 1; 
 }
 
 
@@ -1055,103 +1055,103 @@ p{
 
 /* for above extra large screen col-xl-12*/
 @media (min-width: 1501px) and (max-width: 1700px){
-
+    
 }
 /* for extra large screen col-xl-12*/
 @media (min-width: 1200px) and (max-width: 1500px){
-
+    
 }
 /* for large screen col-lg-12*/
 @media (min-width: 992px) and (max-width: 1199px){
-    h1{
-        font-size:28px;
-    }
-    h2{
-        font-size:20px;
-    }
-    h3{
-        font-size:17px;
-    }
-    h4{
-        font-size:15px;
-    }
-    h5{
-        font-size:12px;
-    }
-    h6{
-        font-size:11px;
-    }
+h1{
+    font-size:28px;
+}
+h2{
+    font-size:20px;
+}
+h3{
+    font-size:17px;
+}
+h4{
+    font-size:15px;
+}
+h5{
+    font-size:12px;
+}
+h6{
+    font-size:11px;
+}
 }
 /* for medium screen col-md-12*/
 @media (min-width: 768px) and (max-width: 991px){
-    h1{
-        font-size:24px;
-    }
-    h2{
-        font-size:18px;
-    }
-    h3{
-        font-size:16px;
-    }
-    h4{
-        font-size:14px;
-    }
-    h5{
-        font-size:12px;
-    }
-    h6{
-        font-size:10px;
-    }
+h1{
+    font-size:24px;
+}
+h2{
+    font-size:18px;
+}
+h3{
+    font-size:16px;
+}
+h4{
+    font-size:14px;
+}
+h5{
+    font-size:12px;
+}
+h6{
+    font-size:10px;
+}
 }
 /* for small screen col-sm-12*/
 @media (min-width: 576px) and (max-width: 767px){
-    h1{
-        font-size:20px;
-    }
-    h2{
-        font-size:16px;
-    }
-    h3{
-        font-size:15px;
-    }
-    h4{
-        font-size:14px;
-    }
-    h5{
-        font-size:12px;
-    }
-    h6{
-        font-size:10px;
-    }
+h1{
+    font-size:20px;
+}
+h2{
+    font-size:16px;
+}
+h3{
+    font-size:15px;
+}
+h4{
+    font-size:14px;
+}
+h5{
+    font-size:12px;
+}
+h6{
+    font-size:10px;
+}
 }
 /* for extra small screen col-12*/
 @media (min-width: 320px) and (max-width: 575px){
-    h1{
-        font-size:18px;
-    }
-    h2{
-        font-size:16px;
-    }
-    h3{
-        font-size:15px;
-    }
-    h4{
-        font-size:14px;
-    }
-    h5{
-        font-size:12px;
-    }
-    h6{
-        font-size:10px;
-    }
+h1{
+    font-size:18px;
+}
+h2{
+    font-size:16px;
+}
+h3{
+    font-size:15px;
+}
+h4{
+    font-size:14px;
+}
+h5{
+    font-size:12px;
+}
+h6{
+    font-size:10px;
+}
 }
 /* for medium mobile screen col-12*/
 @media (min-width: 436px) and (max-width: 575px){
-
+    
 }
 /* for extra small iphone screen col-12*/
 @media (min-width: 320px) and (max-width: 435px){
-
+    
 }
 /* media queries end*/
 
@@ -1168,34 +1168,34 @@ p{
 
 /* for above extra large screen col-xl-12 */
 /* @media (min-width: 1501px) and (max-width: 1700px){ */
-
+    
 /* } */
-/* /* for extra large screen col-xl-12 */
+/* /* for extra large screen col-xl-12 */ 
 /* @media (min-width: 1200px) and (max-width: 1500px){ */
-
+    
 /* } */
-/* /* for large screen col-lg-12 */
+/* /* for large screen col-lg-12 */ 
 /* @media (min-width: 992px) and (max-width: 1199px){ */
-
+    
 /* } */
-/* /* for medium screen col-md-12 */
+/* /* for medium screen col-md-12 */ 
 /* @media (min-width: 768px) and (max-width: 991px){ */
-
+    
 /* } */
-/* /* for small screen col-sm-12 */
+/* /* for small screen col-sm-12 */ 
 /* @media (min-width: 576px) and (max-width: 767px){ */
-
+    
 /* } */
-/* /* for extra small screen col-12 */
+/* /* for extra small screen col-12 */ 
 /* @media (min-width: 320px) and (max-width: 575px){ */
-
+    
 /* } */
-/* /* for medium mobile screen col-12 */
+/* /* for medium mobile screen col-12 */ 
 /* @media (min-width: 436px) and (max-width: 575px){ */
-
+    
 /* } */
 /* /* for extra small iphone screen col-12 */
 /* @media (min-width: 320px) and (max-width: 435px){ */
-
+    
 /* } */
 /* for copy media queries end */

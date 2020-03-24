@@ -7,10 +7,9 @@ use App\Models\States\State;
 
 class Country extends Model
 {
-    const CREATED_AT = 'Date Created';
-    const UPDATED_AT = 'Date Modified';
+    
     protected $table = 'countries';
-    protected $fillable = ['countrysh','countryname'];
+    protected $fillable = ['countryname','countrysh'];
 
     public function states()
     {

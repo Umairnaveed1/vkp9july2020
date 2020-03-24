@@ -15,7 +15,7 @@ class State extends Model
 
     public  function country()
     {
-        return $this->belongsTo('App\Models\Countries\Country','country_id');
+        return $this->belongsTo('App\Models\Countries\Country');
     }
 
     public function cities()
