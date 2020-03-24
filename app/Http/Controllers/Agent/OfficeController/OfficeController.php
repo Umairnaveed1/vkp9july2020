@@ -32,10 +32,9 @@ class OfficeController extends Controller
        $offices = OfficeManager::with('agent')
            ->orderBy('created_at','desc')
            ->paginate(10);
-           dd($offices);
        //dd($offices)->toArray();
+            return view('agent.office_manager.create', compact('offices'));
 
-        
 
 
     }
