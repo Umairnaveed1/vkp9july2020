@@ -1,0 +1,291 @@
+@font-face {
+	font-family: "Poppins-Bold";
+	src: url("../fonts/Poppins-Bold.ttf");
+
+	font-weight: bold;
+	font-style: normal;
+  }
+  @font-face {
+	font-family: "Roboto-Bold";
+	src: url("../fonts/Roboto-Bold.ttf");
+
+	font-weight: bold;
+	font-style: normal;
+  }
+html{
+		padding:0px !important;
+	margin:0px !important;
+}
+body{
+	font-family: 'Roboto';
+	padding:0px !important;
+	margin:0px !important;
+}
+
+.container
+{
+	width:1080px;
+}
+.login_check {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color:#262a2a;
+  font-family:Roboto;
+   margin-left: 15px;
+   font-weight:500;
+}
+
+/* Hide the browser's default checkbox */
+.login_check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.login_check .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border: none;
+  border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.login_check:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.login_check input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.login_check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.login_check .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.clear
+{
+	clear:both;
+}
+.clear20
+{
+	clear:both;
+	height:20px;
+}
+
+.clear30
+{
+	clear:both;
+	height:30px;
+}
+
+
+/* .top_header_bg{
+	background-image: url("../images/banner1.png");
+	background-repeat: no-repeat;
+	background-position: top right;
+    padding-bottom: 30px;
+	    background-size: 100%;
+} */
+
+.main_header{
+	width: 100%;
+    height: 243px;
+    background-image: url(../images/head_bg.png);
+    background-repeat: repeat;
+	background-position: center top;
+}
+.main_footer{
+	width: 100%;
+    height: 243px;
+    background-image: url(../images/foot_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.logo{
+	width: 135px !important;
+}
+.comp_h1{
+	font-size: 44px !important;
+	font-family: "Poppins-Bold";
+	color: #000000 !important;
+	text-transform:uppercase;
+}
+.yelw_span_clr{
+	color: #000 !important;
+}
+.dwn_head_text_p{
+	font-size: 28px !important;
+	font-family: "Poppins-Bold";
+	color: #000000;
+	text-transform:uppercase;
+}
+.body_main{
+	height: 171px;
+     background-image: url(../images/lion_img.png);
+    background-repeat: no-repeat;
+	margin-top: -172px;
+	background-color:rgba(255, 255, 255, 0.6);
+	    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+	background-position: 35% 75%;
+	-webkit-box-shadow: 0px -5px 22px -4px rgba(0,0,0,0.31);
+-moz-box-shadow: 0px -5px 22px -4px rgba(0,0,0,0.31);
+box-shadow: 0px -5px 22px -4px rgba(0,0,0,0.31);
+}
+.logo_sect{
+	padding: 27px 0px 0 27px;
+}
+.comp_main_text{
+	padding: 0px 0px 0 22px;
+    line-height: 0.5;
+	padding-right:37px;
+	float:right;
+	border-left:solid 5px #b13a68;
+	margin-top:48px;
+  text-shadow: 1px 1px 1px #fff;
+}
+.border_left{
+	border-left: 4px solid pink; 
+    height: 60px;
+}
+/* Field Section Start */
+.field_bg_full{
+	width: 100%;
+    background-image: url(../images/foot_bg_full.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.field_sec_main{
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color:rgba(255, 255, 255, 0.9);
+	background-image:url(../images/lapi.png);
+	background-position:right top;
+	background-repeat:no-repeat;
+	min-height:402px;
+	padding:45px;
+	-webkit-box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.31);
+-moz-box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.31);
+box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.31);
+    background-size: 100% 100%;
+}
+.memb_log_h2{
+	font-family: "Roboto-Bold";
+	font-size: 26px !important;
+	color: #d2b48c !important;
+	border-bottom: 2px solid #d2b48c;
+	float:left;
+	padding-bottom:5px;
+}
+.lapi_img_size{
+	height: 403px !important;
+}
+.login_box_area
+{
+	margin-top:36px;
+}
+.login_box_area input
+{
+	background-color:#fff;
+	border-radius:50px;
+	padding:5px;
+	color:#979898;
+	font-size:13px;
+	font-family:Roboto, Arial;
+	-webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.31);
+-moz-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.31);
+box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.31);
+    border: none;
+}
+.login_input
+{
+	width:374px;
+	height:42px;
+	margin-bottom:30px !important;
+}
+.login_input input
+{
+	width:374px;
+	height:42px;
+	padding-left:45px;
+}
+.login_input img
+{
+	width:27px;
+	height:27px;
+	margin-left: 12px;
+	margin-top: -68px;
+}
+.login_form_check
+{
+	margin-left:10px;
+}
+.btn_submit_login
+{
+	background-color: transparent !important;
+	border:none;
+	margin-top:20px;
+}
+.login_footer
+{
+	color:#262a2a;
+	font-size:14px;
+	font-family:Roboto;
+}
+.login_footer span
+{
+	color:#6e6e6e;
+	font-size:12px;
+}
+.login_footer a
+{
+	color:#6e6e6e;
+	font-size:12px;
+}
+
+
+@media (min-width: 320px) and (max-width: 1024px){
+.container
+{
+	width:96%;
+}
+
+}
+/* Field Section End */

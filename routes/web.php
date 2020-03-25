@@ -37,6 +37,7 @@ Route::delete('offices/create/{id}','Agent\OfficeController\OfficeController@des
 
 
 
+
 Route::get('countries','Agent\Country\CountryController@index')->name('country.index');
 Route::get('countries/create','Agent\Country\CountryController@create')->name('country.create');
 Route::post('countries/store','Agent\Country\CountryController@store')->name('country.store');
@@ -51,4 +52,9 @@ Route::delete('countriees/create/{id}','Agent\Country\CountryController@destroy'
 
 
 
+
+
+
+Route::get('company/info','admin\CompanyController@index')->name('company.index');
+Route::post('company/create','admin\CompanyController@create')->name('company.create');
 
