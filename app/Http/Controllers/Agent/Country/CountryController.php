@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Agent\Country;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Countries\Country;
+use Session;
+use Auth;
 
 class CountryController extends Controller
 {
@@ -60,5 +62,15 @@ class CountryController extends Controller
         return view('agent.country.create',compact('country'))->with('update', 'Country successfully updated!');
 
     }
+     public function destroy(Country $country)
+    	{
+
+            $country->delete();
+  
+            return redirect()->route('country.destroy')
+                    ->with('error','Product deleted successfully');
+    }
+
+
 
 }

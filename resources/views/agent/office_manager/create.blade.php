@@ -311,7 +311,7 @@
                    @method('delete')
                    <button href="{{ route('office.destroy', $office->id) }}" class="delete" type="submit" title="" data-toggle="tooltip" data-original-title="Delete">
                        <i class="material-icons"></i></button>
-{{--                   <button class="btn btn-danger" type="submit">Delete</button>--}}
+<!-- {{--                   <button class="btn btn-danger" type="submit">Delete</button>--}} -->
                 </form>
             </td>
         </tr>

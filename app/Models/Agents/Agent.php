@@ -13,8 +13,7 @@ use App\Models\ZipCodes\ZipCode;
 
 class Agent extends Model
 {
-    const CREATED_AT = 'Date Created';
-    const UPDATED_AT = 'Date Modified';
+   
     protected $table = 'agents';
 
     protected $fillable =
@@ -25,7 +24,7 @@ class Agent extends Model
    ];
     public function users()
     {
-      return $this->belongsToMany('App\Models\Agents\Agent');
+      return $this->belongsToMany('App\User');
     }
    public function offices()
    {

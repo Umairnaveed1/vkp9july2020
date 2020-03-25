@@ -8,8 +8,11 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title"><img src="{{ asset('public/assets/images/agent_icon.png') }}" width="22" height="23" alt=""> Agent Main Screen </h2>
-                              
+                                @if(auth()->user())
+                                <h2 class="pageheader-title"><img src="{{ asset('public/assets/images/agent_icon.png') }}" width="22" height="23" alt=""> Agent 
+                                    {{ Auth::user()->UserName }}
+                                </h2>
+                              @endif
                                 
                             </div>
                         </div>

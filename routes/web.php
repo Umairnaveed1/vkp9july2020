@@ -13,6 +13,8 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Admin;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -20,8 +22,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
+	Route::get('home', 'HomeController@index')->name('home');
+	Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+
+	Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
+     
 
 Route::get('offices','Agent\OfficeController\OfficeController@index')->name('office.index');
 Route::get('office/create','Agent\OfficeController\OfficeController@create')->name('office.create');
@@ -38,7 +43,12 @@ Route::post('countries/store','Agent\Country\CountryController@store')->name('co
 Route::get('countries/edit/{id}','Agent\Country\CountryController@edit')->name('country.edit');
 Route::post('countries/create/{id}','Agent\Country\CountryController@update')
  ->name('country.update');
-// Route::delete('countries/create/{id}','Agent\Country\CountryController@destroy')
-// ->name('country.destroy');
+Route::delete('countriees/create/{id}','Agent\Country\CountryController@destroy')
+->name('country.destroy');
+
+
+    
+
+
 
 

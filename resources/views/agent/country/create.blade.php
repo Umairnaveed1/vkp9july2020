@@ -14,7 +14,7 @@
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
                     @if ($errors->any())
-                                        <div class="alert alert-danger">
+                          <div class="alert alert-danger">
                                             <ul>
                                                 @foreach ($errors->all() as $error)
 
@@ -67,24 +67,37 @@
                       <h5 class="label_rule_heading2 ">Remove Country</h5>
                       <div class="card-body country_cty_zip_w">
                                             
-                         @else(isset($country))
+                         @elseif(isset($country))
                           <form  action ="{{ route('country.update', $country->id) }}" method="post">
                            @endif           
-
                             @csrf
                               <div class="form-group">
                                   <label for="sel1">Country</label>
                                   <select class="form-control cust_frm_cntrl"  id="sel1">
                                    @foreach($country as $cou)
-                                    <option value="{{ $cou->countryname}}">{{$cou->countryname}}</option>
+                                    <option value="{{ $cou->countryname }}">
+                                      {{ $cou->countryname }}
+                                    </option>
                                     @endforeach
                                   
                                   </select>
                               </div>
+                              </form> 
+                             @if(count($country)===0)
+                              <form action="{{route('country.destroy',$country->id) }}" method="POST">
+                                @endif
+                                @csrf
+                                @method('delete')
+                            
                                 <div class=" text-right">
-                                  <button type="submit" class="btn btn-primary form_box_cust_btn">Remove Country</button>
+      
+                                  <input type="submit" class="btn btn-primary form_box_cust_btn" value="Remove Country">
                               </div>
-                            </form>           
+                              </form>   
+                               
+    
+                              
+                             
                           </div>
                       </div>
                     <!-- Left Box End  -->

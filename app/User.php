@@ -25,7 +25,7 @@ class User extends Authenticatable
     protected $fillable = [
         'UserName', 'email', 'office_id', 'PageSecurity', 'AdminUser', 'Approvebill',
         'agent_id',
-        'password'];
+        'password','is_admin',];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -46,7 +46,7 @@ class User extends Authenticatable
     ];
     public function agents()
     {
-        return $this->hasMany('App\Models\Agents\Agent');
+        return $this->belongsToMany('App\Models\Agents\Agent');
     }
     public function rules()
     {
