@@ -1,0 +1,105 @@
+<?php
+
+namespace App\Http\Controllers\Admin\User;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Input;
+use Validator;
+use Redirect;
+use DB;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+// use App\Models\Agents\Agent;
+// use App\Models\OfficeManager\OfficeManager;
+
+class UserController extends Controller
+{
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+    public function index(Request $request)
+    {
+    	
+    $users = User::orderby('created_at','desc')	->paginate(25);
+  //   	$users = DB::select('select *
+		// FROM users
+		// INNER JOIN offices ON offices.agent_id = offices.id
+		// INNER JOIN agents on users.agent_id = agents.id
+		// ORDER BY users.created_at DESC
+		// ');
+		//dd($users);
+		    	//$users = $this->arrayPaginator($users, $request);
+	    		
+    	 	return view('admin.users.index',compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+    	 
+
+    	}
+
+
+    	
+
+     public function create(Request $request)
+    {
+    	$users = User::all();
+
+    	return view('admin.users.create');
+   }
+     public function store(Request $request)
+    {
+
+
+        $request->validate([
+           'UserName'       => 'required|string',
+            'email'      => 'required|unique:users,email',
+            'office_id' => 'sometimes',
+            'PageSecurity' => 'required|integer',
+            'AdminUser' => 'nullable|string',
+            'agent_id' => 'sometimes',
+             'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+			'password_confirmation' => 'min:6'
+        ],[
+              'UserName.required' => 'UserName is required',
+              'PageSecurity.required' => 'Page Security is required',
+              'AdminUser.required' => 'AdminUser is required',
+              'password.min:6|required_with:password_confirmation|same:password_confirmation' =>
+              'Password is required',
+              'password_confirmation.min:6' => 'Password must be matched with new Password', 
+        ]);
+
+        
+    	// $office = OfficeManager::find($id);
+     //    $agent = Agent::find($id);
+
+        $input = request()->all();
+
+        $input['password'] = bcrypt($input['password']);
+
+        // $users = array(
+        //     'UserName'  =>   $request->UserName,
+        //     'email' => $request->email,
+        //     'PageSecurity'    => $request->PageSecurity,
+        //     'AdminUser'  => $request->AdminUser,
+        //     'password' =>bcrypt('password'),
+        // );
+
+         if($request->has('AdminUser'))
+        {
+        	
+        	 User::create($input);
+        	 // dd($users);
+        	  return redirect()->back()->with('success', 'New User Added successfully.');
+        	
+        }
+        else{
+
+               User::create($input);
+        	  return redirect()->back()->with('success', 'New User Added successfully.');
+        		}
+       
+    		}
+
+	 }

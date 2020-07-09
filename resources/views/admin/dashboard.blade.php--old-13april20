@@ -1,0 +1,613 @@
+﻿@extends('admin_layouts.layout')
+
+
+
+@section('content')
+
+      <div class="dashboard-wrapper">
+
+            <div class="dashboard-ecommerce">
+
+                <div class="container-fluid dashboard-content ">
+
+               
+
+                    <div class="row">
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                            <div class="page-header">
+
+                                @if(auth()->user()->is_admin===1)
+
+                                <h2 class="pageheader-title"><img src="{{ asset('public/assets/images/agent_icon.png') }}" width="22" height="23" alt="">  
+
+                                    {{ Auth::user()->UserName }}
+
+                                </h2>
+
+                              @endif
+
+                                
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                   
+
+                    <div class="ecommerce-widget">
+
+
+
+                        <div class="row">
+
+                         
+
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
+
+                        <div class="card egent_list_box">
+                                    <h5 class="card-header">Agent List <img src="images/agent_list_icon.png" width="20" height="25" alt=""> </h5>
+                                    <div class="card-body agent_list_body">
+                                    
+                                    <ul>	
+                                        @foreach($get_agent_data as $agent_list)
+                                    <li><a href="{{ url('dashboard?') .'agent_id='. $agent_list['id'] }}">
+                                      <i class="fa fa-angle-right" aria-hidden="true"></i> 
+                                    {{ $agent_list['agentdisplayname'] }}</a></li>
+                                      @endforeach                                    
+                                    
+                                   
+                                    </ul>
+                                  </div>
+                                </div>
+
+                                <div class="col-sm-12 text-center">
+
+                                  <a href="#" class="btn_show_inactive m-0"><img src="{{ asset('public/assets/images/icon1.png') }}" alt=""> Show Inactive</a>
+
+                                  </div>
+
+                                  <div class="clear20"></div>
+
+                            </div>
+
+                           
+
+                            <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
+
+                            
+
+                            
+
+                                <div class="row">
+
+                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 avatar_profile">
+
+                                
+
+                            <img src="{{ asset('public/assets/images/avator.png') }}" alt="">
+
+                            
+
+                            
+
+                            
+
+                            </div> 
+
+                                       
+
+                     <div class="col-xl-5 col-lg-9 col-md-12 col-sm-12 col-12 user_prolfile_middle">
+
+                                
+
+                            <div>
+
+                            <table width="100%" border="0" cellspacing="8" cellpadding="3">
+
+  <tr>
+
+    <td>
+
+    <div class="first_name_bg">First Name </div> 
+
+    </td>
+
+    <td><div class="last_name_bg">
+    @if(isset($get_agent_info['agentfirstname'])) {{ $get_agent_info['agentfirstname'] }} 
+      @else 1st to Rent
+       @endif
+    </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">Last Name</div></td>
+
+    <td><div class="last_name_bg">
+      @if(isset($get_agent_info['agentlastname'])) {{ $get_agent_info['agentlastname'] }} 
+      @else 1st to Rent
+       @endif
+      </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">
+    Display name
+    </div></td>
+
+    <td> <div class="last_name_bg"
+    >@if(isset($get_agent_info['agentdisplayname'])) {{ $get_agent_info['agentdisplayname'] }} 
+      @else 1st to Rent
+       @endif</div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">Email</div></td>
+
+    <td><div class="last_name_bg2">
+    @if(isset($get_agent_info['agentemail'])) {{ $get_agent_info['agentemail'] }} 
+      @else Agent Email
+       @endif
+    </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">Cell #</div></td>
+
+    <td><div class="last_name_bg">
+    @if(isset($get_agent_info['agentofficeno'])) {{ $get_agent_info['agentofficeno'] }} 
+      @else Agent Cell
+       @endif
+    </div></td>
+
+  </tr>
+
+</table>
+                            </div>
+                            </div> 
+                              <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 user_prolfile_right">
+                         <div>
+
+                            <table width="100%" border="0" cellspacing="8" cellpadding="3">
+  <tr>
+    <td>
+    <div class="first_name_bg">Home Ph# :  </div> 
+
+    </td>
+
+    <td><div class="last_name_bg3">
+    @if(isset($get_agent_info['agentcellphone'])) {{ $get_agent_info['agentcellphone'] }} 
+      @else Agent Home Phone
+       @endif
+    </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">Alt # : </div></td>
+
+    <td><div class="last_name_bg3" >
+       @if(isset($get_agent_info['agentAltNo'])) {{ $get_agent_info['agentAltNo'] }} 
+      @else Agent Home Phone
+       @endif
+      </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">Office : </div></td>
+
+    <td> <div class="last_name_bg3">
+    @if(isset($get_agent_info['offices']['office_description']))
+     {{ $get_agent_info['offices']['office_description'] }} 
+    @else Office Name @endif
+    </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><div class="first_name_bg">Social Sec # :</div></td>
+
+    <td><div class="last_name_bg3">
+    @if(isset($get_agent_info['agentsocial']))
+     {{ $get_agent_info['agentsocial'] }} 
+    @else Agent Social Name @endif
+    </div></td>
+  </tr>
+</table>
+                            </div>
+                            </div>
+</div>
+                          <div class="clear20"></div>
+                          <div class="mrg_addres_area">
+
+                          <div class="col-sm-12 p-0">
+
+                         <div class="page-header">
+  <h2 class="pageheader-title"><img src="{{ asset('public/assets/images/agent_info_icon.png') }}"  style="width:30px; height:26px;" alt=""> 
+  Agent Information </h2> 
+
+                            </div>
+
+                            <div class="row">
+
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+                            <div class="card card_address">
+
+                                    <div class="card-body">
+
+                                        <h5 class="text_address"><img src="{{ asset('public/assets/images/address_icon.png') }}" width="22" height="32" alt=""> Address</h5>
+
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+
+  <tr>
+
+    <td class="address_td_1">Address</td>
+
+    <td class="address_td_2">8449 W Ross Ave</td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">State </td>
+
+    <td class="address_td_2">
+    @if(isset($get_agent_info['state']['statename'])) {{ $get_agent_info['state']['statename'] }}
+     @else State Name @endif
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">City</td>
+
+    <td class="address_td_2">
+    @if(isset($get_agent_info['city']['cityname'])) {{ $get_agent_info['city']['cityname'] }}
+     @else City  Name @endif
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">Email</td>
+
+    <td class="address_td_2">@if(isset($get_agent_info['agentemail']))
+      {{ $get_agent_info['agentemail'] }}
+      @else
+      Eamil Address
+      @endif
+    </td>
+
+  </tr>
+
+</table>
+
+                                          </div>
+
+                                    </div>
+
+                                </div>
+
+                                
+
+                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+                            <div class="card card_address">
+
+                                    <div class="card-body">
+
+                                        <h5 class="text_address"><img src="{{ asset('public/assets/images/date_icon.png') }}" class="dates_icon" alt=""> Dates</h5>
+
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+
+  <tr>
+
+  
+
+
+
+    <td class="address_td_1">DOB</td>
+
+    <td class="address_td_2">10/16/1980</td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">Hire </td>
+
+    <td class="address_td_2">10/16/2002</td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">Exit Date</td>
+
+    <td class="address_td_2">10/16/2002</td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">Sever Date</td>
+
+    <td class="address_td_2">10/16/2002</td>
+
+  </tr>
+
+</table>
+
+                                          </div>
+
+                                    </div>
+
+                                </div>
+
+                                
+
+                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+                            <div class="card card_address">
+
+                                    <div class="card-body">
+
+                                        <h5 class="text_address"><img src="{{ asset('public/assets/images/misc_icon.png') }}" class="misc_icon" alt=""> Address</h5>
+
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+
+  <tr>
+
+  
+
+
+
+
+
+
+
+  
+
+    <td class="address_td_1">
+
+      <label class="home_check">Agent Inactive
+
+        <input type="checkbox">
+
+        <span class="checkmark"></span>
+
+  </label>      </td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">
+
+    
+
+       <label class="home_check">State Override Apply
+
+        <input type="checkbox">
+
+        <span class="checkmark"></span>
+
+  </label>  
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td class="address_td_1">
+
+    
+
+       <label class="home_check">CityAgent Advanceable
+
+        <input type="checkbox">
+
+        <span class="checkmark"></span>
+
+  </label>  
+
+    
+
+    </td>
+
+  </tr>
+
+  
+
+</table>
+
+                                          </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            
+
+                          
+
+                           </div>
+
+                          
+
+                          </div>
+
+                          
+
+                          
+
+                          <div class="clearfix"></div>
+
+                          
+
+                          <div class="row">
+
+                          <div class="col-sm-12">
+
+                          <a href="#" class="btn_add_agent btn_add_agent_active"><img src="{{ asset('public/assets/images/ad_icon.png') }}" alt=""> Add New Agent</a>
+
+                          
+
+                          <a href="#" class="btn_add_agent"><img src="{{ asset('public/assets/images/edit_icon.png') }}" alt=""> Edit</a>
+
+                          
+
+                          <a href="#" class="btn_add_agent"><img src="{{ asset('public/assets/images/save_icon.png') }}" alt=""> Save</a>
+
+                          
+
+                          <a href="#" class="btn_add_agent"><img src="{{ asset('public/assets/images/cancel_icon.png') }}" alt=""> Cancel</a>
+
+                          
+
+                          
+
+                          </div> 
+
+                          </div>
+
+                          
+
+                            <div class="clear20"></div>
+
+                          
+
+                          <div class="row">
+
+                          <div class="col-sm-12 meg_btn_general">
+
+                                                                                                    
+
+                          <a href="#" class="btn_general_h btn_general_h_active"> General</a>
+
+                          
+
+                          <a href="#" class="btn_general_h"> Notes</a>
+
+                           <a href="#" class="btn_general_h"> Productivity</a>
+
+                           <a href="#" class="btn_general_h"> Transactions</a>
+
+                           <a href="#" class="btn_general_h"> Expense</a>
+
+                           <a href="#" class="btn_general_h"> Misc. Income</a>
+
+                           <a href="#" class="btn_general_h"> Sever</a>
+
+                          
+
+                          
+
+                          </div> 
+
+                          </div>
+
+                          
+
+                          
+
+                          
+
+                          
+
+                  </div>
+
+                            
+
+                        </div>
+
+
+
+                        
+
+                        
+
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ============================================================== -->
+
+            <!-- footer -->
+
+            <!-- ============================================================== -->
+
+            <div class="footer">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+
+                            <div class="text-md-right footer-links d-none d-sm-block">
+
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ============================================================== -->
+
+            <!-- end footer -->
+
+            <!-- ============================================================== -->
+
+        </div>
+
+        <!-- ============================================================== -->
+
+        <!-- end wrapper  -->
+
+        <!-- ============================================================== -->
+
+   
+
+ 
+
+
+
+@endsection

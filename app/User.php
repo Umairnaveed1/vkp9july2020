@@ -12,6 +12,11 @@ use App\Models\Properties\Property;
 use App\Models\PropertyNotes\PropertyNote;
 use App\Models\AgentRulesSetups\AgentRuleSetup;
 use App\Models\Agents\Agent;
+use App\Models\OfficeManager\OfficeManager;
+use App\Models\miscincome\miscincome;
+use App\Models\Admin\FeeApprovals\FeeApproval;
+use App\Models\Agent\AppartmentBilling\AppartmentBilling;
+
 
 class User extends Authenticatable
 {
@@ -23,9 +28,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'UserName', 'email', 'office_id', 'PageSecurity', 'AdminUser', 'Approvebill',
-        'agent_id',
-        'password','is_admin',];
+        'UserName', 'email',  'PageSecurity', 'AdminUser', 'Approvebill',
+        'password','is_admin'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -44,9 +48,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+         public function scopeWhereAgent($query, $agents)
+    {
+        if($agents){
+            return $query->where('id', $agents);
+        }
+
+        return $query;
+    }
+    public function offices()
+    {
+        return $this->hasMany('App\Models\OfficeManager\OfficeManager','user_id','id');
+
+    }
     public function agents()
     {
-        return $this->belongsToMany('App\Models\Agents\Agent');
+        return $this->hasMany('App\Models\Agents\Agent','user_id','id');
     }
     public function rules()
     {
@@ -54,7 +71,7 @@ class User extends Authenticatable
     }
     public function invoices()
     {
-        return $this->belongsToMany('App\Models\Invoices\Invoice');
+        return $this->hasMany('App\Models\Invoices\Invoice');
     }
 
     public function agentnotes()
@@ -82,5 +99,20 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\PropertyLogs\PropertyLog');
     }
+    public function miscincome(){
+        return $this->hasMany('App\Models\miscincome\miscincome','user_id','id');
+    }
+    public function appartmentbilling()
+    {
+        return $this->hasMany('App\Models\Agent\AppartmentBilling\AppartmentBilling');
+    }
+
+
+    
+     public function feeapprovals(){
+        return $this->hasMany('App\Models\Admin\FeeApprovals\FeeApproval');
+    }
+
+    
 
 }

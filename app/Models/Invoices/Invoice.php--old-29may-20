@@ -1,0 +1,75 @@
+<?php
+
+
+
+namespace App\Models\Invoices;
+
+
+
+use Illuminate\Database\Eloquent\Model;
+
+use App\User;
+use App\Models\Cities\City;
+use App\Models\States\State;
+use App\Models\ZipCodes\ZipCode;
+use App\Models\Properties\Property;
+use App\Models\Company_Managment\company_managment;
+use App\Models\Countries\Country;
+
+
+
+class Invoice extends Model
+
+{
+
+    protected $table = 'invoices';
+
+
+
+    public function user()
+
+    {  
+
+        return $this->belongsTo('App\User');
+
+    }
+
+    public function users()
+
+    {
+
+        return $this->belongsTo('App\User');
+
+    }
+    public function inv_property(){
+    	return $this->belongsTo('App\Models\Properties\Property', 'property_id', 'id');
+    }
+    public function inv_city_list()
+    {
+        return $this->belongsTo('App\Models\Cities\City', 'bill_city_id', 'id');
+    }
+    public function inv_country_list()
+    {
+        return $this->belongsTo('App\Models\Countries\Country', 'bill_country_id', 'id');
+    }
+    public function inv_state_list()
+    {
+        return $this->belongsTo('App\Models\States\State', 'bill_state_id', 'id');
+    }
+    public function inv_zipcode_list()
+    {
+        return $this->belongsTo('App\Models\ZipCodes\ZipCode', 'bill_zipcode_id', 'id');
+    }
+ public function inv_mangment_company()
+    {
+        return $this->belongsTo('App\Models\Company_Managment\company_managment', 'InvoiceMgmtCompID', 'id');
+    }
+    public function inv_agent(){
+        return $this->belongsTo('App\Models\Agents\Agent', 'FirstagentId', 'id');
+    }
+ 
+	
+
+
+}
+

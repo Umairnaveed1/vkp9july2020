@@ -1,0 +1,360 @@
+@extends('layouts.login_layout')
+@section('content')
+
+
+
+   <div class="container-fluid">
+      
+       
+               
+                  <div class="d-flex justify-content-center"
+                  style="font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    color: #000000;"
+                  >Apartment Billing move in for the month of &nbsp&nbsp&nbsp
+                  
+        
+       
+        
+ 
+       
+         <select name="" class="form-control" style="width:100px;" disabled="disabled">
+       
+    <option value="1">January</option>
+    <option value="2">Feburary</option>
+    <option value="3">March</option>
+    <option value="4">April</option>
+    <option selected="selected" value="5">May</option>
+    <option value="6">June</option>
+    <option value="7">July</option>
+    <option value="8">August</option>
+    <option value="9">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+        
+        </select>
+       
+         </div><br>
+             
+      
+    
+            <div class="row">
+               <div class="col-md-5">
+                
+               
+                        <form id="validationform" action="{{route('feeapproval.update',$result->id) }}" method="post" data-parsley-validate="" novalidate="">
+  @csrf
+                           <table> 
+                           	    <tr>
+                           	     <td colspan="5">Billing</td>
+                           	     <th>100</th>
+                           	    </tr>
+
+                           	     <tr>
+                           	      
+                           	         <td colspan="5">Agent</td> 
+                           	     	<th>459.90</th>
+                           	      </tr>
+
+                           	       <tr>
+                           	        <td colspan="5">Agent Comission</td> 
+                           	        <th>2</th> 
+                           	       </tr>
+                           	        <tr>
+                           	        	<td colspan="5">2nd Agent</td> 
+                           	        <th >Macro1</th>
+                           	         
+                           	        
+                           	     </tr>
+                           	        <tr>
+                           	        <td colspan="5">Comission Split By <br> default 25%</td> 
+                           	         <td><label class="custom-control custom-checkbox custom-control-inline">
+                           	     <input type="checkbox" class="custom-control-input" name="">
+                           	        		<span class="custom-control-label"></span>
+                           	        	</label></td> 
+                           	       </tr>
+
+                           	        <tr>
+                           	     <td colspan="5">Appartment move in rent</td>
+                           	     <th>100</th>
+                           	    </tr>
+
+                           	     <tr>
+                           	      
+                           	         <td colspan="5">Auto Pay $ RCVD</td> 
+                           	     	<th>459.90</th>
+                           	      </tr>
+
+                           	       <tr>
+                           	        <td colspan="5">Comission</td> 
+                           	        <th>2</th> 
+                           	       </tr>
+                           	        <tr>
+                           	        	<td colspan="5">Flat Rate</td> 
+                           	        <th >Macro1</th>
+                           	         
+                           	        
+                           	     </tr>
+                           	        <tr>
+                           	        <td colspan="5">Bonus <br> default 25%</td> 
+                           	         <td><label class="custom-control custom-checkbox custom-control-inline">
+                           	    <input type="checkbox" class="custom-control-input" name="">
+                           	        		<span class="custom-control-label"></span>
+                           	        	</label></td> 
+                           	       </tr>
+
+
+                           	        <tr>
+                           	     <td colspan="5">Total Due to VKP</td>
+                           	     <th>100</th>
+                           	    </tr>
+
+                           	     <tr>
+                           	      
+                           	         <td colspan="5">Due to 1st Agent</td> 
+                           	     	<th>459.90</th>
+                           	      </tr>
+
+                           	       <tr>
+                           	        <td colspan="5">Due to 2nd Agent</td> 
+                           	        <th>2</th> 
+                           	       </tr>
+                           	        <tr>
+                           	        	<td colspan="5">Verified By</td> 
+                           	        <th >Macro1</th>
+                                 </tr>
+                           	         
+                           	        
+                           	    
+                           	       
+                           	        </table>
+                           	        <br><br><br>
+     <div style="
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;">
+    	Billing Information
+    </div>
+      <table> <br>
+                           	   
+
+                           	       <tr>
+                           	        <td colspan="5">Community Name</td> 
+                           	        <th >2</th> 
+                           	       </tr>
+                           	       
+                           	        <tr>
+                           	        <td colspan="5">MGMT Company</td> 
+                           	         <td><input type="checkbox" name="" checked></td> 
+                           	       </tr>
+
+                           	        <tr>
+                           	     <td colspan="5">Address</td>
+                           	     <th>100</th>
+                           	    </tr>
+
+                           	     <tr>
+                           	      
+                           	         <td colspan="5">state : <label>hhhh</label>
+                           	         </td>  
+                           	     	<td> &nbsp  &nbsp  &nbspCity: 
+                           	     		<label>lahore</label>
+                           	     		 &nbsp  &nbsp  &nbsp 
+                           	     		 <label style="font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #71748d;
+    background-color: #eef3fa;
+    -webkit-font-smoothing: antialiased;">Zip: <label>54000</label> </td>
+                           	     
+                           	      </tr>
+
+                           	       <tr>
+                           	        <td colspan="5"><label class="custom-control custom-checkbox custom-control-inline">
+                           	        	<input type="checkbox" class="custom-control-input" name="">
+                           	        		<span class="custom-control-label"></span>
+                           	        	</label></td> 
+                           	        <th>Click to Confirm That This is The Correct Property</th> 
+                           	       </tr>
+                           	       
+
+                           	         
+                           	        
+                           	    
+                           	       
+                           	        </table>  <br><br><br>
+     <div style="
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;">
+    	Tenant Information
+    </div>
+     <table> <br>
+                           	   
+
+                           	       <tr>
+                           	        <td colspan="5">Tenant Name</td> 
+                           	        <th>2</th> 
+                           	       </tr>
+                           	       
+                           	       
+
+                           	        <tr>
+                           	      <tr>
+                           	      
+                           	         <td colspan="5">Address : <label> hhhh</label>
+                           	         </td>  
+                           	     	<td> &nbsp&nbsp&nbsp Unit: 
+                           	     		<label>lahore</label>
+                           	     		
+                           	     		 </td>
+                           	     
+                           	      </tr>
+
+                           	     <tr>
+                           	      
+                           	         <td colspan="5">state : <label>hhhh</label>
+                           	         </td>  
+                           	     	<td> &nbsp  &nbsp  &nbspCity: 
+                           	     		<label>lahore</label>
+                           	     		 &nbsp  &nbsp  &nbsp 
+                           	     		 <label style="font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #71748d;
+    background-color: #eef3fa;
+    -webkit-font-smoothing: antialiased;">Zip: <label>54000</label> </td>
+                           	     
+                           	      </tr>
+                           	       <tr>
+                           	      
+                           	         <td colspan="5">Lease Start : 
+                           	         </td>  
+                           	     	<td> &nbsp  &nbsp  &nbsp Lease Term: 
+                           	     		<label>5</label>
+                           	     		
+                           	     		 </td>
+                           	     
+                           	      </tr>
+
+                           	       <tr>
+                           	        <td colspan="5"><label class="custom-control custom-checkbox custom-control-inline">
+                           	        	<input type="checkbox" class="custom-control-input" name="">
+                           	        		<span class="custom-control-label"></span>
+                           	        	</label></td> 
+                           	        <th>Click to Confirm That This is The Correct Property</th> 
+                           	       </tr>
+                           	         <tr>
+                           	        <td colspan="5"><label class="custom-control custom-checkbox custom-control-inline">
+                           	        	<input type="checkbox" class="custom-control-input" name="">
+                           	        		<span class="custom-control-label"></span>
+                           	        	</label></td> 
+                           	        <th>Change Tenant Address</th> 
+                           	       </tr>
+
+                           	         
+                           	        
+                           	    
+                           	       
+                           	        </table>
+
+                         
+                          
+                        
+                   
+                 
+                 
+               </div>
+               <!-- col-md-6 -->
+               <div class="col-md-7">
+               	 <div style="
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;">
+    	Agent Notes :
+    </div>
+                        	<textarea class="form-control" rows="7" cols="3">
+                        		
+                        	</textarea>
+                        		 <div style="
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;">
+    	Attachment :
+    </div>
+    	 <div style="
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;">
+    	Admin Notes :
+    </div>
+    <textarea class="form-control" rows="7" cols="3">
+                        		
+                        	</textarea>
+                        	<br>
+                        	<table>
+                        		<tr>
+                        			<td>
+                        				<div class="col-md-2">
+                        		 <a href="" class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country">Print</a>
+
+
+                        	</div>
+                        </td>
+                        <td>
+                        	<a href="" class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country">Reject</a>
+                        </td>
+                        <td>
+                        	<a href="" class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country">Cancel</a>
+                        </td>
+                        		</tr>
+
+                        	</table><br>
+                        </form>
+                        	 <div style="
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;">
+    	Note To Agent :
+    </div>
+    <textarea class="form-control" rows="7" cols="3">
+                        		
+                        	</textarea><br>
+                        	<a href=""  class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country float-right">Create Invoice</a>
+
+</div>
+               <!-- end-col-md-6 -->
+            </div>
+        
+     
+   </div>
+ 
+
+      </div>
+   </div>
+</div>
+
+@endsection

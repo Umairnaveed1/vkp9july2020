@@ -1,0 +1,584 @@
+@extends('admin_layouts.layout')
+@section('content')
+<body onload="javascript:hideTable()">
+    
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> SEARCH INVOICES </h2>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                                                   
+                          <div class="mrg_addres_area">
+                          <div class="col-sm-12">
+                         
+                            <div class="row">
+                            <div class=" col-12">
+                            <div class="card card_address pl-3 pr-3 ">
+                                    <div class="card-body add_office_cardbody search_inovice_w">
+                                 
+                                    <form action="{{ route('searchinvoice.index') }}" method="GET">
+
+                    <div class="col-md-12 col-12">
+                        <div class="row">
+
+
+                <div class="col-lg-6 col-12">
+                    <div class="form-group">
+                        <label for="text">Invoice # :	</label>
+                        <div class="">
+                            <input type="number" name="search"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                        <div class="form-group ">
+                            <label for="sel1">Property Name :	</label>
+                            <div class="">
+                                <select class="form-control cust_frm_cntrl"   id="sel1">
+                                    <option>-----Select-----</option>
+                                   @foreach($property as $property_list)
+                                   <option value="$property_list" >{{$property_list}}</option>
+                                   @endforeach
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-lg-6 col-12">
+                    <div class="form-group ">
+                        <label class="home_check"> &nbsp
+                        <input type="checkbox">Unpaid Invoices
+                        <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                            <div class="form-group ">
+                                <label for="sel1">Management Company :	</label>
+                                <div class="">
+                                    <select class="form-control cust_frm_cntrl" id="sel1">
+                                        <option>----Select----</option>
+                                        @foreach($mgmt_company as $company_list)
+                                   <option value="{{$company_list}}">{{$company_list}}</option>
+                                   @endforeach
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-lg-6 col-12">
+                    <div class="form-group  ">
+                        <label class="home_check"> Paid Invoices
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                            <div class="form-group ">
+                                <label for="text">Address :	</label>
+                                <div class="">
+                                    <input type="text"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                <div class="col-lg-6 col-12">
+                    <div class="form-group ">
+                        <label for="text">Invoice Amount :	</label>
+                        <div class="">
+                            <input type="number"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-12">
+                        <div class="form-group ">
+                            <label for="text">Unit :	</label>
+                            <div class="">
+                                <input type="text"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-lg-6 col-12">
+                    <div class="form-group ">
+                        <label for="text">CK # / MO #:	</label>
+                        <div class="">
+                            <input type="number"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                    
+                                    
+                                        <div class="col-lg-6 col-12">
+                                    <div class="form-group ">
+                                        <label for="text">City :	</label>
+                                        <div class="">
+                                            <input type="text"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                </div>
+                                    <div class="col-lg-6 col-12">
+                                    <div class="form-group ">
+                                        <label for="text">Zip :	</label>
+                                        <div class="">
+                                            <input type="number"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                        </div>
+                
+                    <!-- <div class="col-12">
+                    <div class="form-group row text-left">
+                        <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                            <button type="submit" class="btn btn-space btn_promary_custom">View</button>
+                            <button type="submit" class="btn btn-space btn_promary_custom">Add</button>
+                            <button class="btn btn-space btn_promary_custom">Search</button>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+                               
+
+
+
+
+                                
+     
+            <div class="col-sm-12">
+            
+            </div>
+     
+    
+                                          </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                          
+                           </div>
+                          
+                          </div>
+                          
+                          
+                                               <!-- Six Six Section -->
+
+                <div class="col-12">
+                    <div class="row">
+                    <div class="col-lg-6 col-12 pl-0">
+                    <div class="card card_address pl-3 pr-3">
+                        <div class="card-body">
+                            <h5 class="text_address mb-0">Types</h5>
+                      
+                                <div class="row">
+
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group mt-md-4 ">
+                                    <label class="home_check"> Apartment
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group mt-md-4 ">
+                                    <label class="home_check"> Home Lease
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group mt-md-4 ">
+                                    <label class="home_check"> Home Sale
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group mt-md-4 ">
+                                    <label class="home_check"> Charge Back
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group mt-md-4 ">
+                                    <label class="home_check"> Advance Paid
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                 <div class="clear20"></div>
+                                <div class="form-group ">
+                                    <label for="sel1">Agent Name :	</label>
+                                    <div class="">
+                                        <select class="form-control cust_frm_cntrl" id="sel1">
+                                            <option>Select</option>
+                                            @foreach($agent as $agent_list)
+                                   <option value="{{ $agent_list }}">{{$agent_list}}</option>
+                                   @endforeach
+                                          </select>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-12">
+                                    <div class="form-group ">
+                                        <label for="text">Tenant Name :	</label>
+                                        <div class="">
+                                            <input type="text"  data-parsley-maxlength="8" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                            </div>
+
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 pl-0">
+                        <div class="card card_address pl-3 pr-3">
+                            <div class="card-body">
+                                <h5 class="text_address mb-0">Dates</h5>
+                              
+                                    <div class="row ">
+
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="form-group mt-md-4 ">
+                                        <label class="home_check"> Invoice Date
+                                            <input type="checkbox" name="search">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-12">
+                                            <div class="form-group ">
+                                                <label for="sel1">Between	</label>
+                                                <div class="">
+                                                    <input id="datepicker1" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-12">
+                                            <div class="form-group ">
+                                                <label for="sel2">&nbsp	</label>
+                                                <div class="">
+                                                    <input id="datepicker2" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                        <label class="home_check"> Move in Dates
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                   
+                                            <div class="col-xl-6 col-12">
+                                                <div class="form-group ">
+                                                    <label for="sel3">Between	</label>
+                                                    <div class="">
+                                                        <input id="datepicker3" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-xl-6 col-12">
+                                                <div class="form-group ">
+                                                    <label for="sel4">&nbsp	</label>
+                                                    <div class="">
+                                                        <input id="datepicker4" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                            <div class="row">
+                                            
+                                            <div class="col-lg-12 col-md-12">
+                                        <div class="form-group ">
+                                        <label class="home_check"> Date Paid
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                            
+                                            
+                                                <div class="col-xl-6 col-12">
+                                                <div class="form-group ">
+                                                    <label for="sel5">Between	</label>
+                                                    <div class="">
+                                                        <input id="datepicker5" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-xl-6 col-12">
+                                                <div class="form-group ">
+                                                    <label for="sel6">&nbsp	</label>
+                                                    <div class="">
+                                                        <input id="datepicker6" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                </div>  
+                          
+                          
+                          <div class="col-lg-12 col-12 pl-0">
+                        <div class="card card_address pl-3 pr-3">
+                            <div class="card-body">
+                                <h5 class="text_address mb-0">SEARCH CRITERIA </h5>
+                                    <div class="row ">
+
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="form-group mt-md-4 ">
+                                        <label class="home_check"> Auto Pay       
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="form-group mt-md-4 ">
+                                        <label class="home_check"> No Contract               
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="form-group mt-md-4 ">
+                                        <label class="home_check"> Do Not Place             
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="form-group mt-md-4 ">
+                                        <label class="home_check"> Not Advanceable              
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="form-group mt-md-4 ">
+                                        <label class="home_check">Slow Pay         
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                          
+                          
+                          
+                <div class="col-12">
+                    <div class="row mb-4 mt-md-3">
+                        <div class="col-sm-12">
+                        <button type="submit" id="b1" onClick='javascript:showTable();' value='show' class="btn_add_agent btn_add_agent_active">Begin Find </button>
+                        
+                        <button type="submit" href="#" class="btn_add_agent">New Search</button>
+                        
+                        <a href="#" class="btn_add_agent"> Print</a>
+                        
+                        <a href="#" class="btn_add_agent"> Cancel</a>
+                        </form>
+                        
+                        </div> 
+                        </div>  
+                </div>    
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                       
+                          
+                          
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="d1" style="display: none;">
+                        <table id="table" class="table table-bordered" >
+        <thead>
+        <th>Inv#</th>
+        <th>Invoice Date</th>
+        <!-- <th>Property</th> -->
+        <th>Nopay</th>
+       <th>Commission</th> 
+        </thead>
+        <tbody>
+        @foreach($invoices as $invoice)
+        <tr>
+                <td>{{$invoice->id }}</td>
+                 <td>{{ date('j F, Y', strtotime($invoice->invoice_date)) }}</td>
+                <!-- <td>{{ $invoice->inv_property->propertyName }}</td> -->
+                    <td>{{$invoice->NoPay}}</td>
+                    <td>{{$invoice->AdjustCommission}}</td>
+                    
+        </tr>
+        @endforeach
+        </tbody>
+
+    </table>
+       {{ $invoices->links() }}
+       </div>
+
+
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+ 
+
+    <script>
+ <script>
+function showTable(){
+document.getElementById('table').style.visibility = "visible";
+}
+function hideTable(){
+document.getElementById('table').style.visibility = "hidden";
+}
+</script>
+</script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+         <!-- jQuery library -->
+	<script src="js/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="js/popper.min.js"></script>
+	
+	<!-- slim JS -->
+
+	<!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    
+
+    <script>
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+    <script>
+    $('#datepicker2').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+    </script>
+    <script>
+        $('#datepicker3').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+    <script>
+        $('#datepicker4').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+        <script>
+            $('#datepicker5').datepicker({
+                uiLibrary: 'bootstrap4'
+            });
+        </script>
+        <script>
+            $('#datepicker6').datepicker({
+                uiLibrary: 'bootstrap4'
+            });
+        </script>
+</body>
+    <!-- <script src="libs/datepicker/moment.js"></script>
+    <script src="libs/datepicker/tempusdominus-bootstrap-4.js"></script>
+    <script src="libs/datepicker/datepicker.js"></script> -->
+
+
+
+<style>
+@media (min-width: 320px) and   (max-width: 1100px){
+.search_inovice_w
+{
+	width:98%;
+}
+}
+</style>
+
+@endsection

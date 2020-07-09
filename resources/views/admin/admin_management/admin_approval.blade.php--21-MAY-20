@@ -1,0 +1,477 @@
+@extends('admin_layouts.layout')
+
+@section('content')
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> Fee Hold Screen </h2>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                  
+                          <div class="col-xl-12 pl-0">
+                            <div class="card card_address  pl-3 pr-3">
+                                    <div class="card-body">
+                                    
+                                    <div class="col-sm-12"><h5></h5></div>
+
+                                    <form action="{{route('admin_approval')}}" method="POST">
+                                      @csrf
+                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
+                                        <thead>
+                                            <tr>
+                                                <th width="8%" scope="col">Date</th>
+                                                <th width="8%" scope="col">Agent Name</th>
+                                                <th width="8%" scope="col">Agent Count</th>
+                                                <th width="10%" scope="col">Property</th>
+                                                <th width="6%" scope="col">Unit</th>
+                                                <th width="10%" scope="col">Tenant Name</th>
+                                                <th width="10%" scope="col">Lease Term</th>
+                                                <th width="10%" scope="col">Rent</th>
+                                                <th width="10%" scope="col">Lease Start</th>
+                                                <th width="7%" scope="col">Agent Comission</th>
+                                                <th width="7%" scope="col">Type</th>
+                                                <th width="7%" scope="col">View</th>
+                                                <th width="6%" scope="col">RCVD</th>
+                                                <th width="7%" scope="col">Refund</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($result as $res)
+                                            <tr>
+                                                <td align="left" scope="row">{{ $res->invoice_date}}</td>
+                                                <td align="left">{{$res['inv_agent']['agentdisplayname']}}</td>
+                                                <td align="left">{{$res['inv_agent']['id']}}</td>
+                                                <td align="left">{{$res['inv_property']['propertyName']}}</td>
+                                                <td align="left">{{ $res->TenantUnitNo}}</td>
+                                                <td align="left">{{$res->TenantNames}}</td>
+                                                <td align="left">{{$res->Leaseterm}}</td>
+                                                <td align="left">{{$res->Rent}}</td>
+                                                <td align="left">{{$res->LeaseStartDate}}</td>
+                                                <td align="left">{{$res->FirstAgentCommPercentage }}</td>
+                                                <td align="left">
+                                                  
+                                                  @if($res->billType==1)
+                                                  Appartment
+                                                  @elseif($res->billType==2)
+                                                  HomeLease
+                                                  @elseif($res->billType==3)
+                                                  HomeSale
+                                                  @endif
+                                                </td>
+                                             
+                                               <td align="left"> 
+                                               <!-- <a href="#" data-toggle="modal" data-target="#myModal_freehold_view">view</a> -->
+                                               <div class="bs-example">
+    <!-- Button trigger modal -->
+<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
+  VIEW
+</a>
+                                               </td>
+                                                <td align="left">
+                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                            <input type="checkbox" class="custom-control-input" name="approved" value="approved">
+                                                            <span class="custom-control-label"> </span></label>
+                                                        </td>
+                                                <td align="left">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" class="custom-control-input" name="rejected" value="rejected">
+                                                    <span class="custom-control-label"> </span></label>
+                                                </td>
+                                            </tr>
+                                          @endforeach
+                                        </tbody>
+                                    </table>
+                                   
+                                    
+                                    
+                                    <div class="row">
+                          <div class="col-sm-12">
+                                                      <div class="clear20"></div>                                     
+                          
+                          <!-- <a href="#" class="btn_general_h pull-right mr-3"> Delete</a> -->
+                             
+                          
+                          
+                          </div> 
+                          </div>
+                                    </div>
+                                    
+                                    </div></div>
+
+
+
+
+                          <!-- ******************************** -->
+                                               <!-- Six Six Section -->
+
+                                               <div class="col-12">
+                                                    <div class="row mb-4 mt-md-3">
+                                                        <div class="col-sm-12">
+                                                        
+                                                        <a href="#" class="btn_add_agent btn_add_agent_active">Print</a>
+                                                        
+                                                        <a href="#" class="btn_add_agent"> Refresh</a>
+                                                        
+                                                        <button type="submit"  class="btn_add_agent btn_add_agent_active"> Refund</button>
+                                                        </form>
+                                                        
+                                                        </div> 
+                                                        </div>  
+                                                </div>    
+                                                          
+                                                          
+                                                          <!-- <div class="clearfix"></div> -->
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                       
+                          
+                          
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by <a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+     
+
+<!-- Central Modal Small -->
+<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-xl" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="{{route('admin_approval_invoice')}}">
+        @csrf
+      <div class="modal-body">
+        
+      <div class="">
+              
+                    <div class="">
+                      
+                       
+                <div class="">
+                  
+                    
+                     <div class="row">
+                              <div class="col-md-4 pl-3">
+                                <label> Billing# :</label>
+                              </div>
+                              <div class="col-md-3 pl-3">
+                                <label>jkhjkh</label>
+                              </div>
+                              <div class="col-lg-5">
+                                <label>Agent Notes :</label>
+                                <textarea class="form-control" rows="5" cols="100">
+                                  
+                                </textarea>
+                                <br>
+                                <p>Attachment :</p>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-top: -160px !important">
+                              <div class="col-md-4">
+                                <label> Agent :</label>
+                              </div>
+                              <div class="col-md-4">
+                                @if(isset($get_invoice_info['inv_agent']['agentfirstname']))
+                                <label>
+                                {{ $get_invoice_info['inv_agent']['agentfirstname'] }}</label>
+                                @endif
+                              </div>
+                            </div>
+                            </div>
+                       <div class="row">
+                                  <div class="col-md-4">
+                                <label> 2nd Agent  :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>Agent Name</label>
+                              </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label> Comission Split by Default 25% :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>Agent split</label>
+                              </div>
+                            </div>
+                        
+                        <div class="row">
+                              <div class="col-md-4">
+                                <label> Appartment move in rent  :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>Appartment movein</label>
+                              </div>
+                            </div>
+                        
+                        <div class="row ">
+                              <div class="col-md-4">
+                                <label> AutoPay $RCVD :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>RCVD</label>
+                              </div>
+                            </div>
+                        
+                        <div class="row">
+                              <div class="col-md-4">
+                                <label> Comission% :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>comm</label>
+                              </div>
+                            </div>
+                       <!-- </div> -->
+                       <div class="row">
+                              <div class="col-md-4">
+                                <label> Flat Rate :</label>
+                              </div>
+                              <div class="col-md-3">
+                                <label>rate</label>
+                              </div>
+                                <div class="col-lg-5">
+                                <label>Admin Notes :</label>
+                                <textarea class="form-control" rows="5" cols="100">
+                                  
+                                </textarea>
+                                <br>
+                                <button class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country" type="submit">Print</button>
+                                <button class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country" type="submit">Reject</button>
+                                <button class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country" type="submit">Cancel</button>
+                              </div>
+                            </div>
+                      
+                        <div class="row" style="margin-top: -160px;">
+                              <div class="col-md-4">
+                                <label> Bonus:</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>bonus</label>
+                              </div>
+                            </div>
+                       
+                       <div class="row">
+                              <div class="col-md-4">
+                                <label> Total due to VKP :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>vkp</label>
+                              </div>
+                            </div>
+                       
+                       <div class="row">
+                              <div class="col-md-4">
+                                <label> Due to 1st Agent :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>1st</label>
+                              </div>
+                            </div>
+                    
+                       <div class="row">
+                              <div class="col-md-4">
+                                <label> Due to 2nd Agent :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>2nd agent</label>
+                              </div>
+                            </div>
+                       
+                       <div class="row">
+                              <div class="col-md-4">
+                                <label> Verified By :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>verify</label>
+                              </div>
+                            
+                            
+                       </div>
+                       
+                       </div>
+                       <h2 class="pl-0">Billing Information</h2>
+                        <div class="row">
+                              <div class="col-md-4">
+                                <label> Community Name :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>community</label>
+                              </div>
+                            </div>
+                               <div class="row">
+                              <div class="col-md-4">
+                                <label> Mgmt Company :</label>
+                              </div>
+                              <div class="col-md-4">
+                                <label>company</label>
+                              </div>
+                            </div>
+                               <div class="row">
+                              <div class="col-md-4">
+                                <label> Address :</label>
+                              </div>
+                              <div class="col-md-3">
+                                <label>Valley King</label>
+                              </div>
+                               <div class="col-lg-5">
+                                <label>Note To Agent :</label>
+                                <textarea class="form-control" rows="5" cols="100">
+                                  
+                                </textarea>
+                                <br>
+                                <button class="btn btn-primary form_box_cust_btn submit_country_form btn_add_country text-center" type="submit">Create Invoice
+                                </button>
+                              
+                              </div>
+                            </div>
+                            <div class="row" style="margin-top: -160px;">
+                              <div class="col-md-2">
+                                <label> State :</label>
+                             
+                              &nbsp
+                                <label>statename</label>
+                               </div>
+                              <div class="col-md-2">
+                                <label>City :</label>
+                               &nbsp
+                                <label>cityname</label>
+                              </div>
+                              <div class="col-md-2">
+                                <label>zipcode :</label>
+                              &nbsp
+                                <label>zipcode#</label>
+                              </div>
+                            </div>
+      
+<!-- tenant information -->
+   <h2 class="pl-0">Tenant Information</h2>
+                        <div class="row">
+                              <div class="col-md-2">
+                                <label> Tenant Name :</label>
+                              </div>
+                              <div class="col-md-2">
+                                <label>community</label>
+                              </div>
+                            </div>
+                               <div class="row">
+                              <div class="col-md-2">
+                                <label> Address :</label>
+                              </div>
+                              <div class="col-md-2">
+                              &nbsp<label>company</label>
+                             </div>
+                           
+                           
+                              <div class="col-md-2">
+                                <label> Unit :</label>
+                                &nbsp               
+                                <label>1111</label>
+                              </div>
+                               </div>
+                            <div class="row">
+                              <div class="col-md-2">
+                                <label> State :</label>
+                             
+                              &nbsp
+                                <label>statename</label>
+                               </div>
+                              <div class="col-md-2">
+                                <label>City :</label>
+                               &nbsp
+                                <label>cityname</label>
+                              </div>
+                              <div class="col-md-2">
+                                <label>zipcode :</label>
+                              &nbsp
+                                <label>zipcode#</label>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <label>Lease Start: </label>
+                                &nbsp
+                                <label>lease date</label>
+                              </div>
+                              <div class="col-md-3">
+                                <label>Lease Term: </label>
+                                &nbsp
+                                <label>lease Term date</label>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                 <label class="custom-control custom-checkbox custom-control-inline">
+                                                            <input type="checkbox" class="custom-control-input" name="residence" value="residence">
+                              <span class="custom-control-label"> </span>Click to confirm that this is the correct address of residence</label>
+                              </div>
+                            </div>
+                            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Central Modal Small -->
+@endsection

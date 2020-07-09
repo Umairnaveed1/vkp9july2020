@@ -1,0 +1,664 @@
+@extends('admin_layouts.layout')
+
+@section('content')
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> Fee Hold Screen </h2>
+                                         @if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('message') }}</p>
+@endif
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                  
+                          <div class="col-xl-12 pl-0">
+                            <div class="card card_address  pl-3 pr-3">
+                                    <div class="card-body">
+                                    
+                                    <div class="col-sm-12"><h5></h5></div>
+
+                                    <form action="{{route('admin_approval')}}" method="POST">
+                                      @csrf
+                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
+                                        <thead>
+                                            <tr>
+                                                <th width="8%" scope="col">Date</th>
+                                                <th width="8%" scope="col">Agent Name</th>
+                                                <th width="8%" scope="col">Agent Count</th>
+                                                <th width="10%" scope="col">Property</th>
+                                                <th width="6%" scope="col">Unit</th>
+                                                <th width="10%" scope="col">Tenant Name</th>
+                                                <th width="10%" scope="col">Lease Term</th>
+                                                <th width="10%" scope="col">Rent</th>
+                                                <th width="10%" scope="col">Lease Start</th>
+                                                <th width="7%" scope="col">Agent Comission</th>
+                                                <th width="7%" scope="col">Type</th>
+                                                <th width="7%" scope="col">View</th>
+                                                <th width="6%" scope="col">RCVD</th>
+                                                <th width="7%" scope="col">Refund</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($result as $res)
+                                            <tr>
+                                                <td align="left" scope="row">{{ $res->invoice_date}}</td>
+                                                <td align="left">{{$res['inv_agent']['agentdisplayname']}}</td>
+                                                <td align="left">{{$res['inv_agent']['id']}}</td>
+                                                <td align="left">{{$res['inv_property']['propertyName']}}</td>
+                                                <td align="left">{{ $res->TenantUnitNo}}</td>
+                                                <td align="left">{{$res->TenantNames}}</td>
+                                                <td align="left">{{$res->Leaseterm}}</td>
+                                                <td align="left">{{$res->Rent}}</td>
+                                                <td align="left">{{$res->LeaseStartDate}}</td>
+                                                <td align="left">{{$res->FirstAgentCommPercentage }}</td>
+                                                <td align="left">
+                                                  
+                                                  @if($res->billType==1)
+                                                  Appartment
+                                                  @elseif($res->billType==2)
+                                                  HomeLease
+                                                  @elseif($res->billType==3)
+                                                  HomeSale
+                                                  @endif
+                                                </td>
+                                             
+                                               <td align="left"> 
+                                               <!-- <a href="#" data-toggle="modal" data-target="#myModal_freehold_view">view</a> -->
+                                               <div class="bs-example">
+    <!-- Button trigger modal -->
+<a type="button" class="btn btn-primary centralModalSm" data-toggle="modal" data-id="{{$res->id}}"  data-target="#centralModalSm">
+  VIEW
+</a>
+                                               </td>
+                                                <td align="left">
+                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                            <input type="checkbox" class="custom-control-input" name="approved" value="approved">
+                                                            <span class="custom-control-label"> </span></label>
+                                                        </td>
+                                                <td align="left">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" class="custom-control-input" name="rejected" value="rejected">
+                                                    <span class="custom-control-label"> </span></label>
+                                                </td>
+                                            </tr>
+                                          @endforeach
+                                        </tbody>
+                                    </table>
+                                   
+                                    
+                                    
+                                    <div class="row">
+                          <div class="col-sm-12">
+                                                      <div class="clear20"></div>                                     
+                          
+                          <!-- <a href="#" class="btn_general_h pull-right mr-3"> Delete</a> -->
+                             
+                          
+                          
+                          </div> 
+                          </div>
+                                    </div>
+                                    
+                                    </div></div>
+
+
+
+
+                          <!-- ******************************** -->
+                                               <!-- Six Six Section -->
+
+                                               <div class="col-12">
+                                                    <div class="row mb-4 mt-md-3">
+                                                        <div class="col-sm-12">
+                                                        
+                                                        <a href="#" class="btn_add_agent btn_add_agent_active">Print</a>
+                                                        
+                                                        <a href="#" class="btn_add_agent"> Refresh</a>
+                                                        
+                                                        <button type="submit"  class="btn_add_agent btn_add_agent_active"> Refund</button>
+                                                        </form>
+                                                        
+                                                        </div> 
+                                                        </div>  
+                                                </div>    
+                                                          
+                                                          
+                                                          <!-- <div class="clearfix"></div> -->
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                       
+                          
+                          
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by <a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+     
+
+<!-- Central Modal Small -->
+<div class="modal fade"  id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog w_viewapprove_bill">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title float-left">
+        Apartment Billing move in for the month of 
+       
+        
+        
+        </h4>
+        <span class="float-left" style="margin-left:10px;">
+         <select name="" class="form-control" style="width:100px;" disabled="disabled">
+       
+    <option value="1">January</option>
+    <option value="2">Feburary</option>
+    <option value="3">March</option>
+    <option value="4">April</option>
+    <option selected="selected" value="5">May</option>
+    <option value="6">June</option>
+    <option value="7">July</option>
+    <option value="8">August</option>
+    <option value="9">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+        
+        </select>
+        </span>
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        
+                     
+      <div class="col-md-12">
+      
+         <div class="row">
+                             
+                  <div class="col-md-7">
+                  
+                  <div>
+                    <form method="POST" action="{{route('admin_approval_invoice_store')}}">
+        @csrf
+        <div class="prid"></div>
+                  <div class="propertyid"  ></div>
+                            <div class="show_fee_detial"></div>        
+                  </div>
+                  
+                  </div>       
+                        
+                        
+                        
+                        
+                        
+                        <div class="col-md-5">
+                       <div class="form-group">
+                                  <label for="name">Agent Notes :</label>
+                           <textarea name="agent_comment" id="agent_comment" class="form-control" cols="" rows=""></textarea>
+                                  
+                          </div>
+                       
+                         <div class="form-group">
+                                  <label for="name">   Attachment :</label>
+                        <input name="file" type="file" class="form-control">
+                                  
+                          </div>
+                          <div class="clear20"> </div>
+                          <div class="form-group">
+                                  <label for="name">Admin Notes :</label>
+                           <textarea name="admin_comment" id="admin_comment" class="form-control" cols="" rows=""></textarea>
+                                  
+                          </div>
+                       
+                         <div class="form-group">
+                                 <div class="text-left">
+                                 <a href="#" class="btn_add_agent pull-left" style="padding: 2px 30px;"> Print</a>
+                                    <a href="#" class="btn_add_agent pull-left" style="padding: 2px 30px;"> Reject</a>
+                                       <a href="#" class="btn_add_agent pull-left" style="padding: 2px 30px;"> Cancel</a>
+                                 
+                                 </div>
+                                  
+                          </div>
+                              <div class="clear20"> </div>
+                          <div class="form-group">
+                                  <label for="name">Note To Agent :</label>
+                           <textarea name="note_comment" id="note_comment" class="form-control" cols="" rows=""></textarea>
+                                  
+                          </div>
+                     <div class="form-group">
+                                 <div class="text-left">
+                                <!--  <a href="#" class="btn_add_agent pull-left" style="padding: 2px 40px;"> Create Cancel</a> -->
+                                 <button type="submit" class="btn_add_agent pull-left" style="padding: 2px 40px;">Create Cancel</button>
+                                 
+                                 </div>
+                          
+                          
+                          
+                           
+                     
+                  
+                  
+                  </div>
+                        
+                        
+                        
+                       
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                       
+                        
+                        </div>
+                        </form>
+                          </div>
+                
+                                                           
+                                                
+   
+   
+                                                    
+                                                
+   
+   
+   
+      </div>
+
+      <!-- Modal footer -->
+      
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Central Modal Small -->
+<style>
+   
+.btn_close_pop3
+{
+  border-radius:5px;
+  color:#fff;
+  text-align:center;
+  font-size:14px;
+  font-family:'Open Sans', sans-serif;
+  line-height:32px;
+  font-weight:normal;
+  background-repeat:no-repeat;
+  background-position:left top;
+  padding:7px;
+  padding-left:20px;
+  padding-right:20px;
+  background: rgba(0,29,86,1);
+background: -moz-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,29,86,1)), color-stop(100%, rgba(0,18,55,1)));
+background: -webkit-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: -o-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: -ms-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: linear-gradient(to right, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d56', endColorstr='#001237', GradientType=1 );
+margin-right:5px;
+border:none !important;
+color:#fff !important;
+}
+.btn_close_pop3:hover
+{
+    color:#fff !important;
+  background: rgba(156,39,68,1);
+background: -moz-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(156,39,68,1)), color-stop(100%, rgba(104,27,45,1)));
+background: -webkit-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: -o-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: -ms-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: linear-gradient(to right, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9c2744', endColorstr='#681b2d', GradientType=1 );
+border:none !important;
+}
+
+.w_modal_freehold
+{
+  max-width:600px;
+}
+
+.w_viewapprove_bill {
+    max-width: 1000px;
+}
+
+
+@media (min-width: 320px) and   (max-width: 1100px){
+.search_inovice_w
+{
+  width:98%;
+}
+}
+
+@media (min-width: 320px) and   (max-width: 767px){
+.w_modal_freehold
+{
+  max-width:96%;
+}
+}
+
+
+
+
+
+.input_pipup21
+{
+  background-color:transparent;
+  border:none;
+  outline:none;
+  font-weight:bold;
+}
+.custom-control-input:checked~input[type="checkbox"] {
+    background: #3d404e;
+    border: #7f83a2 1px solid;
+}
+
+
+
+</style>
+<script type="text/javascript">
+  $(document).on("click", ".centralModalSm", function () {
+     var invoicid = $(this).data('id');
+     // $('.prid').append(myBookId) ;
+     // $('.prid').html('<input type="text" name="proid" value="'+myBookId+'">') ;
+     // alert(myBookId);
+     $.ajax({
+        headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+       url:"{{ url('detial_feehold') }}"+'/'+invoicid,
+       method:"POST",
+       // data:{detial_charge_type:detial_charge_type},
+       success:function(data)
+       {
+     
+$('.show_fee_detial').html('');
+ 
+
+var today = new Date();
+
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+var dateTime = date+' '+time;
+
+ 
+// $('propertyid').html('');
+      // console.log(data['inv_agent']['agentdisplayname']); 
+     // $('.propertyid').append('<input type="text" name="productid" value="'+data['inv_property']['id']+'">');
+   $('.show_fee_detial').append ('<table width="100%" class=" table_responsive2">'+
+                    '<input type="hidden" name="productid" value="'+data['inv_property']['id']+'">'+
+                    '<input type="hidden" name="stateid" value="'+data['inv_state_list']['id']+'">'+
+                    '<input name="cityid" type="hidden" id="cityid" value="'+data['inv_city_list']['id']+'" readonly></td>'+
+                    '<input name="zipcodeid" type="hidden"  id="zipcodeid" value="'+data['inv_zipcode_list']['id']+'"readonly></td>'+
+                    '<input name="firstagentid" type="hidden"  id="agentdisplayname" value="'+data['inv_agent']['id']+'" readonly>'+
+                    '<input name="todaydate" type="hidden"  id="agentdisplayname" value="'+date+'" readonly>'+
+                                        '<tbody>'+
+                                        
+                                            '<tr>'+
+                                              '<td width="8%" align="left" scope="row">Billing # :</td>'+
+                                              '<td width="8%" align="left">'+
+                                               '<input name="billing" type="text" class="input_pipup21" id="billing" value="1" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Agent :</td>'+
+                                              '<td align="left">'+
+                                               '<input name="agent" type="text" class="input_pipup21" id="agentdisplayname" value="'+data['inv_agent']['agentdisplayname']+'" readonly>'+
+                                               '</td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Agent Comm % </td>'+
+                                              '<td align="left"><input name="agentcommision" type="text" class="input_pipup21"  id="agentcommision" value="'+data['FirstAgentCommPercentage']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">2ND Agent :</td>'+
+                                              '<td align="left">'+
+                                                  '<input name="secondagentid" type="text" class="input_pipup21" id="secondagentid" value="'+data['SecondAgentID']+'" readonly>'+
+                                               '</td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Comission Split by Default 25% :</td>'+
+                                              '<td align="left">'+
+                                               
+                                                '<label>'+
+                                                   
+                                                  '<input type="checkbox" name="CheckboxGroup1" value="'+data['FiftyFiftySplit']+'" id="CheckboxGroup1_1" readonly>'+
+                                                   
+                                                  +data['FiftyFiftySplit']+
+                                                  
+                                             
+                                                '</label>'+
+                                             
+                                              '</td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Apartment Move In Rent :<br></td>'+
+                                              '<td align="left"><input name="rent" type="text" class="input_pipup21" id="rent" value="'+data['Rent']+'" readonly></td>'+
+                                            '</tr>'+
+                                           // <!--  <tr>
+                                           //    <td align="left" scope="row"></td>
+                                           //    <td align="left"><input name="textfield6" type="text" class="input_pipup21" id="textfield6" value="0" readonly></td>
+                                           //  </tr> -->
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Auto Pay $ RCVD :</td>'+
+                                              '<td align="left"><input name="rcvd" type="text" class="input_pipup21" id="rcvd" value="0" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Commission % :</td>'+
+                                              '<td align="left">'+
+                                                '<input name="commission" type="text" class="input_pipup21" id="commission" value="'+data['AdjustCommission']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Flat Rate :</td>'+
+                                              '<td align="left">'+
+                                                  '<input name="flatrate" type="text" class="input_pipup21" id="flatrate" value="'+data['FlatRate']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Bonus :</td>'+
+                                              '<td align="left">'+
+                                                 '<input name="bonus" type="text" class="input_pipup21" id="bonus" value="'+data['Bonus']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Total Due to VKP :</td>'+
+                                              '<td align="left">'+
+                                                '<input name="totaldue" type="text" class="input_pipup21" id="totaldue" value="'+data['AmountDueToVKP']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Due to 1st Agent :</td>'+
+                                           '<td align="left">'+
+                                                  '<input name="duetofirst" type="text" class="input_pipup21" id="duetofirst" value="'+data['DueToFirstAgent']+'" readonly>'+
+                                              '</td>'+
+                                            '</tr>'+
+                                                 '<tr>'+
+                                              '<td align="left" scope="row">Due to 2nd Agent :</td>'+
+                                              '<td align="left">'+
+                                                 '<input name="duetosecond" type="text" class="input_pipup21" id="duetosecond" value="'+data['DueToSecondAgent']+'" readonly> </td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Verified By :</td>'+
+                                              '<td align="left"><input name="verifiedby" type="text" class="input_pipup21" id="verifiedby" value="'+data['Verifier']+'" readonly> </td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td colspan="2" align="left" scope="row"><strong><h5>Billing Information</h5>'+
+                                              '</strong></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Community Name :</td>'+
+                                              '<td align="left">'+
+                                                 '<input name="cummunityname" type="text" class="input_pipup21" id="cummunityname" value="'+data['inv_property']['propertyName']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">MGMT Companay </td>'+
+                                              '<td align="left">'+
+                                               '<input name="mgtname" type="text" class="input_pipup21" id="mgtname" value="'+data['inv_property']['MgmtCompID']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Addres :</td>'+
+                                              '<td align="left">'+
+                                               '<input name="address" type="text" class="input_pipup21" id="address" value="'+data['inv_property']['propertyAd']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row" colspan="2">'+
+                                              '<table width="100%" border="0" cellspacing="0" cellpadding="0">'+
+                                                '<tr>'+
+                                                  '<td style="width:52%">'+
+'State : </td>'+
+                                                  '<td>'+
+                                                   
+  
+                                                   '<input name="state" type="text" class="input_pipup21" id="state" value="'+data['inv_state_list']['statename']+'" readonly></td>'+
+                                                   
+                                                  '<td style="width:52%">City :</td>'+
+                                                  '<td>'+
+                                                 
+                                                  
+                                                  '<input name="city" type="text" class="input_pipup21" id="city" value="'+data['inv_city_list']['cityname']+'" readonly></td>'+
+                                                 
+                                                  '<td style="width:52%">Zip :</td>'+
+                                                  '<td>'+
+                                                  
+
+                                                     
+                                                    '<input name="zipcode" type="text" class="input_pipup21" id="zipcode" value="'+data['inv_zipcode_list']['zipcode']+'"readonly></td>'+
+                                                  
+                                                '</tr>'+
+                                              '</table></td>'+
+                                              
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td colspan="2" align="left" scope="row">'+
+                                              '<label>'+
+                                                  '<input type="checkbox" name="CheckboxGroup2" value="Click to Confirm That This is The Correct Property" id="CheckboxGroup1_1">'+
+                                                   'Click to Confirm That This is The Correct Property</label>'+
+                                             '</td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td colspan="2" align="left" scope="row"><h5>&nbsp;</h5></td>'+
+                                            '</tr>'+
+                                            
+                                            '<tr>'+
+                                              '<td colspan="2" align="left" scope="row"><strong><h5>Tenant Information</h5></strong></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Tenant Name :</td>'+
+                                              '<td align="left">'+
+                                                 '<input name="tenantname" type="text" class="input_pipup21" id="tenantname" value="'+data['TenantNames']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Address :</td>'+
+                                              '<td align="left"><input name="taddress" type="text" class="input_pipup21" id="address" value="'+data['TenantAddresss']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row">Unit # :</td>'+
+                                              '<td align="left"><input name="unit" type="text" class="input_pipup21" id="unit" value="'+data['TenantUnitNo']+'" readonly></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td align="left" scope="row" colspan="2">'+
+                                              
+                                                '<table width="100%" border="0" cellspacing="0" cellpadding="0">'+
+                                                  '<tr>'+
+                                                    '<td style="width:52%">'+
+'State : </td> State : </td>'+
+                                                    '<td width="20%">'+
+                                                      '<input name="tenantstate" type="text" class="input_pipup21" id="tenantstate" value="'+data['inv_state_list']['statename']+'" readonly></td>'+
+                                                    '<td style="width:52%">'+
+'City : </td>City :</td>'+
+                                                    '<td width="16%">'+
+                                                       '<input name="tcity" type="text" class="input_pipup21" id="tcity" value="'+data['inv_city_list']['cityname']+'" readonly></td>'+
+                                                   '<td style="width:52%">'+
+'Zip : </td>Zip :</td>'+
+                                                    '+<td width="22%">'+
+                                                      '<input name="tzip" type="text" class="input_pipup21" id="tzip" value="'+data['inv_zipcode_list']['zipcode']+'" readonly></td>'+
+                                                  '</tr>'+
+                                                  '<tr>'+
+                                                    '<td>Lease Start :</td>'+
+                                                    '<td>'+
+                                                      '<input name="leasestart" type="text" class="input_pipup21" id="leasestart" value="'+data['LeaseStartDate']+'" readonly></td>'+
+                                                    '<td>Lease Term :</td>'+
+                                                    '<td><input name="leaseterm" type="text" class="input_pipup21" id="leaseterm" value="'+data['Leaseterm']+'" readonly></td>'+
+                                                    '<td>&nbsp;</td>'+
+                                                    '<td>&nbsp;</td>'+
+                                                  '</tr>'+
+                                              '</table></td>'+
+                                          
+                                            '</tr>'+
+                                            '<tr>'+
+                                              '<td colspan="2" align="left" scope="row"> <label class="">'+
+                                                            '<input type="checkbox" name="CheckboxGroup3" value="Click to Confirm That This is The Correct Address of Residence">'+
+                                                            'Click to Confirm That This is The Correct Address of Residence</label></td>'+
+                                            '</tr>'+
+                                            '<tr>'+
+                                             '<td colspan="2" align="left" scope="row"> <label class="">'+
+                                                            '<input type="checkbox"  name="CheckboxGroup4" value="Change Tenant Address">'+
+                                                            'Change Tenant Address</label></td>'+
+                                            '</tr>'+
+                                        '</tbody>'+
+                                    '</table>');
+       
+    
+         
+       
+       }
+    });
+
+    $('#squarespaceModal').modal('show');
+       
+});
+</script>
+@endsection

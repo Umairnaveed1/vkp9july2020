@@ -1,0 +1,12 @@
+<?php
+
+namespace App\models\agents;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Homeleasebillings extends Model
+{
+	protected $table="hlbillings";
+	 protected $guarded = [];
+    //
+}

@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Models\Admin\FeeApprovals;
+
+use Illuminate\Database\Eloquent\Model;
+
+class FeeApproval extends Model
+{
+    protected $table= 'feeapprovals';
+    
+    protected $fillable = ['approvaldate',	'approved',	'rejected',	'adminnotes',	',agentnotes',	',hsbilling_id',	'hlbilling_id',	'apartmentbilling_id',	'invoice_id',	'user_id'];
+}

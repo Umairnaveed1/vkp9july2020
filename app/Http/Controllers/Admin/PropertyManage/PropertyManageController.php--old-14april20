@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Http\Controllers\Admin\PropertyManage;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Countries\Country;
+use App\Models\States\State;
+use App\Models\Cities\City;
+use App\Models\ZipCodes\ZipCode;
+use App\Models\Properties\Property;
+
+class PropertyManageController extends Controller
+{
+    public function index(Request $request)
+    {
+        $property_id = $request['property_id'];
+    	if($property_id){
+		$property_id = $request['property_id'];
+    	}
+    	else{
+    		$get_property_id = Property::first();
+    		$property_id = $get_property_id['id'];
+    	}
+    	$where = array('id' => $property_id);
+		$data['get_property_info'] = Property::with('country_list','state_list','city_list','zipcode_list')
+		->where($where)->first();
+    	$data['get_property_data'] = Property::all();
+    	
+        return view('admin.property_manage.index', $data); 
+       }
+
+       public function create(){
+    	
+    	$data['get_property_data'] = Property::all();
+    	
+    	$data['country'] = Country::all();
+    	return view('admin.property_manage.create', $data);
+    }
+    public function search(Request $request)
+    {
+      $search = $request->get('search');
+      $property = Property::where('propertyName', 'like','%'.$search.'%')->paginate(5);
+      $property_id = $request['property_id'];
+      if($property_id){
+      $property_id = $request['property_id'];
+      }
+      else{
+          $get_property_id = Property::first();
+          $property_id = $get_property_id['id'];
+      }
+      $where = array('id' => $property_id);
+      $data['get_property_info'] = Property::with('country_list','state_list','city_list','zipcode_list')
+      ->where($where)->first();
+      $data['get_property_data'] = Property::where('propertyName', 'like','%'.$search.'%')->get();
+      //dd($user);
+      return view('admin.property_manage.index',$data);
+
+    }
+
+       public function get_property_list(Request $request)
+       {
+		$get_property = $request->get_property;
+		$where = array('id' => $get_property);
+		$result = Property::with('country_list','state_list','city_list','zipcode_list')
+		->where($where)->first();
+
+	if($result){
+			return Response()->json($result);
+	    }
+
+    }
+    
+    public function edit(Request $request){
+    	$get_property = $request->id;
+		$where = array('id' => $get_property);
+        $data['get_property'] = Property::with('country_list','state_list','city_list','zipcode_list')
+        ->where($where)->first();
+    	$data['get_property_data'] = Property::all();
+    	$data['country'] = Country::all();
+    	//return view('Company_Managment.compnay_managment_edit', $data);
+    }
+}

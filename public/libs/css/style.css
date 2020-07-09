@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -8416,14 +8416,19 @@ overflow-y:scroll;
 }
 
 
+.search_inovice_w{
+    width:600px;
+	margin:auto;
+}
+
 /* END All  */
 
 .cust_input_w .form-control{
     width: 100%;
 }
-.cust_input_w textarea.form-control{
+/* .cust_input_w textarea.form-control{
     height: 100px !important;
-}
+} */
 
 
 
@@ -8438,9 +8443,16 @@ overflow-y:scroll;
 
 
 
-
-
-
+.change_pass_w1
+{
+	width:300px;
+	margin:auto;
+}
+.user_manage_w1
+{
+		width:300px;
+	margin:auto;
+}
 
 /* .office_manage_a{
     width: 991px;
@@ -8454,6 +8466,12 @@ overflow-y:scroll;
 } */
 
 @media (min-width: 320px) and (max-width: 767px){
+	.user_manage_w1
+{
+		width:100%;
+	margin:auto;
+}
+	
     .country_cty_zip_w{
         width: 100%;
         margin: 0 auto;

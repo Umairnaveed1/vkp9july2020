@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models\Admin\FeeApprovals;
+use App\Models\Agent\AppartmentBilling\AppartmentBilling;
+use App\Models\Agents\Hsbillings;
+use App\Models\Agents\Homeleasebillings;
+use App\User;
+
+use Illuminate\Database\Eloquent\Model;
+
+class FeeApproval extends Model
+{
+    protected $table= 'feeapprovals';
+    
+    protected $fillable = ['approvaldate',	'approved',	'rejected',	'adminnotes',	',agentnotes',	',hsbilling_id',	'hlbilling_id',	'apartmentbilling_id',	'invoice_id',	'user_id'];
+
+    public function apartmentbillings()
+    {
+    	return $this->belongsTo('App\Models\Agent\AppartmentBilling\AppartmentBilling','apartmentbilling_id','id');
+    }
+     public function hlbillings()
+    {
+    	return $this->belongsTo('App\Models\Agents\Homeleasebillings','hlbilling_id','id');
+    }
+     public function hsbillings()
+    {
+    	return $this->belongsTo('App\Models\Agents\Hsbillings','hsbilling_id');
+    }
+    public function users()
+    {
+    	return $this->belongsTo('App\User','user_id','id');
+    }
+   
+}

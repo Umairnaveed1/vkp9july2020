@@ -1,0 +1,942 @@
+﻿@extends('admin_layouts.layout')
+
+@section('content')
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> Fee Hold Screen </h2>
+                                         @if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('message') }}</p>
+@endif
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                  
+                          <div class="col-xl-12 pl-0">
+                            <div class="card card_address  pl-3 pr-3">
+                                    <div class="card-body" style="overflow-y: hidden;">
+                                    
+                                    <div class="col-sm-12"><h5></h5></div>
+
+                                    <form action="{{route('admin_approval')}}" method="POST">
+                                      @csrf
+                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
+                                        <thead>
+                                            <tr>
+                                                <th width="8%" scope="col">Date</th>
+                                               
+                                      
+                                                <th width="6%" scope="col">Unit</th>
+						<th width="6%" scope="col">Agent Name</th>
+						<th width="6%" scope="col">Property Name</th>
+                                                <th width="10%" scope="col">Tenant Name</th>
+                                                <th width="10%" scope="col">Lease Term</th>
+                                                <th width="10%" scope="col">Rent</th>
+                                                <th width="10%" scope="col">Lease Start</th>
+                                                <th width="7%" scope="col">Agent Comission</th>
+                                                <th width="7%" scope="col">Type</th>
+                                                <th width="7%" scope="col">View</th>
+                                                <th width="6%" scope="col">RCVD</th>
+                                                <th width="7%" scope="col">Refund</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($feeapprovalsdata as $res)
+                                            <tr>
+                                                <td align="left" scope="row">
+                                                {{ $res['invoices']['invoice_date'] }}
+                                              </td>
+                                               
+                                              
+                                                <td align="left">
+                                                  @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['apartmentbillings']['tenantunit'] ? $res['apartmentbillings']['tenantunit'] : '2' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['hsbillings']['tenantunit'] ? $res['hsbillings']['tenantunit'] : '10' }}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['hlbillings']['tenantunit'] ? $res['hlbillings']['tenantunit'] : '15' }}
+                                                @endif
+                                              </td>
+						 <td align="left">
+                                                  @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['inv_property']['propertyName'] ? $res['inv_property']['propertyName']  : '---' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['inv_property']['propertyName'] ? $res['inv_property']['propertyName']  : '---' }}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['inv_property']['propertyName'] ? $res['inv_property']['propertyName'] : '---' }}
+                                                @endif
+                                              </td>
+						 <td align="left">
+                                                  @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['inv_agent']['agentfirstname'] ? $res['inv_agent']['agentdisplayname']  : '---' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['inv_agent']['agentfirstname'] ? $res['inv_agent']['agentdisplayname']  : '---' }}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['inv_agent']['agentfirstname'] ? $res['inv_agent']['agentdisplayname'] : '---' }}
+                                                @endif
+                                              </td>
+
+                                                 <td align="left">
+                                                   @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['apartmentbillings']['tenantname'] ? $res['apartmentbillings']['tenantname'] : 'ahmad' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['hsbillings']['tenantname'] ? $res['hsbillings']['tenantname'] : '--'}}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['hlbillings']['tenantname'] ? $res['hlbillings']['tenantname'] : '--' }}
+                                                @endif
+                                                </td>
+                                                <td align="left">
+                                                   @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['apartmentbillings']['leaseterm'] ? '24' : '2' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['hsbillings']['leeseterms'] ? 'lll' : '5' }}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['hlbillings']['leeseterms'] ? 'lll' : '6' }}
+                                                @endif
+                                                </td>
+                                                <td align="left">
+                                                    @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['apartmentbillings']['rent'] ? 'lll' : '10000' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['hsbillings']['referalamount'] ? $res['hsbillings']['referalamount'] : '---'}}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['hlbillings']['rentamount'] ? 'lll' : '10000' }}
+                                                @endif
+                                                </td>
+                                                <td align="left">
+                                                   @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['apartmentbillings']['leesestart']  ? '12-1-2020' : '12-01-2020' }}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['hsbillings']['contractdate']  ? $res['hsbillings']['contractdate'] : '---' }}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['hlbillings']['leesestart']  ? '12-1-2020' : '12-01-2020' }}
+                                                @endif
+                                                </td>
+                                                <td align="left">  @if($res['apartmentbilling_id'] != NULL)
+                                                {{ $res['apartmentbillings']['comission']  ? '10' : '5'}}
+                                                @endif
+                                                @if($res['hsbilling_id'] != NULL)
+                                                {{ $res['hsbillings']['commper']  ? $res['hsbillings']['commper'] : '---' }}
+                                                @endif
+                                                @if($res['hlbilling_id'] != NULL)
+                                                {{ $res['hlbillings']['agentcomm']  ? '5' : '10%' }}
+                                                @endif</td>
+                                                <td align="left">
+                                                  
+                             @if($res['apartmentbilling_id'] != NULL)
+                                                  Appartment
+                                                  @endif
+                                                  @if($res['hlbilling_id'] != NULL)
+                                                  HomeLease
+                                                  @endif
+                                                  @if($res['hsbilling_id'] != NULL)
+                                                  HomeSale
+                                                  @endif
+                                                </td>
+                                             
+                                               <td align="left"> 
+                                               <!-- <a href="#" data-toggle="modal" data-target="#myModal_freehold_view">view</a> -->
+                                               <div class="bs-example">
+    <!-- Button trigger modal -->
+<a type="button" class="btn btn-primary centralModalSm" data-toggle="modal" data-id="{{$res->id}}"  data-target="#centralModalSm">
+  VIEW
+</a>
+                                               </td>
+                                                <td align="left">
+                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                           
+   <input type="checkbox" class="custom-control-input feeRecieptRCVD" data-id="{{$res['id']}}" name="feeRecieptRCVD" value="{{$res['status']==1 && $res['status'] !=NULL?1:0}}" {{$res['status'] == 1 && $res['status'] !=NULL?'checked':' '}} {{$res['status']==1 && $res['status']!=NULL?'disabled':' '}}> 
+                                                            <span class="custom-control-label"> </span>
+                                                           
+                                                          
+                                                           
+                                                            
+                                                          </label>
+                                                        </td>
+                                                <td align="left">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                
+  
+       <input type="checkbox" class="custom-control-input feeHoldRefund" data-id="{{$res['id']}}" name="feeHoldRefund" value="{{$res['status']==2 && $res['status']!=NULL?2:0}}" {{$res['status']==2 && $res['status']!=NULL?'checked':' '}} {{$res['status']==2 && $res['status']!=NULL?'disabled':' '}}>
+                                                    <span class="custom-control-label"></span>
+                                                  
+                                                   
+                                                  </label>
+                                                </td>
+                                            </tr>
+                                          @endforeach
+                                        </tbody>
+                                    </table>
+                                   
+                                    
+                                    
+                                    <div class="row">
+                          <div class="col-sm-12">
+                                                      <div class="clear20"></div>                                     
+                          
+                          <!-- <a href="#" class="btn_general_h pull-right mr-3"> Delete</a> -->
+                             
+                          
+                          
+                          </div> 
+                          </div>
+                                    </div>
+                                    
+                                    </div></div>
+
+
+
+
+                          <!-- ******************************** -->
+                                               <!-- Six Six Section -->
+
+                                               <div class="col-12">
+                                                    <div class="row mb-4 mt-md-3">
+                                                        <div class="col-sm-12">
+                                                        
+                                                        <a href="#" class="btn_add_agent btn_add_agent_active">Print</a>
+                                                        
+                                                        <a href="#" class="btn_add_agent"> Refresh</a>
+                                                        
+                                                        <button type="submit"  class="btn_add_agent btn_add_agent_active"> Refund</button>
+                                                        </form>
+                                                        
+                                                        </div> 
+                                                        </div>  
+                                                </div>    
+                                                          
+                                                          
+                                                          <!-- <div class="clearfix"></div> -->
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                       
+                          
+                          
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by <a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+     
+
+<!-- Central Modal Small -->
+<div class="modal fade"  id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog w_viewapprove_bill">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title float-left">
+        Apartment Billing move in for the month of 
+       
+        
+        
+        </h4>
+        <span class="float-left" style="margin-left:10px;">
+         <select name="" class="form-control" style="width:100px;" disabled="disabled">
+       
+    <option value="1">January</option>
+    <option value="2">Feburary</option>
+    <option value="3">March</option>
+    <option value="4">April</option>
+    <option selected="selected" value="5">May</option>
+    <option value="6">June</option>
+    <option value="7">July</option>
+    <option value="8">August</option>
+    <option value="9">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+        
+        </select>
+        </span>
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        
+                     
+      <div class="col-md-12">
+      
+         <div class="row">
+                             
+                  <div class="col-md-7">
+                  
+                  <div>
+                     <form method="POST" id="submitbtn" enctype="multipart/form-data">
+        @csrf
+         <div class="feeapproval_id"></div>
+                    <table width="100%" class=" table_responsive2">
+                                        <tbody>
+                                        <div class="productid"></div>
+                                        <div class="stateid"></div>
+                                        <div class="cityid"></div>
+                                        <div class="zipcodeid"></div>
+                                        <div class="firstagentid"></div>
+                                        <div class="todaydate"></div>
+                                            <tr>
+                                              <td width="8%" align="left" scope="row">Billing # :</td>
+                                              <td width="8%" align="left"> <input name="textfield2" type="text" class="input_pipup21" id="textfield2" value="1" readonly></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Agent :</td>
+                                              <td align="left"><div class="agent"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Agent Comm % </td>
+                                              <td align="left"><div class="agentcommision"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">2ND Agent :</td>
+                                              <td align="left"><div class="secondagentid"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">2ND Agent Comm Split % :</td>
+                                              <td align="left">
+                                               
+                                                <label>
+                                                 <div class="CheckboxGroup1"></div>
+                                                 </label>
+                                             
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Apartment Move In Rent :<br></td>
+                                              <td align="left"><div class="rent"></div></td>
+                                            </tr>
+                                           <!--  <tr>
+                                              <td align="left" scope="row">Rent :</td>
+                                              <td align="left"><input name="textfield6" type="text" class="input_pipup21" id="textfield6" value="0" readonly></td>
+                                            </tr> -->
+                                            <tr>
+                                              <td align="left" scope="row">Auto Pay $ RCVD :</td>
+                                              <td align="left"><input name="textfield7" type="text" class="input_pipup21" id="textfield7" value="0" readonly></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Commission % :</td>
+                                              <td align="left"><div class="commission"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Flate Rate :</td>
+                                              <td align="left"><div class="flatrate"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Bonus :</td>
+                                              <td align="left"><div class="bonus"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Total Due to VKP :</td>
+                                              <td align="left"><div class="totaldue"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Due to 1st Agent :</td>
+                                              <td align="left"><div class="duetofirst"></div></td>
+                                            </tr>
+                                                 <tr>
+                                              <td align="left" scope="row">Due to 2nd Agent :</td>
+                                              <td align="left"><div class="duetosecond"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Verified By :</td>
+                                              <td align="left"><div class="verifiedby"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2" align="left" scope="row"><strong><h5>Billing Information</h5>
+                                              </strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Community Name :</td>
+                                              <td align="left"><div class="cummunityname"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">MGMT Companay </td>
+                                              <td align="left"><div class="mgtname"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Address </td>
+                                              <td align="left"><div class="address"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row" colspan="2">
+                                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                  <td style="width:52%">
+State : </td>
+                                                  <td><div class="state"></div></td>
+                                                  <td style="width:52%">City :</td>
+                                                  <td><div class="city"></div></td>
+                                                  <td style="width:52%">Zip :</td>
+                                                  <td><div class="zipcode"></div></td>
+                                                </tr>
+                                              </table></td>
+                                              
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2" align="left" scope="row">
+                                              <label>
+                                                  <input type="checkbox" name="CheckboxGroup1" value="Click to Confirm That This is The Correct Property" id="CheckboxGroup1_1">
+                                                   Click to Confirm That This is The Correct Property</label>
+                                             </td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2" align="left" scope="row"><h5>&nbsp;</h5></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                              <td colspan="2" align="left" scope="row"><strong><h5>Tenant Information</h5></strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Tenant Name :</td>
+                                              <td align="left"><div class="tenantname"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Address :</td>
+                                              <td align="left"><div class="taddress"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row">Unit # :</td>
+                                              <td align="left"><div class="unit"></div></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row" colspan="2">
+                                              
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                              <!--     <tr>
+                                                    <td style="width:52%">
+State : </td> State : </td>
+                                                    <td width="20%"><div class="tenantstate"></div></td>
+                                                    <td style="width:52%">
+State : </td>City :</td>
+                                                    <td width="16%"><div class="tcity"></div></td>
+                                                   <td style="width:52%">
+State : </td>Zip :</td>
+                                                    <td width="22%"><div class="tzip"></div></td>
+                                                  </tr> -->
+                                                  <tr>
+                                                    <td>Lease Start :</td>
+                                                    <td><div class="leasestart"></div></td>
+                                                    <td>Lease Term :</td>
+                                                    <td><div class="leaseterm"></div></td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                  </tr>
+                                              </table></td>
+                                          
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2" align="left" scope="row"> <label class="">
+                                                            <input type="checkbox" name="CheckboxGroup2" value="Click to Confirm That This is The Correct Address of Residence">
+                                                            Click to Confirm That This is The Correct Address of Residence</label></td>
+                                            </tr>
+                                            <tr>
+                                             <td colspan="2" align="left" scope="row"> <label class="">
+                                                            <input type="checkbox" name="CheckboxGroup3" value="Change Tenant Address">
+                                                            Change Tenant Address</label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>      
+                  </div>
+                  
+                  </div>       
+                        
+                        
+                        
+                        
+                        
+                        <div class="col-md-5">
+                       <div class="form-group">
+                                  <label for="name">Agent Notes :</label>
+                           <textarea name="agent_comment" id="agent_comment" class="form-control" cols="" rows=""></textarea>
+                                  
+                          </div>
+                       
+                         <div class="form-group">
+                                  <label for="name">   Attachment :</label>
+                        <input name="file" type="file" class="form-control">
+                                  
+                          </div>
+                          <div class="clear20"> </div>
+                          <div class="form-group">
+                                  <label for="name">Admin Notes :</label>
+                           <textarea name="admin_comment" id="admin_comment" class="form-control" cols="" rows=""></textarea>
+                                  
+                          </div>
+                       
+                         <div class="form-group">
+                                 <div class="text-left">
+                                 <a href="#" class="btn_add_agent pull-left" style="padding: 2px 30px;"> Print</a>
+                                    <a href="#" class="btn_add_agent pull-left" style="padding: 2px 30px;"> Reject</a>
+                                       <a href="#" class="btn_add_agent pull-left" style="padding: 2px 30px;"> Cancel</a>
+                                 
+                                 </div>
+                                  
+                          </div>
+                              <div class="clear20"> </div>
+                          <div class="form-group">
+                                  <label for="name">Note To Agent :</label>
+                           <textarea name="note_comment" id="note_comment" class="form-control" cols="" rows=""></textarea>
+                                  
+                          </div>
+                     <div class="form-group">
+                                 <div class="text-left">
+                                <!--  <a href="#" class="btn_add_agent pull-left" style="padding: 2px 40px;"> Create Cancel</a> -->
+                                 <button type="submit" class="btn_add_agent pull-left" style="padding: 2px 40px;">Create Cancel</button>
+                                 
+                                 </div>
+                          
+                          
+                          
+                           
+                     
+                  
+                  
+                  </div>
+                        
+                        
+                        
+                       
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                       
+                        
+                        </div>
+                        </form>
+                          </div>
+                
+                                                           
+                                                
+   
+   
+                                                    
+                                                
+   
+   
+   
+      </div>
+
+      <!-- Modal footer -->
+      
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Central Modal Small -->
+<style>
+   
+.btn_close_pop3
+{
+  border-radius:5px;
+  color:#fff;
+  text-align:center;
+  font-size:14px;
+  font-family:'Open Sans', sans-serif;
+  line-height:32px;
+  font-weight:normal;
+  background-repeat:no-repeat;
+  background-position:left top;
+  padding:7px;
+  padding-left:20px;
+  padding-right:20px;
+  background: rgba(0,29,86,1);
+background: -moz-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,29,86,1)), color-stop(100%, rgba(0,18,55,1)));
+background: -webkit-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: -o-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: -ms-linear-gradient(left, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+background: linear-gradient(to right, rgba(0,29,86,1) 0%, rgba(0,18,55,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d56', endColorstr='#001237', GradientType=1 );
+margin-right:5px;
+border:none !important;
+color:#fff !important;
+}
+.btn_close_pop3:hover
+{
+    color:#fff !important;
+  background: rgba(156,39,68,1);
+background: -moz-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(156,39,68,1)), color-stop(100%, rgba(104,27,45,1)));
+background: -webkit-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: -o-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: -ms-linear-gradient(left, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+background: linear-gradient(to right, rgba(156,39,68,1) 0%, rgba(104,27,45,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9c2744', endColorstr='#681b2d', GradientType=1 );
+border:none !important;
+}
+
+.w_modal_freehold
+{
+  max-width:600px;
+}
+
+.w_viewapprove_bill {
+    max-width: 1000px;
+}
+
+
+@media (min-width: 320px) and   (max-width: 1100px){
+.search_inovice_w
+{
+  width:98%;
+}
+}
+
+@media (min-width: 320px) and   (max-width: 767px){
+.w_modal_freehold
+{
+  max-width:96%;
+}
+}
+
+
+
+
+
+.input_pipup21
+{
+  background-color:transparent;
+  border:none;
+  outline:none;
+  font-weight:bold;
+}
+.custom-control-input:checked~input[type="checkbox"] {
+    background: #3d404e;
+    border: #7f83a2 1px solid;
+}
+
+
+
+</style>
+<script>
+
+   //fee Reciept Received
+  $(document).on("click",".feeRecieptRCVD",function(){
+  $.each($("input[name='feeRecieptRCVD']:checked"), function(){
+  if($(this).val()==0){
+  $(this).val(1); 
+  }else{
+  $(this).val(0);  
+  }
+  });
+
+  var feeRecieptCheckBox = $(this).val();
+  var id=$(this).data("id");
+  // alert(feeRecieptCheckBox);
+  // alert(id);
+  var confirmDialog=confirm("Are you sure! You want to approve?");
+  if(confirmDialog){
+  var status=1; 
+  $.ajax({
+   headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+  type : 'POST',
+  url:"{{ url('feeapproval') }}",
+  dataType : "JSON",
+  data : {id:id,status:status},
+  success: function(data){ 
+
+
+  } 
+
+  });
+  }
+
+  });
+  
+  
+  //fee Hold Refund
+  $(document).on("click",".feeHoldRefund",function(){
+  $.each($("input[name='feeHoldRefund']:checked"), function(){
+  if($(this).val()==0){
+  $(this).val(1); 
+  }else{
+  $(this).val(0);  
+  }
+  });
+
+  var feeRecieptCheckBox = $(this).val();
+  var id=$(this).data("id");
+  // alert(feeRecieptCheckBox);
+  // alert(id);
+  var confirmDialog=confirm("Are you sure! You want to refund?");
+  if(confirmDialog){
+  var status=2; 
+  $.ajax({
+   headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+  type : 'POST',
+  url:"{{ url('feeapproval') }}",
+  dataType : "JSON",
+  data : {id:id,status:status},
+  success: function(data){ 
+
+
+  } 
+
+  });
+  } 
+
+  });
+  </script>
+<script type="text/javascript">
+  $(document).on("click", ".centralModalSm", function () {
+     var invoicid = $(this).data('id');
+     
+     $.ajax({
+        headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+       url:"{{ url('detial_feehold') }}"+'/'+invoicid,
+       method:"POST",
+       // data:{detial_charge_type:detial_charge_type},
+       success:function(data)
+       {
+ // alert(data['invoices']['FirstAgentCommPercentage']);
+ 
+
+var today = new Date();
+
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+var dateTime = date+' '+time;
+
+ 
+$('.agent').html('');
+$('.agentcommision').html('');
+$('.secondagentid').html('');
+$('.CheckboxGroup1').html('');
+$('.rent').html('');
+$('.commission').html('');
+$('.flatrate').html('');
+$('.bonus').html('');
+$('.totaldue').html('');
+$('.duetofirst').html('');
+$('.duetosecond').html('');
+$('.verifiedby').html('');
+$('.cummunityname').html('');
+$('.mgtname').html('');
+$('.address').html('');
+$('.state').html('');
+$('.city').html('');
+$('.zipcode').html('');
+$('.tenantname').html('');
+$('.taddress').html('');
+$('.unit').html('');
+$('.tenantstate').html('');
+$('.tcity').html('');
+$('.tzip').html('');
+$('.leasestart').html('');
+$('.leaseterm').html('');
+$('.productid').html('');
+$('.stateid').html('');
+$('.cityid').html('');
+$('.zipcodeid').html('');
+$('.firstagentid').html('');
+$('.todaydate').html('');
+$('.feeapproval_id').html('');
+
+
+if(data['id']) {
+ 
+  $(".feeapproval_id").append('<input type="hidden" id="feeapproval_id" name="feeapproval_id" value="'+data['id']+'">');
+
+}
+
+ 
+
+
+if(data['inv_property']['id']) {$(".productid").append('<input type="hidden" name="productid" value="'+data['inv_property']['id']+'">');}
+
+ 
+
+if(data['bill_state_id']) {
+ 
+  $(".stateid").append('<input type="hidden" name="stateid" value="'+data['bill_state_id']+'">');
+
+}
+
+if(data['bill_city_id']) {$(".cityid").append('<input name="cityid" type="hidden" id="cityid" value="'+data['bill_city_id']+'" readonly>');}
+
+if(data['bill_zipcode_id']) {$(".zipcodeid").append('<input name="zipcodeid" type="hidden"  id="zipcodeid" value="'+data['bill_zipcode_id']+'"readonly>');}
+
+// if(data['inv_agent']['id']) {$(".firstagentid").append('<input name="firstagentid" type="hidden"  id="agentdisplayname" value="'+data['inv_agent']['id']+'" readonly>');}
+
+if(date) {$(".todaydate").append('<input name="todaydate" type="hidden"  id="agentdisplayname" value="'+date+'" readonly>');}
+
+
+   if(data['inv_agent']['agentdisplayname']) {$(".agent").append('<input type="text" class="input_pipup21" name="agent" value="'+data['inv_agent']['agentdisplayname']+'" readonly>'); }
+      
+      if(data['invoices']['FirstAgentCommPercentage']) {
+        $(".agentcommision").append('<input name="agentcommision" type="text" class="input_pipup21"  id="agentcommision" value="'+data['invoices']['FirstAgentCommPercentage']+'" readonly>');}
+        if(data['invoices']['SecondAgentID']) {
+        $(".secondagentid").append('<input name="secondagentid" type="text" class="input_pipup21" id="secondagentid" value="'+data['invoices']['SecondAgentID']+'" readonly>');}
+
+       if(data['invoices']['FiftyFiftySplit']) {
+        $(".CheckboxGroup1").append('<input type="checkbox" name="CheckboxGroup1" value="'+data['invoices']['FiftyFiftySplit']+'" id="CheckboxGroup1_1" readonly checked>' +data['FiftyFiftySplit']);}
+        if(data['invoices']['Rent']) {
+        $(".rent").append('<input name="rent" type="text" class="input_pipup21" id="rent" value="'+data['invoices']['Rent']+'" readonly>');}
+        if(data['invoices']['AdjustCommission']) {
+        $(".commission").append('<input name="commission" type="text" class="input_pipup21" id="commission" value="'+data['invoices']['AdjustCommission']+'" readonly>');}
+        if(data['invoices']['FlatRate']) {
+        $(".flatrate").append('<input name="flatrate" type="text" class="input_pipup21" id="flatrate" value="'+data['invoices']['FlatRate']+'" readonly>');}
+
+if(data['invoices']['Bonus']) {
+        $(".bonus").append('<input name="bonus" type="text" class="input_pipup21" id="bonus" value="'+data['invoices']['Bonus']+'" readonly>');}
+        if(data['invoices']['AmountDueToVKP']) {
+        $(".totaldue").append('<input name="totaldue" type="text" class="input_pipup21" id="totaldue" value="'+data['invoices']['AmountDueToVKP']+'" readonly>');}
+
+        if(data['invoices']['DueToFirstAgent']) {
+        $(".duetofirst").append('<input name="duetofirst" type="text" class="input_pipup21" id="duetofirst" value="'+data['invoices']['DueToFirstAgent']+'" readonly>');}
+
+        if(data['invoices']['DueToSecondAgent']) {
+        $(".duetosecond").append('<input name="duetosecond" type="text" class="input_pipup21" id="duetosecond" value="'+data['invoices']['DueToSecondAgent']+'" readonly>');}
+        if(data['invoices']['Verifier']) {
+        $(".verifiedby").append('<input name="verifiedby" type="text" class="input_pipup21" id="verifiedby" value="'+data['invoices']['Verifier']+'" readonly>');}
+if(data['inv_property']['propertyName']) {
+        $(".cummunityname").append('<input name="cummunityname" type="text" class="input_pipup21" id="cummunityname" value="'+data['inv_property']['propertyName']+'" readonly>');}
+        if(data['inv_property']['MgmtCompID']) {
+        $(".mgtname").append('<input name="mgtname" type="text" class="input_pipup21" id="mgtname" value="'+data['inv_property']['MgmtCompID']+'" readonly>');}
+                if(data['inv_property']['propertyAd']) {
+        $(".address").append('<input name="address" type="text" class="input_pipup21" id="address" value="'+data['inv_property']['propertyAd']+'" readonly>');}
+        if(data['invoices']['bill_state_id']) {
+        $(".state").append('<input name="state" type="text" class="input_pipup21" id="state" value="'+data['invoices']['bill_state_id']+'" readonly>');}
+        if(data['invoices']['bill_city_id']) {
+        $(".city").append('<input name="city" type="text" class="input_pipup21" id="city" value="'+data['invoices']['bill_city_id']+'" readonly>');}
+        if(data['invoices']['bill_zipcode_id']) {
+        $(".zipcode").append('<input name="zipcode" type="text" class="input_pipup21" id="zipcode" value="'+data['invoices']['bill_zipcode_id']+'"readonly>');}
+
+        if(data['invoices']['TenantNames']) {
+        $(".tenantname").append('<input name="tenantname" type="text" class="input_pipup21" id="tenantname" value="'+data['invoices']['TenantNames']+'" readonly>');}
+
+        if(data['invoices']['TenantAddresss']) {
+        $(".taddress").append('<input name="taddress" type="text" class="input_pipup21" id="address" value="'+data['invoices']['TenantAddresss']+'" readonly>');}
+        if(data['invoices']['TenantUnitNo']) {
+        $(".unit").append('<input name="unit" type="text" class="input_pipup21" id="unit" value="'+data['invoices']['TenantUnitNo']+'" readonly>');}
+        // if(data['invoices']['bill_state_id']) {
+        // $(".tenantstate").append('<input name="tenantstate" type="text" class="input_pipup21" id="tenantstate" value="'+data['invoices']['bill_state_id']+'" readonly>');}
+
+        // if(data['invoices']['bill_city_id']) {
+        // $(".tcity").append('<input name="tcity" type="text" class="input_pipup21" id="tcity" value="'+data['invoices']['bill_city_id']+'" readonly>');}
+        // if(data['invoices']['bill_zipcode_id']) {
+        // $(".tzip").append('<input name="tzip" type="text" class="input_pipup21" id="tzip" value="'+data['invoices']['bill_zipcode_id']+'" readonly>');}
+        if(data['invoices']['LeaseStartDate']) {
+        $(".leasestart").append('<input name="leasestart" type="text" class="input_pipup21" id="leasestart" value="'+data['invoices']['LeaseStartDate']+'" readonly>');}
+       if(data['invoices']['Leaseterm']) {
+        $(".leaseterm").append('<input name="leaseterm" type="text" class="input_pipup21" id="leaseterm" value="'+data['invoices']['Leaseterm']+'" readonly>');}
+
+    
+         
+       
+       }
+    });
+
+    $('#squarespaceModal').modal('show');
+       
+});
+</script>
+<script type="text/javascript">
+   
+ $('#submitbtn').on('submit', function(event){
+event.preventDefault();
+
+ 
+var pro=$('#feeapproval_id').val();
+ 
+ 
+   $.ajax({
+    headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+   url:"{{url('admin_approval_invoice_store')}}"+'/'+pro,
+   method:"POST",
+   data:new FormData(this),
+   dataType:'JSON',
+   contentType: false,
+   cache: false,
+   processData: false,
+   success:function(data)
+   {
+    console.log(data.message);
+    $("#textmesage").append(data.message);
+  
+
+    
+         
+       alert('NO# '+data.last_insert_id + '   Invoice create successfully')
+ location.reload();
+   }
+  });
+  
+});</script>
+@endsection

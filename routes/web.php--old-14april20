@@ -1,0 +1,161 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Admin;
+
+
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Auth::routes();
+
+	Route::get('agents', 'HomeController@index')->name('home');
+	Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+
+	Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
+     
+
+
+
+
+
+
+
+Route::get('countries','Agent\Country\CountryController@index')->name('country.index');
+Route::get('countries/create','Agent\Country\CountryController@create')->name('country.create');
+// Route::post('countries/create','Agent\Country\CountryController@store')->name('country.store');
+Route::post('country/save','Agent\Country\CountryController@save')->name('compnay.save');
+
+Route::get('countries/edit/{id}','Agent\Country\CountryController@edit')->name('country.edit');
+Route::post('countries/update/{id}','Agent\Country\CountryController@update')
+ ->name('country.update');
+ Route::post('country/delete','Agent\Country\CountryController@delete')->name('country.delete');
+
+// Route::delete('countriees/create/{id}','Agent\Country\CountryController@destroy')
+// ->name('country.destroy');
+
+
+
+
+Route::get('offices','Agent\OfficeController\OfficeController@index')->name('office.index');
+
+Route::get('office/create','Agent\OfficeController\OfficeController@create')->name('office.create');
+
+Route::post('office/store','Agent\OfficeController\OfficeController@store')->name('office.store');
+
+Route::get('office/edit/{id}','Agent\OfficeController\OfficeController@edit')->name('office.edit');
+
+Route::post('office/create/{id}','Agent\OfficeController\OfficeController@update')->name('office.update');
+
+Route::delete('offices/create/{id}','Agent\OfficeController\OfficeController@destroy')->name('office.destroy');
+
+    
+
+
+Route::get('users/index','Admin\User\UserController@index')->name('user.index'); 
+Route::get('users/create/{id}','Admin\User\UserController@create')->name('user.create'); 
+Route::get('users/edit/{id}','Admin\User\UserController@edit')->name('users.edit');
+
+Route::post('users/store','Admin\User\UserController@store')->name('users.store');
+Route::post('users/create/{id}','Admin\User\UserController@update')->name('users.update');
+Route::get('users/index/{id}', 'Admin\User\UserController@status')->name('status');
+
+
+
+
+Route::get('company/info','admin\CompanyController@index')->name('company.index');
+Route::post('company/create','admin\CompanyController@create')->name('company.create');
+
+
+ 
+Route::get('rule/tiers','Rules\RulesController\RulesController@index')->name('rule.tiers');
+Route::post('ajax/{id}','Rules\RulesController\RulesController@post');
+
+Route::post('managetier/{id}','Rules\RulesController\RulesController@managetier');
+Route::post('ruledelete/{idelete}','Rules\RulesController\RulesController@delete');
+Route::post('tierdelete/{id}','Rules\RulesController\RulesController@tierdelete');
+Route::post('percent/{id}','Rules\RulesController\RulesController@managepercent');
+
+
+Route::get('compnay/managment','Company_Managment\company_managmentController@index')->name('compnay.managment');
+
+Route::get('compnay/managment/create','Company_Managment\company_managmentController@create')->name('compnay.managment.create');
+Route::post('compnay/managment/get_state','Company_Managment\company_managmentController@get_state')->name('compnay.managment.get_state');
+Route::post('compnay/managment/get_city','Company_Managment\company_managmentController@get_city')->name('compnay.managment.get_state');
+Route::post('compnay/managment/get_zip_code','Company_Managment\company_managmentController@get_zip_code')->name('compnay.managment.get_state');
+
+
+Route::post('compnay/managment/save','Company_Managment\company_managmentController@save')->name('compnay.managment.save');
+Route::post('compnay/managment/get_list','Company_Managment\company_managmentController@get_list')->name('compnay.managment.get_list');
+
+Route::get('compnay/managment/edit','Company_Managment\company_managmentController@edit')->name('compnay.managment.edit');
+Route::post('compnay/managment/update','Company_Managment\company_managmentController@update')->name('compnay.managment.update');
+
+
+
+Route::get('admin/form','adminform\adminformController@index')->name('compnay.form');
+Route::post('admin/form/save','adminform\adminformController@save')->name('compnay.form.save');
+Route::post('admin/form/edit','adminform\adminformController@edit')->name('compnay.form.edit');
+Route::post('admin/form/delete','adminform\adminformController@delete')->name('compnay.form.delete');
+
+Route::post('admin/state/save','Agent\State\StateController@state_create')->name('admin.state.save');
+Route::post('admin/state/get','Agent\State\StateController@get')->name('admin.state.get');
+Route::post('admin/state/delete','Agent\State\StateController@delete')->name('admin.state.delete');
+
+Route::post('admin/city/get_state','Agent\City\CityController@get_state')->name('admin.city.get_state');
+Route::post('admin/city/save','Agent\City\CityController@create')->name('admin.city.save');
+Route::post('admin/city/get','Agent\City\CityController@get')->name('admin.city.get');
+Route::post('admin/city/get_city','Agent\City\CityController@get_city')->name('admin.city.get_city');
+Route::post('admin/city/delete','Agent\City\CityController@delete')->name('admin.city.delete');
+
+
+Route::post('admin/zipcode/get_state','Agent\ZipCode\ZipCodeController@get_state')->name('admin.zipcode.get_state');
+Route::post('admin/city/save','Agent\ZipCode\ZipCodeController@create')->name('admin.zipcode.save');
+Route::post('admin/zipcode/get','Agent\ZipCode\ZipCodeController@get')->name('admin.zipcode.get');
+Route::post('admin/zipcode/get_city','Agent\ZipCode\ZipCodeController@get_city')->name('admin.zipcode.get_city');
+Route::post('admin/zipcode/delete','Agent\ZipCode\ZipCodeController@delete')->name('admin.zipcode.delete');
+
+
+Route::get('sidebar','Admin\User\UserController@sidebar')->name('sidebar');
+Route::get('agent/resource','Agent\AgentResource\AgentResourceController@index')->name('agent.resource');
+
+Route::get('propert/manage','Agent\property\PropertyController@index')->name('property.manage');
+Route::get('addmanagement','Agent\property\PropertyController@create');
+Route::post('postdata','Agent\property\PropertyController@post')->name('property.post');
+
+Route::get('get-state-list','Agent\property\PropertyController@getStateList');
+Route::get('get-city-list','Agent\property\PropertyController@getCityList');
+Route::get('get-zipcode-list','Agent\property\PropertyController@getZipcodeList');
+
+Route::post('postinvoice','Agent\property\PropertyController@postinvoices')->name('post.invoice');
+
+Route::post('comapnysubmit','Agent\property\PropertyController@postcomantname');
+
+Route::get('propertymanage/index','Admin\PropertyManage\PropertyManageController@index')
+->name('propertymanage.index');
+Route::post('propertymanage/get_property_list','Admin\PropertyManage\PropertyManageController@get_property_list')
+->name('getpropertylist');
+Route::get('propertymanage/edit','Admin\PropertyManage\PropertyManageController@edit')->name('propertymanagement.edit');
+Route::get('propertymanage/create','Admin\PropertyManage\PropertyManageController@create')->name('propertymanage.create');
+Route::get('prpoerty/search', 'Admin\PropertyManage\PropertyManageController@search')->name('propertymanage.search');
+
+Route::get('changepassword','Password\ChangepassController@index')->name('change.changepassword');
+Route::put('updatepassword','Password\ChangepassController@update');
+
+Route::get('admin/dashboard/notes','Admin\Notes\DashboardNoteController@index')->name('notes.index');
+
+Route::post('propertymanage/add','Admin\PropertyManage\PropertyManageController@store')->name('propertymanage.post');
+Route::any('propertymanage/update/{id}','Admin\PropertyManage\PropertyManageController@update');

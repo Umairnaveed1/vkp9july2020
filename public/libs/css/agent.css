@@ -1,0 +1,68 @@
+.add_property_w1
+{
+	width:992px;
+	margin:auto;
+}
+.add_property_w2 {
+    width: 466px;
+    margin: auto;
+}
+.clear10
+{
+	clear:both;
+	height:10px;
+}
+.qeustionmark_icon
+{
+	background-color:transparent !important;
+	border:none;
+	width:20px !important;
+	height:20px !important;
+}
+.qeustionmark_icon img
+{
+	width:20px !important;
+	height:20px !important;
+	margin-left:0px !important;
+	margin-top:-5px !important;
+}
+
+
+.attached_file{
+	padding-bottom: 33px;
+	border: 1px solid #d2d2e4 !important;
+	box-shadow: none !important;
+}
+
+
+@media (min-width: 768px) and (max-width: 1300px){
+
+.add_property_w1
+{
+	width:100%;
+	margin:auto;
+}
+.add_property_w2 {
+    width: 100%;
+    margin: auto;
+}
+
+}
+
+
+@media (min-width: 320px) and (max-width: 767px){
+
+.add_property_w1
+{
+	width:100%;
+	margin:auto;
+}
+.add_property_w2 {
+    width: 100%;
+    margin: auto;
+}
+.white_space_res
+{
+	white-space:normal !important;
+}
+}

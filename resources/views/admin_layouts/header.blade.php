@@ -21,4 +21,10 @@
             </ul>
         </div>
     </nav>
+    <br>
+    <div class="row m-n4">
+    <div class="col-md-3"></div>
+    <div class="col-12 col-sm-6 col-md-8">@include('admin_layouts.flash-message')</div>
+    </div>
 </div>
+

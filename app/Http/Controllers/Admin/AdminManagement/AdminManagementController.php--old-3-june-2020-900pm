@@ -1,0 +1,275 @@
+<?php
+
+namespace App\Http\Controllers\Admin\AdminManagement;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
+use Session;
+use Response;
+use App\Models\Invoices\Invoice;
+use App\Models\Properties\Property;
+use App\Models\Countries\Country;
+use App\Models\Agents\Agent;
+use App\Models\States\State;
+use App\Models\Cities\City;
+use App\Models\ZipCodes\ZipCode;
+use Validator;
+use App\Models\Admin\FeeApprovals\FeeApproval;
+use App\User;
+use App\Models\Agents\Hlholdingfees;
+
+
+class AdminManagementController extends Controller
+{
+	public function __construct()
+    {
+       $this->middleware('auth');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    } 
+	public function manage_invoices(){   
+		 $Invoice=New Invoice();
+		 $result = $Invoice->with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users')->paginate(10);
+		 $viewData['result']=$result;
+        return view('admin/admin_management/manage_invoices',$viewData); 
+    }
+    public function manage_payments(){
+        return view('admin/admin_management/manage_payments');
+    }  
+    public function approval_screen(){
+        return view('admin/admin_management/approval_screen'); 
+    }
+	public function feeRecieptScreen()
+	{
+        $feeReciepts = Hlholdingfees::where('verifiedby','0')->with('hl_agent','hl_property','users')->paginate(10);
+        $viewData['feeReciepts']=$feeReciepts;
+        return view('admin/admin_management/feeRecieptScreen',$viewData); 
+    }
+	public function approveHoldingfee(Request $request){
+		$Hlholdingfees=New Hlholdingfees();
+		$id=$request->post('id');
+		$status=$request->post('status');
+		$Hlholdingfees=$Hlholdingfees->find($id);
+		if($Hlholdingfees) {
+		$Hlholdingfees->verifiedby =$status;
+		$Hlholdingfees->save();
+		}
+			return response()->json([
+					'message'   => 'Form Data Updated Successfully',
+					'data' => 'success'
+					]);
+	} 
+      public function feeapproval(Request $request){
+        $approvalfee = New FeeApproval();
+        $id=$request->post('id');
+        $status=$request->post('status');
+        $approvalfee=$approvalfee->find($id);
+        if($approvalfee) {
+        $approvalfee->status =$status;
+        $approvalfee->save();
+        }
+            return response()->json([
+                    'message'   => 'Form Data Updated Successfully',
+                    'data' => 'success'
+                    ]);
+    } 
+	
+    public function store_feeRecieptRCVD(Request $request)
+    {
+        exit();
+        foreach ($request->feeRecieptRCVD as $value) {
+            $where = array('country_id' => $value);
+        }
+    }
+    public function feeholdScreen()
+    {
+        $feeholds = Hlholdingfees::where('verifiedby','!=','0')->with('hl_agent','hl_property','users')->paginate(10);
+        $viewData['feeholds']=$feeholds;
+        return view('admin/admin_management/feeholdScreen',$viewData); 
+    } 
+    public function print_FeeRecieptScreen()
+    {
+        $feeReciepts = Hlholdingfees::where('verifiedby','0')->with('hl_agent','hl_property','users')->paginate(10);
+        $viewData['feeReciepts']=$feeReciepts;
+        return view('admin/admin_management/print_feeRecieptScreen',$viewData);
+    }
+    public function getFeeholdScreen(Request $request)
+    {
+        $feeholdData = Hlholdingfees::where('id',$request->feehold_id)->with('hl_agent','hl_property','users')->get();
+        return json_encode($feeholdData);
+    }
+       public function admin_approval(Request $request){
+
+
+        $Invoice = New Invoice();
+        $result = $Invoice->with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users','inv_agent','feeapprovals')
+        ->paginate(10);
+       // dd($result);
+        $viewData['result']=$result;
+       $user_id =  Auth::user()->id;
+        $invoice_id = $request['invoice_id'];
+        if($invoice_id){
+        $invoice_id = $request['invoice_id'];
+        }
+        else{
+            $get_invoice_id = Invoice::first();
+            $invoice_id = $get_invoice_id['id'];
+        }
+        $where = array('id' => $invoice_id);
+        $data['get_invoice_info'] = Invoice::with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users','inv_agent')
+        ->where($where)->first();
+              // dd($approvalfee);    
+              $feeapprovalsdata = FeeApproval::with('apartmentbillings','hlbillings','hsbillings','users','invoices','inv_property','inv_agent')->paginate(15);   
+               $viewData['feeapprovalsdata']=$feeapprovalsdata; 
+               //dd($feeapprovalsdata);
+        $request->validate(
+            [
+            'approved' => 'sometimes',
+            'rejected' => 'sometimes',
+            ]);
+        //$feeapprovals =  FeeApproval::find(Auth::user()->id);
+        //$feeapprovals->status = $request->get('status');
+        //$feeapprovals->save();
+        // dd($result);
+     
+        return view('admin/admin_management/admin_approval',$viewData,$data); 
+    }
+     public function admin_approval_invoice(Request $request){
+      
+        $viewData['billingno'] = $billingno;
+        $Invoice = New Invoice();
+        $result = $Invoice->with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users','inv_agent')->get();
+        $viewData['result']=$result;
+        $get_agents = Agent::all();
+          dd($get_agents);
+
+        $request->validate(
+            [
+            'approved' => 'sometimes',
+            'rejected' => 'sometimes',
+            ]);
+        $feeapprovals =  new Invoice();
+        $feeapprovals->approved = $request->get('approved');
+        $feeapprovals->rejected = $request->get('rejected');
+        $feeapprovals->save();
+        // dd($result);
+     
+        return view('admin/admin_management/admin_approval',$viewData,$data,compact('feeapprovals','billingno','billingrec')); 
+    }
+	 public function deposit(){
+        return view('admin/admin_management/manage_deposit'); 
+    }
+    public function detial_feehold(Request $request,$id){
+
+       
+       $where = array('id' => $id);
+       // $get_invoice_info = Invoice::with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users','inv_agent')
+       //  ->where($where)->first();
+        $get_invoice_info = FeeApproval::with('apartmentbillings','hlbillings','hsbillings','users','invoices','inv_property','inv_agent')->where($where)->first();
+        // dd($get_invoice_info);
+      
+        return response()->json($get_invoice_info);
+    }
+    public function invstore(Request $request ,$id)
+    {
+      
+         
+         $invoice = FeeApproval::find($id);
+         
+        $invoice->status = 3;
+        $invoice->agentnotes = $request->agent_comment;
+        $invoice->adminnotes = $request->admin_comment;
+        // $invoice->invoice_type = null;
+        // $invoice->FirstagentId = $request->firstagentid;
+        // $invoice->InvoiceHold  = $request->onhold;
+      //   $invoice->FirstAgentCommPercentage = $request->agentcommision;
+      //   $invoice->SecondAgentID = $request->secondagentid;
+      // $invoice->FiftyFiftySplit = $request->CheckboxGroup1;
+      // $invoice->Rent = $request->rent;
+   
+      $invoice->approvaldate = $request->todaydate;
+
+ 
+
+       
+        
+        $invoice->save();
+ 
+        // return Response::json(array('success' => true, 'last_insert_id' => $invoice->id), 200);
+       return Response::json(array('success' => true, 'last_insert_id' => $invoice->id ,'message'=>'Invoice added sucessfully'), 200);
+    }
+}

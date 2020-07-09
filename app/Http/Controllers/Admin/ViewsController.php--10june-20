@@ -1,0 +1,146 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
+use Session;
+use App\Models\Invoices\Invoice;
+use App\Models\Properties\Property;
+use App\Models\Countries\Country;
+use App\Models\Agents\Agent;
+use App\Models\States\State;
+use App\Models\Cities\City;
+use App\Models\ZipCodes\ZipCode;
+use Validator;
+use App\Models\Admin\FeeApprovals\FeeApproval;
+use App\User;
+use App\Models\Agents\Hlholdingfees;
+class ViewsController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+	  public function __construct()
+    {
+       $this->middleware('auth');
+    }
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+    public function view_approved_bill(){
+		$feeapprovalsdata = FeeApproval::where('status','=','1')->with('apartmentbillings','hlbillings','hsbillings','users','invoices')->paginate(10);  
+        return view('agent/billviews/view_approved_bill',compact('feeapprovalsdata'));
+    }
+      public function viewapprovedbill(Request $request, $id){
+        // $feeapprovalsdata = FeeApproval::where('status','=','1')->with('apartmentbillings','hlbillings','hsbillings','users','invoices')->get(); 
+        $feeapprovalsdata = FeeApproval::where('status','=','1')->
+              with('apartmentbillings','hlbillings','hsbillings','users','invoices','inv_property','inv_agent')->findorFail($id);  
+              $invoicecount = Invoice::count();
+        // dd($feeapprovalsdata); 
+        return view('agent/billviews/viewapprovedbill',compact('feeapprovalsdata','invoicecount'));
+    }
+
+    public function auto_home_hold_fee()
+    {
+        $autoHomeHoldFees = Hlholdingfees::where('verifiedby','1')->with('hl_agent','hl_property','users')->paginate(10);
+        $viewData['autoHomeHoldFees']=$autoHomeHoldFees;
+        return view('agent/billviews/auto_home_hold_fee',$viewData);
+    }
+    public function get_auto_home_hold_fee(Request $request)
+    {
+        $feeholdData = Hlholdingfees::where('id',$request->feehold_id)->with('hl_agent','hl_property','users')->get();
+        return json_encode($feeholdData);
+    }
+    public function view_pending_fee()
+    {
+
+	    $feeapprovalsdata = FeeApproval::where('status','=','0')->with('apartmentbillings','hlbillings','hsbillings','users','invoices')->paginate(10);  
+        
+		// echo'<pre>';
+		// print_r($feeapprovalsdata[0]['hsbillings']);
+		// echo'</pre>';
+		// die; 
+		return view('agent/billviews/view_pending_fee',compact('feeapprovalsdata')); 
+    }
+    public function get_view_pending_fee(Request $request)
+    {
+        $feeapprovalsdata = FeeApproval::where('id',$request->fee_pending_id)->with('apartmentbillings','hlbillings','hsbillings','users','invoices')->get();
+        //echo "<pre>"; print_r($feeapprovalsdata); exit('okiii');
+        return json_encode($feeapprovalsdata);
+    }
+    public function view_rejected_bill(){
+		$feeapprovalsdata = FeeApproval::where('status','=','2')->with('apartmentbillings','hlbillings','hsbillings','users','invoices')->paginate(10);  
+        return view('agent/billviews/view_approved_bill',compact('feeapprovalsdata'));
+    }
+}

@@ -1,0 +1,847 @@
+@extends('admin_layouts.layout')
+@section('content')        
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+               
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Property Main Screen </h2>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                         
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div>
+                        <label>Property search bar</label>
+                        <input name="" class="form-control" type="text"></div>
+                        <div class="clear5"></div>
+                                <div class="card egent_list_box">
+                                    <h5 class="card-header">Property List
+ <img src="images/agent_list_icon.png" width="20" height="25" alt=""> </h5>
+                                    <div class="card-body agent_list_body">
+                                    
+                                    <ul>	
+
+
+
+
+
+
+                                    @foreach($get_property_data as $property_list)
+                                    <li>
+                                      <a href="{{ url('propertymanage/index?') .'property_id='. $property_list['id'] }}">
+                                      <i class="fa fa-angle-right" aria-hidden="true">
+                                        
+                                      </i> 
+                                    {{ $property_list['propertyName'] }}</a>
+                                  </li>
+                                      @endforeach  
+                                    </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                
+                                <div class="col-xl-12  text-left">
+                                    
+                         
+
+
+                          <label class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" name="radio-inline" checked="" class="custom-control-input">
+                      <span class="custom-control-label">Property Name</span>
+                                            </label>
+                                            <div class="clear5"></div>
+                        <label class="custom-control custom-radio custom-control-inline">
+   <input type="radio" name="radio-inline" class="custom-control-input">
+   <span class="custom-control-label">Address</span>
+                                            </label>
+                                            <div class="clear5"></div>
+                                            <label class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">Management Company</span>
+                                            </label>
+          </div>
+           <div class="clear20"></div>
+                                 <a href="{{route('propertymanage.create')}}" class="btn_add_agent_p2 "> ADD PROPERTY</a>
+                                 <div class="clear20"></div>
+                                  <a href="#" class="btn_add_agent_p2 m-0">Show Inactive</a>
+                                    <div class="clear20"></div>
+                                   <a href="#" class="btn_add_agent_p2 m-0"> Delete Property</a>
+                                  
+                                   <div class="clear20"></div>
+                                  
+                                  
+                                  </div>
+                                 
+                            </div>
+                           
+                            <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
+                            
+                           
+
+
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-0">
+                            <div class="row">
+                            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card card_address">
+                                    <div class="card-body property_table_res2">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+  <tr>
+    <td class="address_td_1">Property Name :</td>
+    <td class="address_td_1 propertyname_1">
+    @if(isset($get_property_info['propertyName']))
+    {{ $get_property_info['propertyName'] }}
+    @else
+    Property Name
+    @endif
+    </td>
+
+  </tr>
+  <tr>
+    <td class="address_td_2">Address:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['propertyAd']))
+    {{ $get_property_info['propertyAd'] }}
+    @else
+    Property Address
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">City:</td>
+    <td class="address_td_2 city_1">
+    @if(isset($get_property_info['city_list']['cityname']))
+    {{ $get_property_info['city_list']['cityname'] }}
+    @else
+    City Name
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">State:</td>
+    <td class="address_td_2 state_1">
+    @if(isset($get_property_info['state_list']['statename']))
+    {{ $get_property_info['state_list']['statename'] }}
+    @else
+    State Name
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Zip:</td>
+    <td class="address_td_2 zip_1">
+    @if(isset($get_property_info['zipcode_list']['zipcode']))
+    {{ $get_property_info['zipcode_list']['zipcode'] }}
+    @else
+    Zipcode 
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Country:</td>
+    <td class="address_td_2 country_1">
+    @if(isset($get_property_info['country_list']['countryname']))
+    {{ $get_property_info['country_list']['countryname'] }}
+    @else
+    Country Name 
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Phone #:</td>
+    <td class="address_td_2 propertyphone_1">
+    @if(isset($get_property_info['propertyphone']))
+    {{ $get_property_info['propertyphone'] }}
+    @else
+    Property Phone 
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2 ">Fax #:</td>
+    <td class="address_td_2 propertyfax_1">
+    @if(isset($get_property_info['propertyFax']))
+    {{ $get_property_info['propertyFax'] }}
+    @else
+    Property Fax 
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Email:</td>
+    <td class="address_td_2 propertyemail_1">
+    @if(isset($get_property_info['propertyEmail']))
+    {{ $get_property_info['propertyEmail'] }}
+    @else
+    Property Eamil
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">
+    <form class="active_1">
+    
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-label "></span>Active</label>
+                </form>
+	        
+			
+			
+	</td>
+    <td class="address_td_2">
+	
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-label"></span>Inactive</label>
+            
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="address_td_2">
+	
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-label"></span>Mail Billing Address</label>
+            
+	</td>
+    <td class="address_td_2"></td>
+  </tr>
+  
+</table>
+          </div>   
+		  </div>  
+		  </div>  
+		  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card card_address">
+                                    <div class="card-body property_table_res2">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+  <tr>
+    <td class="address_td_1">Management Name:</td>
+    <td class="address_td_1">
+    @if(isset($get_property_info['MgmtCompName']))
+    {{ $get_property_info['MgmtCompName'] }}
+    @else
+     Management Comapany Name 
+    @endif
+    </td>
+
+  </tr>
+  <tr>
+    <td class="address_td_2">Address:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['MgmtCompAddress']))
+    {{ $get_property_info['MgmtCompAddress'] }}
+    @else
+     Management Comapany Address 
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">City:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['city_list']['cityname']))
+    {{ $get_property_info['city_list']['cityname'] }}
+    @else
+    City Name
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">State:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['state_list']['statename']))
+    {{ $get_property_info['state_list']['statename'] }}
+    @else
+    State Name
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Zip:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['zipcode_list']['zipcode']))
+    {{ $get_property_info['zipcode_list']['zipcode'] }}
+    @else
+    ZipCode
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Country:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['country_list']['zipcode']))
+    {{ $get_property_info['country_list']['countryname'] }}
+    @else
+    Country Name
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Phone #:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['Mgmtphonenumber']))
+    {{ $get_property_info['Mgmtphonenumber'] }}
+    @else
+     Management Phone Number  
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Fax #:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['Mgmtfaxnumber']))
+    {{ $get_property_info['Mgmtfaxnumber'] }}
+    @else
+     Management fax Number  
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">Email:</td>
+    <td class="address_td_2">
+    @if(isset($get_property_info['MgmtEmail']))
+    {{ $get_property_info['MgmtEamil'] }}
+    @else
+     Management Eamil  
+    @endif
+    </td>
+  </tr>
+  <tr>
+    <td class="address_td_2">
+	
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-label"></span>Active</label>
+            
+			
+			
+	</td>
+    <td class="address_td_2">
+	
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-label"></span>Inactive</label>
+            
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="address_td_2">
+	
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-label"></span>Mail Billing Address</label>
+            
+	</td>
+    <td class="address_td_2"></td>
+  </tr>
+</table>
+          </div>   
+		  </div>  
+		  </div>  
+		  </div>  </div>  
+          
+          
+          
+                                
+                          
+                        
+                    
+                          
+                                    
+                     
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0">
+                            <div class="card card_address">
+                                    <div class="card-body property_table_res2">
+                                        
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  
+  
+  
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+          <tr>
+            <td colspan="2" class="address_td_2"><strong>Alternative Billing Information:</strong></td>
+          </tr>
+          <tr>
+            <td class="address_td_2">Name:</td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="32%" class="address_td_2">Address:</td>
+            <td width="68%" class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2">State:</td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2">City:</td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2">Zip:</td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2">Phone  #:</td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2">Fax #:</td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2">Email : </td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address_td_2"><label class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input">
+              <span class="custom-control-label"><span class="address_td_2">Main  Billing Address</span></span></label></td>
+            <td class="address_td_2">&nbsp;</td>
+          </tr>
+        </table></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+
+                                          </div>
+                                          
+                                          
+                                          
+                                    </div>
+                                </div>
+                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0">
+                            <div class="card card_address">
+                                    <div class="card-body property_table_res2">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+	<tr>
+    <td width="100%" valign="top">
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="property_manage_table">
+      <tr>
+        <td><strong>Alternative Notes:</strong> </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="custom-control custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-label  line_height_custom"> Use Billing Address as Payee for AutoPay</span></label>
+        </td>
+      </tr>
+      <tr class="address_table">
+        <td class="address_td_1 right_td_alternative_billing">
+          <label class="custom-control custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-label  line_height_custom"> E-Mail Invoice Required </span></label>
+        </td>
+      </tr>
+      <tr class="address_table">
+        <td class="address_td_1 right_td_alternative_billing">
+        
+        <span class="address_td_2 ">
+          <input name="input" class="property_manage_input form-control" placeholder="Email Address: " type="text">
+        </span></td>
+      </tr>
+      <tr class="address_table">
+      <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+                                    
+                                        </div> 
+										</div>  
+										</div>
+                 </div>  
+                             
+                              <div class="row">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="card card_address">
+                                    <div class="card-body property_table_res2">
+                                    
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="address_table">
+          <tr>
+            <td height="40" colspan="2" class="address_td_1"><strong>Alternative Billing Requirements:</strong></td>
+          </tr>
+          <tr>
+            <td width="10%" align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td width="90%" align="left" class="address_td_2">Do Not Place</td>
+          </tr>
+          <tr>
+            <td align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td align="left" class="address_td_2">Off Line </td>
+          </tr>
+          <tr>
+            <td align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td align="left" class="address_td_2">On Hold </td>
+          </tr>
+          <tr>
+            <td align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td align="left" class="address_td_2">Legal</td>
+          </tr>
+          <tr>
+            <td align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td align="left" class="address_td_2">Slow Pay</td>
+          </tr>
+          <tr>
+            <td align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td align="left" class="address_td_2">Not Advancable</td>
+          </tr>
+          <tr>
+            <td align="left" class="address_td_1">
+              <label class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" />
+                <span class="custom-control-label"></span></label>
+            </td>
+            <td align="left" class="address_td_2">Guarantee Contract</td>
+          </tr>
+        </table>
+                                    
+                                    
+                                    </div>  </div>  </div>  
+                                    
+                                    
+                                    
+                                    
+									 <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="card card_address">
+                                    <div class="card-body property_table_res2">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="property_manage_table">
+      <tr>
+        <td width="60%" class="address_td_1">Last Contract Date :</td>
+        <td width="40%" class="address_td_1">03/13/2020 </td>
+      </tr>
+      <tr>
+        <td><strong>Contract Type :</strong></td>
+        <td><div class="form-group" style="margin-right:10px;">
+                               
+                                    <select class="form-control cust_frm_cntrl" id="sel1" >
+                                      <option>CD</option>
+                                    </select>
+                                </div></td>
+      </tr>
+      <tr>
+        <td><label class="custom-control custom-checkbox custom-control-inline ">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-label line_height_custom">No Contract</span></label>
+          </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><label class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-label line_height_custom">Auto Pay</span></label>
+          </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><label class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-label line_height_custom">Super Auto Pay</span></label>
+          </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><label class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-label line_height_custom">Real Estate Company</span></label>
+          </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><label class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-label line_height_custom">Inactive</span></label>
+          </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+	</tr>
+	
+</table>
+                                    
+                                        </div> 
+										</div>  
+										</div> 
+                             
+
+
+
+										</div>  
+                                    
+                      
+                          
+                         
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                          <div class="row">
+                          <div class="col-sm-12">
+                         
+                          
+                          <a href="{{ url('propertymanage/edit?') . 'id=' .  $get_property_info['id'] }}" class="btn_add_agent edit_property"><img src="images/edit_icon.png" alt=""> Edit</a>
+                          
+                          <a href="#" class="btn_add_agent"><img src="images/save_icon.png" alt=""> Save</a>
+                          
+                          <a href="#" class="btn_add_agent"><img src="images/cancel_icon.png" alt=""> Cancel</a>
+                          
+                          
+                          </div> 
+                          </div>
+                          
+                          
+                             <div class="clear20"></div>
+                          <div class="col-xl-12 p-0">
+                            <div class="card card_address">
+                                    <div class="card-body">
+                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
+                                        <thead>
+                                            <tr>
+                                           					
+                                                <th width="13%" scope="col">Date</th>
+                                                <th width="15%" scope="col">Time</th>
+                                             
+                                                <th width="35%" scope="col">
+                                            Managment Company
+                                           </th>
+                                                <th width="13%" scope="col">&nbsp;</th>
+                                                <th width="5%" align="center" scope="col">A</th>
+                                              <th width="13%" scope="col" align="center">User</th>
+                                                <th width="3%" scope="col">Bill <br>
+                                                Note</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                     
+                                                <td align="left" scope="row"> 03/02/2020</td>
+                                                <td align="left"> 3:11 AM</td>
+                                                <td align="left">5 star management Company</td>
+                                                <td>	tft</td>
+                                                <td align="center"><img src="images/pdf.png" class="card_address_img_property"  alt=""></td>
+                                          <td align="left">admin</td>
+                                                <td align="center">
+          <label class="custom-control custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-label"> </span></label>
+        </td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row"> 03/02/2020
+                                                </td>
+                                              <td align="left"> 3:11 AM</td>
+                                              <td align="left">5 star management Company</td>
+                                              <td> tft</td>
+                                           <td align="center"><img src="images/pdf.png" class="card_address_img_property"  alt=""></td>
+                                              <td align="left">admin</td>
+                                              <td align="center">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                  <input type="checkbox" class="custom-control-input">
+                                                  <span class="custom-control-label"> </span></label>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td align="left" scope="row"> 03/02/2020
+                                                </td>
+                                              <td align="left"> 3:11 AM</td>
+                                              <td align="left">5 star management Company</td>
+                                              <td> tft</td>
+                                             <td align="center"><img src="images/pdf.png" class="card_address_img_property"  alt=""></td>
+                                              <td align="left">admin</td>
+                                              <td align="center">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                  <input type="checkbox" class="custom-control-input">
+                                                  <span class="custom-control-label"> </span></label>
+                                              </td>
+                                            </tr>
+
+                                            <tr>
+                                              <td align="left" scope="row"> 03/02/2020
+                                                </td>
+                                              <td align="left"> 3:11 AM</td>
+                                              <td align="left">5 star management Company</td>
+                                              <td> tft</td>
+                                            <td align="center"><img src="images/pdf.png" class="card_address_img_property" alt=""></td>
+                                              <td align="left">admin</td>
+                                              <td align="center">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                  <input type="checkbox" class="custom-control-input">
+                                                  <span class="custom-control-label"> </span></label>
+                                              </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    
+                                    <div class="row">
+                          <div class="col-sm-12 meg_btn_general mrg_left_5_property">
+                                                                                                          
+                          <a href="#" class="btn_general_h btn_general_h_active"> Print</a>
+                          
+                          <a href="#" class="btn_general_h"> Delete</a>
+                           <a href="#" class="btn_general_h"> Detail</a>
+                           <a href="#" class="btn_general_h"> Add Note</a>
+                           <a href="#" class="btn_general_h"> Add Contract </a>
+                             
+                          
+                          
+                          </div> 
+                          </div>
+                                    </div>
+                                    
+                                    </div></div>
+                                      
+          
+          
+          
+                          
+                            <div class="clear5"></div>
+                          
+                          <div class="row">
+                          <div class="col-sm-12 meg_btn_general">
+                                                                                                    
+                          <a href="#" class="btn_general_h btn_general_h_active"> General / Notes</a>
+                          
+                          <a href="#" class="btn_general_h"> Transactions</a>
+                           <a href="#" class="btn_general_h"> Delinquencies</a>
+                           <a href="#" class="btn_general_h"> System Notes</a>
+                           <a href="#" class="btn_general_h"> Email Invocies</a>
+                          
+                          
+                          </div> 
+                          </div>
+                             <div class="clear20"></div>
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <script type="text/javascript">
+   $('.get_company').on('click', function(){
+    $('.zip_id').html('');
+      var get_company = $(this).attr('data-attr-id');
+      
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      $.ajax({
+        type:"POST",
+        url: "{{ url('propertymanage/get_property_list') }}",
+        data: {get_company:get_company},
+        success: function(data){
+          console.log(data);
+          $('.active_1').html('');
+         $('.propertyname_1').text(data['propertyName']);
+         $('.country_1').text(data['country_list']['countryname']);
+         $('.state_1').text(data['state_list']['statename']);
+         $('.city_1').text(data['city_list']['cityname']);
+         $('.zip_1').text(data['zipcode_list']['zipcode']);
+         $('.propertyfax_1').text(data['propertyFax']);
+         $('.propertyphone_1').text(data['propertyphone']);
+         $('.propertyemail_1').text(data['propertyEmail']);
+         $('.propertyad_1').text(data['propertyAd']);
+         $('.edit_property').attr('href', url +"?id="+data['id']);
+         if(data['active'] == 1){
+          $('.active_1').append('<label class="custom-control custom-checkbox custom-control-inline">'+
+                                                '<input type="checkbox" class="custom-control-input" checked><span class="custom-control-label"></span>'+
+                                            '</label>');
+         }
+         else{
+          $('.active_1').append('<label class="custom-control custom-checkbox custom-control-inline">'+
+                                                '<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>'+
+                                            '</label>');
+         }
+        }
+      });
+
+   });
+ </script>
+@endsection
+
+  
+    
+    
+    
+     
