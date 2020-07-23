@@ -49,6 +49,7 @@ public function __construct()
     	// $data['get_property_data'] = Property::where('propertyadminid' ,'!=', NULL)->get();
        $data['get_property_data'] = Property::all();
       
+
    $data_note = DB::table('propertiesnotes')
 ->select('propertynotesdate','propertynotestime','propertynotes','propertynotesattachment','id','propertyID')
 ->where(['propertyID' => $property_id])
@@ -96,15 +97,16 @@ public function __construct()
     	$get_property = $request->id;
  
 		$where = array('id' => $get_property);
-    $get_property = Property::with('country_list','state_list','city_list','zipcode_list')
+        $get_property = Property::with('country_list','state_list','city_list','zipcode_list')
         ->where($where)->first();
 
         $idsArr = explode(',',$get_property['admininvoices']);
- 
-          
-         $thiswhere =array('id' => $get_property);
+        
+        $inactive = $get_property['PropertyInactive'];
+        //dd($inactive);
+        $thiswhere =array('id' => $get_property);
         $get=Property::with('mangment_company')->where($where)->first();
-
+        
 
     	$data['get_property_data'] = Property::all();
        $get_property_data1 = Property::where($where)->get();
@@ -113,7 +115,7 @@ public function __construct()
  
  
  
-    	return view('admin.property_manage.property_edit', $data ,compact('company_managment','get_property','get','get_property_data1','idsArr'));
+    	return view('admin.property_manage.property_edit', $data ,compact('company_managment','get_property','get','get_property_data1','idsArr','inactive'));
     }
 
 
@@ -121,6 +123,7 @@ public function __construct()
     public function store(Request $request)
     {
          
+        //dd($request->all());
 
 
         $user_id =  Auth::user()->id;
@@ -155,7 +158,7 @@ $arrstring = implode(",", $request->invoices);
             $data->propertyAd = $request->propertyAd;
             $data->propertyphone = $request->propertyphone;
             $data->propertyFax = $request->propertyFax;
-            $data->altpropertyname = $request->propertyAltNo;
+            $data->propertyAltNo = $request->propertyAltNo;
             $data->propertyEmail = $request->email;
             $data->MgmtCompID = $request->mgt;
             $data->country_id = $request->country;
@@ -176,8 +179,8 @@ $arrstring = implode(",", $request->invoices);
             $data->propertyguaranteecontract = $request->propertyguaranteecontract;
             // $data->propertyadminid = $user_id;
             $data->user_id = $user_id;
-
- 
+            //dd($request->PropertyInactive);
+            //dd($data);
     $data->save();
      Session::flash('message', 'Data has been Submit!'); 
     return redirect()->back();
@@ -192,7 +195,8 @@ $arrstring = implode(",", $request->invoices);
 
 public function update(Request $request ,$id)
 {
-
+//dd($request->propertyAltNo);
+//dd($request->PropertyInactive);
     
     $user_id =  Auth::user()->id;
 
@@ -228,7 +232,7 @@ public function update(Request $request ,$id)
             $data->propertyAd = $request->propertyAd;
             $data->propertyphone = $request->propertyphone;
             $data->propertyFax = $request->propertyFax;
-            $data->altpropertyname = $request->propertyAltNo;
+            $data->propertyAltNo = $request->propertyAltNo;
             $data->propertyEmail = $request->email;
             $data->MgmtCompID = $request->mgt;
             $data->country_id = $request->country;
@@ -238,7 +242,7 @@ public function update(Request $request ,$id)
             $data->lastcontract = $request->lastdatepic;
             $data->abbrevation = $request->abbrevation;
             $data->admininvoices = $inputval['invoices'];
-            $data->PropertyInactive = $request->Inactive;
+            $data->PropertyInactive = $request->PropertyInactive;
             $data->propertynocontract = $request->Contract;
             $data->PropertyAutopay = $request->autopay;
             $data->PropertySlowpay = $request->PropertySlowpay;
@@ -248,7 +252,8 @@ public function update(Request $request ,$id)
             $data->propertylegal = $request->propertylegal;
             $data->propertyguaranteecontract = $request->propertyguaranteecontract;
             // $data->propertyadminid = $user_id;
-          
+          //dd($data);
+          //dd($data->PropertyInactive);
             $data->save();
              Session::flash('message', 'Data has been Updated!'); 
     return redirect()->back();
@@ -359,6 +364,14 @@ $print_note = DB::table('propertiesnotes')
  
 
 return view('admin.property_manage.print',compact('print_note')); 
+    }
+
+    public function destroy($id)
+    {
+        $del = Property::find($id);
+        $del->delete();
+        return redirect(route('propertymanage.index'));
+
     }
 
 }

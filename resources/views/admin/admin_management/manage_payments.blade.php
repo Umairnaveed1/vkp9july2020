@@ -1,777 +1,475 @@
         @extends('admin_layouts.layout')
 
-@section('content')
-
-         <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
-
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
-                                <h2 class="pageheader-title"> PAYMENTS SCREEN </h2>
-                              
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ecommerce-widget">
-
-                        <div class="row">
-                       
-                        
-                           
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                   
-                                                   
-                          <div class="mrg_addres_area">
-                          <div class="col-sm-12">
-                         
-                            <div class="row">
-                            <div class="col-sm-12 col-12">
-                            <div class="card card_address pl-3 pr-3">
-                                    <div class="card-body add_office_cardbody ">
-                                    <div class="payment_w_1"> 
-                                    <form  id="validationform" data-parsley-validate="" novalidate="">
-                                        <div class="col-lg-12 col-12">
-                                            <div class="row">
-                                            <div class="col-12 col-md-12 col-lg-6">
-
-                                                    <div class="form-group ">
-                                                        <label for="sel1">To Date : </label>
-                                                        <div class="">
-                                                               <input id="datepicker3" />
-                                                        </div>
-                                                    </div>   
-                                                </div> 
-                                                      <div class="col-12 col-md-12 col-lg-6">
-                                                      <div class="form-group">
-                                                    <label for="text">Refrence #</label>
-                                                    <input type="number" class="form-control" id="text" name="email">
-                                                  </div> 
-                                                   </div>  
-                                                </div>
-                                  <div class="col-lg-12 col-12">                     
-                                        <div class="form-group mb-0">
-                                            <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" checked="" class="custom-control-input">
-                                                <span class="custom-control-label">Check</span>
-                                            </label>
-                                            <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" class="custom-control-input">
-                                                <span class="custom-control-label">Cash</span>
-                                            </label>
-                                            <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" class="custom-control-input">
-                                                <span class="custom-control-label">Money Order</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">  
-                                        <div class="col-12 col-md-12 col-lg-6"> 
-                                        <div class="form-group">
-                                            <label for="text">Amount $ :    </label>
-                                            <div class="">
-                                                <input type="number" required="" data-parsley-maxlength="8" placeholder="" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                     <div class="col-12 col-md-12 col-lg-6">    
-                                                    <div class="form-group ">
-                                                        <label for="text">Recvd From :  </label>
-                                                        <div class="">
-                                                            <input type="text" required="" data-parsley-min="6" placeholder="" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                </div>
-
-                                         
-                                             
-                                        
-                                         <div class="row">
-                                    
-                                     <div class="col-12 col-md-12 col-lg-6">   
-                                        <div class="form-group ">
-                                            <label for="text">Invoice # :</label>
-                                            <input type="number" required="" data-parsley-maxlength="8" placeholder="" class="form-control" id="invoice_number">
-                                        </div>
-                                    </div>
-
-                                            <div class="col-12 col-md-12 col-lg-6">
-
-                                                        <div class="form-group ">
-                                                            <label for="text">Applied : </label>
-                                                            <input type="text" required="" data-parsley-maxlength="8" placeholder="" class="form-control">
-                                                        </div>
-                                            </div>
-                                            </div>
-                                            
-                                                <div class="payment_w_3">                                      
-                                        <div class="col-12">
-                                        <div class="form-group row text-left">
-                                            <div class="">
-                                                <button type="button" class="btn btn-space btn_promary_custom" id="view_invoice" data-toggle="modal">View</button>
-                                                <button type="submit" class="btn btn-space btn_promary_custom" id="add_invoice">Add</button>
-                                                <button class="btn btn-space btn_promary_custom">Search</button>
-                                            </div>
-                                        </div>
-                                    
-                                </div>
-
-                            </div>
-                                </div>
-                                    </form>
-                               
-
-
-
-
-                                
-     
-            
-     
-    
-                                          </div>
-                                    </div>
-                                </div>
-                                
-                                
-                                
-                                
-                       
-                            
-                          
-                           </div>
-                          
-                          </div>
-                          
-                          <div class="row search_row" style="display: none">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                   <div class="mrg_addres_area">
-                          <div class="col-sm-12">
-                         <div class="row">
-                            <div class="col-sm-12 col-12">
-                            <div class="card card_address">
-                                    <div class="card-body">
-                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
-                                        <thead>
-                                            <tr>
-                                              <th width="13%" scope="col">Del</th>
-                                                <th width="13%" scope="col">Invoice Date</th>
-                                                <th width="18%" scope="col">Invoice No</th>
-                                                <th width="16%" scope="col">Agent</th>
-                                                <th width="16%" scope="col">Property Name</th>
-                                                <th width="10%" scope="col">Unit</th>
-                                                <th width="11%" scope="col">Tenant Name</th>
-                                                <th width="12%" scope="col">Comm Due</th>
-                                                <th width="11%" scope="col">Late Fees</th>
-                                                <th width="11%" scope="col">Amount Paid</th>
-                                                <th width="11%" scope="col">View Inv</th>
-                                                <th width="11%" scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="append_searh">
-                                          
-                                           </tbody>
-                                    </table></div>
-                                    </div>
-                                </div></div></div></div><div class="clearfix"></div>
-                          </div></div>
-                          
-                          
-                          
-                          <div class="mrg_addres_area">
-                          <div class="col-sm-12">
-                         
-                            <div class="row">
-                                
-                            <div class="col-sm-12 col-12 pr-0">
-                          
-                            <div class="card card_address">
-                                    <div class="card-body">
-                                    
-                                    <h5 class="label_rule_heading2"> Payment Deletion</h5>
-                                       <div class="payment_w_4">
-                                    <form id="validationform" data-parsley-validate="" novalidate="">        
-                                        <div class="form-group ">
-                                            <label for="text">Invoice # :</label>
-                                            <input type="number" required="" data-parsley-maxlength="8" placeholder="" class="form-control">
-                                        </div>
-                                    
-                                                                            
-                                    <div class="form-group row text-left ml-2">
-                                        <div class="">
-                                            <button type="submit" class="btn btn-space btn_promary_custom">Delete</button>
-
-                                        </div>
-                                    </div>
-                                                                    
-                                    </form>
-                               
-
-
-
-
-                                
-     
-            <div class="col-sm-12">
-            
-            </div>
-     
-    
-                                          </div>
-                                    </div>
-                                </div>
-                                  </div>
-                                
-                                
-                                
-                            </div>
-                            
-                          
-                           </div>
-                          
-                          </div>
-                          
-                          
-                          
-                          
-                          <div class="clearfix"></div>
-                          
-                       
-                          
-                          
-                          
-                          
-                          
-                          
-                  </div>
-                            
-                        </div>
-
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="modal" id="myModal_pendingfee">
-  <div class="modal-dialog w_viewapprove_bill" style="max-width: 1000px;">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <!-- <h4 class="modal-title">Auto Pay / Home Lease Holding Fee Detail</h4> -->
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        
-      <div class="col-md-12">
-      
-      
-                        <div class="row">
-                             
-                  <div class="col-md-6">
-             
-                  <div>
-                  <table width="100%" class=" table_responsive2">
-                                        <tbody class="inv_view">
-                                          
-                                           
-                                             
-                                        </tbody>
-                                    </table>
-                  </div>
-                  
-                  </div>       
-                        
-                        
-                        
-                       
-                        
-                        
-                        
-                        
-                        
-                       
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                       
-                        
-                        </div>
-                          </div>
-                
-                                                           
-                                                
-   
-   
-                                                    
-                                                
-   
-   
-   
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-<!--        <a type="button" class="btn btn-danger btn_close_pop3" id="add_agent_expence">Save</a><br>-->
-
-      </div>
-
-    </div>
-  </div>
-</div>
-            <!-- ============================================================== -->
+ -->
             <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
-                             Copyright © 2020 ValleyKing.com. All rights reserved.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
-    </div>
- 
- </div>
-<script type="text/javascript">
- 
-        $('#add_invoice').on('click',function (e) {
-    e.preventDefault();
-    var invoice =$('#invoice_number').val();
-    $.ajax({
-                
-                url: "{{url('viewinvoice')}}"+'/'+invoice,
-                method: 'GET',
-                headers: {
-                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                    },
-                data:{invoice:invoice} ,
-        
-                success:function(data){
-                    // $('.append_searh').html("");
-                     
-                     
-                        
 
-                        $('.append_searh').append('<tr>'+
-                                                '<td><a  href="" class="deleteRowButton" id="tt">Del</a></td>'+
-                                                
-                                                '<td>'+data['data'][0]['invoice_date']+'</td>'+
-                                                '<td>'+data['data'][0]['id']+'</td>'+
-                                                '<td>'+data['data']['agentdisplayname']+'</td>'+
-                                                '<td>'+data['data'][0]['inv_property']['propertyName']+'</td>'+
-                                                '<td>'+data['data'][0]['TenantUnitNo']+'</td>'+
-                                                '<td>'+data['data'][0]['TenantNames']+'</td>'+
-                                                
-                                                '<td>'+data['data'][0]['AmountDueToVKP']+'</td>'+
-                                                '<td>'+'null'+'</td>'+
-
-                                                '<td id="add"   >'+data['data'][0]['AmountDueToVKP']+'</td>'+
-                                                '<td><a href="javascript:void(0)"  class="inv_id"    data-toggle="modal"  onclick="viewfunction('+data['data'][0]['id']+')">View</a></td>'+
-                                                '<td>'+
-                                                '<a href="javascript:void(0)" class="add" id="updatefee" onclick="latefee('+data['data'][0]['id']+')" title="Add"   data-toggle="tooltip" style="display: none;">'+'Update'+' </a>'+
-                                                '<a href="javascript:void(0)" data-toggle="tooltip" class="edit" id="editable">Latefee</a>'+
-                                                '<a href="javascript:void(0)" data-toggle="tooltip" class="cancel" id="cancel">Cancel</a></td>'+
-                                            
-                                            '</tr>');
-
-                       
-                     $('.search_row').show();
-                
-                console.log(data);
- 
-                // $('body').html(data);
-                 
-
-                },error: function (jqXHR, status, err) {
     //               $(".errertest").html("");
     alert("Error this number Invoice is not exist!.");
     // $('.errertest').append('Not exist!');
   }
 
-            });
+});
 
 
 
- 
 
-    })
-         
-</script>
 
-<script type="text/javascript">
-   $('#view_invoice').on('click',function (e) {
-    e.preventDefault();
-    var invid =$('#invoice_number').val();
-     $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        })
+
+      </script>
+
+      <script type="text/javascript">
+       $('#view_invoice').on('click',function (e) {
+        e.preventDefault();
+        var invid =$('#invoice_number').val();
+        $.ajax({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url:"{{url('viewinvoice')}}"+'/'+invid,
+          method:"GET",
+          data:{invid:invid},
+
+          success:function(data){
+
+
+           $('.inv_view').html("");
+
+           $('.inv_view').append('<tr>'+
+            '<td width="8%" align="left" scope="row"></td>'+
+            '<td width="8%" align="left" id="propertyName">'+'Not Paid'+'</td>'+
+            '</tr>'+
+            ' <tr>'+
+            ' <td width="8%" align="left" scope="row">'+'Invoice Date :'+'</td>'+
+            '<td width="8%" align="left" id="propertyName">'+data['data'][0]['invoice_date']+'</td>'+
+            '</tr>'+
+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Lease Start :'+'</td>'+
+            ' <td align="left" id="Address">'+data['data'][0]['LeaseStartDate']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Lease Term :'+'</td>'+
+            ' <td align="left" id="unit">'+data['data'][0]['Leaseterm']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Verifier :'+'</td>'+
+            '<td align="left" id="state">'+data['data'][0]['Verifier']+'</td>'+
+            ' </tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Inv. Maker :'+   
+            '</td>'+
+            '<td align="left" id="city">'+data['data'][0]['InvMakerId']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Rent :'+'</td>'+
+            '<td align="left" id="zip">'+data['data'][0]['Rent']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Bonus :'+'</td>'+
+            '<td align="left" id="movein">'+data['data'][0]['Bonus']+'</td>'+
+            ' </tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'VKP % :'+'</td>'+
+            '<td align="left">'+data['data'][0]['VKPPercentage']+'</td>'+
+            '</tr>' +
+            '<tr>'+
+            '<td align="left" scope="row">'+'Flat Rate :'+ '</td>'+
+            '<td align="left" id="mcno">'+data['data'][0]['FlatRate']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Amount due to VKP :'+'</td>'+
+            ' <td align="left" id="daterecievd">'+data['data'][0]['AmountDueToVKP']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Ist Agent :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['FirstagentId']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'No # :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['NoNumber']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Advance :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['Advance']+'</td>'+
+            '</tr>'+
+
+            ' <tr>'+
+            ' <td align="left" scope="row">'+'Monthly Adv. Count :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['MontlyAdvanceCount']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Due to Ist Agent :' +'</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['DueToFirstAgent']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'VKP Split :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['VKPSplit']+'</td>'+
+            ' </tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'2nd Agent :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['SecondAgentID']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Due to 2nd :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['DueToSecondAgent']+'</td>'+
+            '</tr>'+
+            '  <tr>'+
+            '<td align="left" scope="row">'+'50 / 50 Split :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['FiftyFiftySplit']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Legal :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['Legal']+'</td>'+
+            '</tr>'+
+            ' <tr>'+
+            '<td align="left" scope="row">Adjust Comm. : </td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['AdjustCommission']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'No Pay :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['NoPay']+'</td>'+
+            '</tr>'+
+            ' <tr>'+
+            '<td align="left" scope="row">'+'Type :'+ '</td>'+
+            '<td align="left" id="ammount">'+'null'+'</td>'+
+            '  </tr>'+
+
+            ' <tr>'+
+            '<td align="left" scope="row">'+'&nbsp;'+'</td>'+
+            '<td align="left">&nbsp;</td>'+
+            '</tr>');
+
+
+        $('#myModal_pendingfee').modal('show');
+
+
+
+      },error: function (jqXHR, status, err) {
+
+        alert("Error this number Invoice is not exist!.");
+
+      }
+
+    });
+
+
+
+
+
+      })
+
+    </script>
+
+   <!--  <script type="text/javascript">
+      
+      $.ajaxSetup({
+          headers:{
+        'X-CSRF-TOKEN' : $('meta(name="csrf-token")').attr('content');
+          }
+      });
+
+      $('#paymentInvoiceForm').submit(function(){
+
+          e.preventDefault();
+
+          var data = $(this).serialize();
+          var invoicedate = $('inout[name=invoicedate]').val();
+          var comdue = $('input[name=comdue]').val();
+          var latefees = $('input[name=latefees]').val();
+          var AmountPaid = $('inout[name=AmountPaid]').val();
+          var AmountPaid = $('inout[name=AmountPaid]').val();
+
+          var url = '{{ url('postinsert') }}';
+          $.ajax({
+
+            url:url,
+            method:post,
+            data:{
+
+              invoicedate:invoicedate,
+              comdue:comdue,
+              latefees:latefees,
+              AmountPaid:AmountPaid
             },
-            url:"{{url('viewinvoice')}}"+'/'+invid,
-            method:"GET",
-            data:{invid:invid},
-        
-                success:function(data){
-                   
-                
-                 $('.inv_view').html("");
-
-            $('.inv_view').append('<tr>'+
-                                              '<td width="8%" align="left" scope="row"></td>'+
-                                              '<td width="8%" align="left" id="propertyName">'+'Not Paid'+'</td>'+
-                                            '</tr>'+
-                                           ' <tr>'+
-                                             ' <td width="8%" align="left" scope="row">'+'Invoice Date :'+'</td>'+
-                                              '<td width="8%" align="left" id="propertyName">'+data['data'][0]['invoice_date']+'</td>'+
-                                            '</tr>'+
-                              
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Lease Start :'+'</td>'+
-                                             ' <td align="left" id="Address">'+data['data'][0]['LeaseStartDate']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Lease Term :'+'</td>'+
-                                             ' <td align="left" id="unit">'+data['data'][0]['Leaseterm']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Verifier :'+'</td>'+
-                                              '<td align="left" id="state">'+data['data'][0]['Verifier']+'</td>'+
-                                           ' </tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Inv. Maker :'+   
-                                              '</td>'+
-                                              '<td align="left" id="city">'+data['data'][0]['InvMakerId']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Rent :'+'</td>'+
-                                              '<td align="left" id="zip">'+data['data'][0]['Rent']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Bonus :'+'</td>'+
-                                              '<td align="left" id="movein">'+data['data'][0]['Bonus']+'</td>'+
-                                           ' </tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'VKP % :'+'</td>'+
-                                              '<td align="left">'+data['data'][0]['VKPPercentage']+'</td>'+
-                                            '</tr>' +
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Flat Rate :'+ '</td>'+
-                                              '<td align="left" id="mcno">'+data['data'][0]['FlatRate']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Amount due to VKP :'+'</td>'+
-                                             ' <td align="left" id="daterecievd">'+data['data'][0]['AmountDueToVKP']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Ist Agent :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['FirstagentId']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'No # :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['NoNumber']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Advance :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['Advance']+'</td>'+
-                                            '</tr>'+
-                                           
-                                           ' <tr>'+
-                                             ' <td align="left" scope="row">'+'Monthly Adv. Count :'+ '</td>'+
-                                          ' <td align="left" id="ammount">'+data['data'][0]['MontlyAdvanceCount']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Due to Ist Agent :' +'</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['DueToFirstAgent']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'VKP Split :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['VKPSplit']+'</td>'+
-                                           ' </tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'2nd Agent :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['SecondAgentID']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Due to 2nd :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['DueToSecondAgent']+'</td>'+
-                                            '</tr>'+
-                                          '  <tr>'+
-                                              '<td align="left" scope="row">'+'50 / 50 Split :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['FiftyFiftySplit']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Legal :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['Legal']+'</td>'+
-                                            '</tr>'+
-                                           ' <tr>'+
-                                              '<td align="left" scope="row">Adjust Comm. : </td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['AdjustCommission']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'No Pay :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['NoPay']+'</td>'+
-                                            '</tr>'+
-                                           ' <tr>'+
-                                              '<td align="left" scope="row">'+'Type :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+'null'+'</td>'+
-                                          '  </tr>'+
-
-                                           ' <tr>'+
-                                              '<td align="left" scope="row">'+'&nbsp;'+'</td>'+
-                                              '<td align="left">&nbsp;</td>'+
-                                            '</tr>');
-
-
-                $('#myModal_pendingfee').modal('show');
- 
-                 
-
-                },error: function (jqXHR, status, err) {
- 
-    alert("Error this number Invoice is not exist!.");
-     
-  }
-
-            });
-
-
-
- 
-
-    })
-
-</script>
-<script type="text/javascript">
-    function viewfunction(id) {
-        var invid = id;
-           
-             $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            success:function(response){
+              if(response.success)
+              {
+                  alert(response.message);
+              }
+              else
+              {
+                  alert('error');
+              }
             },
-            url:"{{url('viewinvoice')}}"+'/'+invid,
-            method:"GET",
-            data:{invid:invid},
-            success:function(data)
+            error:function(error)
             {
-               $('.inv_view').html("");
+              console.log(error);
+            }
+          });
 
-            $('.inv_view').append('<tr>'+
-                                              '<td width="8%" align="left" scope="row"></td>'+
-                                              '<td width="8%" align="left" id="propertyName">'+'Not Paid'+'</td>'+
-                                            '</tr>'+
-                                           ' <tr>'+
-                                             ' <td width="8%" align="left" scope="row">'+'Invoice Date :'+'</td>'+
-                                              '<td width="8%" align="left" id="propertyName">'+data['data'][0]['invoice_date']+'</td>'+
-                                            '</tr>'+
-                              
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Lease Start :'+'</td>'+
-                                             ' <td align="left" id="Address">'+data['data'][0]['LeaseStartDate']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Lease Term :'+'</td>'+
-                                             ' <td align="left" id="unit">'+data['data'][0]['Leaseterm']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Verifier :'+'</td>'+
-                                              '<td align="left" id="state">'+data['data'][0]['Verifier']+'</td>'+
-                                           ' </tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Inv. Maker :'+   
-                                              '</td>'+
-                                              '<td align="left" id="city">'+data['data'][0]['InvMakerId']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Rent :'+'</td>'+
-                                              '<td align="left" id="zip">'+data['data'][0]['Rent']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Bonus :'+'</td>'+
-                                              '<td align="left" id="movein">'+data['data'][0]['Bonus']+'</td>'+
-                                           ' </tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'VKP % :'+'</td>'+
-                                              '<td align="left">'+data['data'][0]['VKPPercentage']+'</td>'+
-                                            '</tr>' +
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Flat Rate :'+ '</td>'+
-                                              '<td align="left" id="mcno">'+data['data'][0]['FlatRate']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Amount due to VKP :'+'</td>'+
-                                             ' <td align="left" id="daterecievd">'+data['data'][0]['AmountDueToVKP']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Ist Agent :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['FirstagentId']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'No # :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['NoNumber']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Advance :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['Advance']+'</td>'+
-                                            '</tr>'+
-                                           
-                                           ' <tr>'+
-                                             ' <td align="left" scope="row">'+'Monthly Adv. Count :'+ '</td>'+
-                                          ' <td align="left" id="ammount">'+data['data'][0]['MontlyAdvanceCount']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Due to Ist Agent :' +'</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['DueToFirstAgent']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'VKP Split :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['VKPSplit']+'</td>'+
-                                           ' </tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'2nd Agent :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['SecondAgentID']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                             ' <td align="left" scope="row">'+'Due to 2nd :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['DueToSecondAgent']+'</td>'+
-                                            '</tr>'+
-                                          '  <tr>'+
-                                              '<td align="left" scope="row">'+'50 / 50 Split :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+data['data'][0]['FiftyFiftySplit']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'Legal :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['Legal']+'</td>'+
-                                            '</tr>'+
-                                           ' <tr>'+
-                                              '<td align="left" scope="row">Adjust Comm. : </td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['AdjustCommission']+'</td>'+
-                                            '</tr>'+
-                                            '<tr>'+
-                                              '<td align="left" scope="row">'+'No Pay :'+ '</td>'+
-                                             ' <td align="left" id="ammount">'+data['data'][0]['NoPay']+'</td>'+
-                                            '</tr>'+
-                                           ' <tr>'+
-                                              '<td align="left" scope="row">'+'Type :'+ '</td>'+
-                                              '<td align="left" id="ammount">'+'null'+'</td>'+
-                                          '  </tr>'+
+      });
+    </script> -->
+    <script type="text/javascript">
+      function viewfunction(id) {
+        var invid = id;
 
-                                           ' <tr>'+
-                                              '<td align="left" scope="row">'+'&nbsp;'+'</td>'+
-                                              '<td align="left">&nbsp;</td>'+
-                                            '</tr>');
+        $.ajax({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url:"{{url('viewinvoice')}}"+'/'+invid,
+          method:"GET",
+          data:{invid:invid},
+          success:function(data)
+          {
+           $('.inv_view').html("");
+
+           $('.inv_view').append('<tr>'+
+            '<td width="8%" align="left" scope="row"></td>'+
+            '<td width="8%" align="left" id="propertyName">'+'Not Paid'+'</td>'+
+            '</tr>'+
+            ' <tr>'+
+            ' <td width="8%" align="left" scope="row">'+'Invoice Date :'+'</td>'+
+            '<td width="8%" align="left" id="propertyName">'+data['data'][0]['invoice_date']+'</td>'+
+            '</tr>'+
+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Lease Start :'+'</td>'+
+            ' <td align="left" id="Address">'+data['data'][0]['LeaseStartDate']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Lease Term :'+'</td>'+
+            ' <td align="left" id="unit">'+data['data'][0]['Leaseterm']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Verifier :'+'</td>'+
+            '<td align="left" id="state">'+data['data'][0]['Verifier']+'</td>'+
+            ' </tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Inv. Maker :'+   
+            '</td>'+
+            '<td align="left" id="city">'+data['data'][0]['InvMakerId']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Rent :'+'</td>'+
+            '<td align="left" id="zip">'+data['data'][0]['Rent']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Bonus :'+'</td>'+
+            '<td align="left" id="movein">'+data['data'][0]['Bonus']+'</td>'+
+            ' </tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'VKP % :'+'</td>'+
+            '<td align="left">'+data['data'][0]['VKPPercentage']+'</td>'+
+            '</tr>' +
+            '<tr>'+
+            '<td align="left" scope="row">'+'Flat Rate :'+ '</td>'+
+            '<td align="left" id="mcno">'+data['data'][0]['FlatRate']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Amount due to VKP :'+'</td>'+
+            ' <td align="left" id="daterecievd">'+data['data'][0]['AmountDueToVKP']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Ist Agent :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['FirstagentId']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'No # :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['NoNumber']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Advance :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['Advance']+'</td>'+
+            '</tr>'+
+
+            ' <tr>'+
+            ' <td align="left" scope="row">'+'Monthly Adv. Count :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['MontlyAdvanceCount']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Due to Ist Agent :' +'</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['DueToFirstAgent']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'VKP Split :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['VKPSplit']+'</td>'+
+            ' </tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'2nd Agent :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['SecondAgentID']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            ' <td align="left" scope="row">'+'Due to 2nd :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['DueToSecondAgent']+'</td>'+
+            '</tr>'+
+            '  <tr>'+
+            '<td align="left" scope="row">'+'50 / 50 Split :'+ '</td>'+
+            '<td align="left" id="ammount">'+data['data'][0]['FiftyFiftySplit']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'Legal :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['Legal']+'</td>'+
+            '</tr>'+
+            ' <tr>'+
+            '<td align="left" scope="row">Adjust Comm. : </td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['AdjustCommission']+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td align="left" scope="row">'+'No Pay :'+ '</td>'+
+            ' <td align="left" id="ammount">'+data['data'][0]['NoPay']+'</td>'+
+            '</tr>'+
+            ' <tr>'+
+            '<td align="left" scope="row">'+'Type :'+ '</td>'+
+            '<td align="left" id="ammount">'+'null'+'</td>'+
+            '  </tr>'+
+
+            ' <tr>'+
+            '<td align="left" scope="row">'+'&nbsp;'+'</td>'+
+            '<td align="left">&nbsp;</td>'+
+            '</tr>');
 
 
-                $('#myModal_pendingfee').modal('show');
+        $('#myModal_pendingfee').modal('show');
 
 
-                   }
-        });
-          
-            
+      }
+    });
 
-         }
-</script>
-<script type="text/javascript">
+
+
+      }
+    </script>
+    <script>
+//-----------------
+$(document).ready(function(){
+$('#send_form').click(function(e){
+   e.preventDefault();
+   /*Ajax Request Header setup*/
+   $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+
+   $('#send_form').html('Post');
    
+   /* Submit form data using ajax*/
+   $.ajax({
+      url: "{{ url('jquery-ajax-paymentpost-submit')}}",
+      method: 'post',
+      data: $('#paymentInvoiceForm').serialize(),
+      success: function(response){
+      
+        if(response.id)
+        {
+          alert('record already exist');
+        }
+       
 
-     
-    
+
+      
+         //------------------------
+            $('#send_form').html('Submit');
+            $('#res_message').show();
+            $('#res_message').html(response.msg);
+            $('#msg_div').removeClass('d-none');
+
+            
+             e.preventDefault();
+              $('#testimonialOpen').dialog('open');
+          
+
+            document.getElementById("paymentInvoiceForm").reset(); 
+            setTimeout(function(){
+            $('#res_message').hide();
+            $('#msg_div').hide();
+            },10000);
+         //--------------------------
+      }});
+   });
+});
+//-----------------
+</script>
+   
+   
+    <script type="text/javascript">
+
+
+
+
       $(document).on("click","#tt",function(e) {
- e.preventDefault();
- 
-$(this).closest("tr").remove();
+       e.preventDefault();
 
-})
-  
- 
+       $(this).closest("tr").remove();
+
+     })
+
+
 //   $(document).on("click","#editable",function(e) {
 //      e.preventDefault();
 // $('#add').attr('contenteditable', true);
- 
+
 
 // })
-  $(document).on("click", "#editable", function(){
-var d=$(this).parents("tr").children('td').siblings('td:nth-child(9)').val();
+$(document).on("click", "#editable", function(){
+  var d=$(this).parents("tr").children('td').siblings('td:nth-child(9)').val();
   
-   
-$(this).parents("tr").children('td').siblings('td:nth-child(9)').each(function(){
-      $(this).html('<input type="text" name="rules" id="err" class="form-control" value="' + $(this).text() + '" style="width: 50px;">');
+
+  $(this).parents("tr").children('td').siblings('td:nth-child(9)').each(function(){
+    $(this).html('<input type="text" name="rules" id="err" class="form-control" value="' + $(this).text() + '" style="width: 50px;">');
 
 
     
 
-    });     
-   $(this).parents("tr").children('td').find(".add").show();
-   $(this).parents("tr").children('td').find(".edit").hide();
-     
-    });
+  });     
+  $(this).parents("tr").children('td').find(".add").show();
+  $(this).parents("tr").children('td').find(".edit").hide();
 
-  $(document).on("click", ".cancel", function(){
- 
-          var empty = false;
-        var input =        $(this).parents("tr").children('td').siblings('td:nth-child(9)').find('input[type="text"]');
-        input.each(function(){
-            if(!$(this).val()){
-                $(this).addClass("error");
-                empty = true;
-            } else{
-                $(this).removeClass("error");
-            }
-        });
-        $(this).parents("tr").children('td').siblings('td:nth-child(9)').find(".error").first().focus();
-        if(!empty){
-            input.each(function(){
-                $(this).parents("tr").children('td').siblings('td:nth-child(9)').html($(this).val());
-            });         
-            $(this).parents("tr").children('td').find(".add").hide();
-            $(this).parents("tr").children('td').find(".edit").show();
-             
-        }
+});
 
-    
- 
-        
-        
-    
+$(document).on("click", ".cancel", function(){
 
-   
-            
-           
-           
-       
-    });
 
-  
-  
-  function latefee(id) {
-        var feeid = id;
-        alert(id);
-      }
+  var empty = false;
+  var input =        $(this).parents("tr").children('td').siblings('td:nth-child(9)').find('input[type="text"]');
+  input.each(function(){
+    if(!$(this).val()){
+      $(this).addClass("error");
+      empty = true;
+    } else{
+      $(this).removeClass("error");
+    }
+  });
+  $(this).parents("tr").children('td').siblings('td:nth-child(9)').find(".error").first().focus();
+  if(!empty){
+    input.each(function(){
+      $(this).parents("tr").children('td').siblings('td:nth-child(9)').html($(this).val());
+    });         
+    $(this).parents("tr").children('td').find(".add").hide();
+    $(this).parents("tr").children('td').find(".edit").show();
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+function latefee(id) {
+  var feeid = id;
+  alert(id);
+}
 </script>
-        @endsection
+@endsection

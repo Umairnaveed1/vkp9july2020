@@ -1,4 +1,4 @@
-@extends('admin_layouts.layout')
+﻿@extends('admin_layouts.layout')
 @section('content')
     <style>
         .uper {
@@ -495,3 +495,4 @@
         </div>
     </div>
 @endsection
+

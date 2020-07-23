@@ -601,6 +601,7 @@ return redirect()->back();
 
          $inv_data['agentdisplayname']=0;
           $inv_data=Invoice::with('inv_property','inv_agent')->where('id',$id)->get();
+
           // return response()->json($inv_data);
            if ($inv_data[0]['inv_agent']!=NULL ) {
               $agentdisplayname=$inv_data[0]['inv_agent']['agentdisplayname'];

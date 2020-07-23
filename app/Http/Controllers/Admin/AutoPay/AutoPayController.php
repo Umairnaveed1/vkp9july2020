@@ -127,7 +127,8 @@ $invoice->APPaymentCollected = $request->collected_amount_count;
         $invoice->DueToSecondAgent = $request->DueToSecondAgent;
         $invoice->GiftCard = $request->GiftCard;
         $invoice->billType =$request->billType; 
-        $invoice->PONO = $request->phone_no;
+        $invoice->PONO = $request->PONO;
+
         $invoice->InvoiceNote = $request->InvoiceNote;
         $invoice->APAmountDueToProperty = $request->APAmountDueToProperty;
         $invoice->MONO = $request->MONO;
@@ -154,6 +155,7 @@ $invoice->APPaymentCollected = $request->collected_amount_count;
         $invoice->agent_id = $request->FirstagentId;
         $invoice->user_id = $user_id;
         $invoice->fee_holding_amount = serialize($fee_holding_array);
+        //die($invoice);
         $invoice->save();
 		Session::flash('billingMsg','Autopay Billing added sucessfully.');
         return redirect('autopay/create')->with('billingMsg','Autopay Billing added sucessfully.'); 
