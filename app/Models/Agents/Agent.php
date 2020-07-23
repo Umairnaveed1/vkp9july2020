@@ -83,17 +83,6 @@ class Agent extends Model
     public function miscincome(){
         return $this->hasMany('App\Models\miscincome\miscincome','agent_id','id');
     }
-    public function city()
-    {
-        return $this->belongsTo('App\Models\Cities\City', 'city_id', 'id');
-    }
-   
-    public function state()
-    {
-        return $this->belongsTo('App\Models\States\State', 'state_id', 'id');
-    }
-    public function miscincome(){
-        return $this->hasMany('App\Models\miscincome\miscincome','agent_id','id');
-    }
+
 
 }

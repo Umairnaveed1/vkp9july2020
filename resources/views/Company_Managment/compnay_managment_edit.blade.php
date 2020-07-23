@@ -155,7 +155,12 @@
     <td class="address_td_2">
                                            
                                             <label class="custom-control custom-checkbox custom-control-inline">
-                                                <input type="checkbox" class="custom-control-input" name="active" value="@if($get_company['active'] == 1) 1 @else @endif"><span class="custom-control-label"></span>
+                                            @if($get_company['active'] == 1)
+                                                <!-- <input type="checkbox" class="custom-control-input" name="active" value="@if($get_company['active'] == 1) checked @else @endif"><span class="custom-control-label"></span> -->
+                                                <input type="checkbox" name="active" value="1" checked="">
+                                                @else 
+                                                <input type="checkbox" name="active" value="1">
+                                              @endif
                                             </label>
 
                                             <button type="submit" style="display: none;" id="save_manag"></button>
@@ -238,7 +243,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
-                             Copyright ?? 2020 ValleyKing.com. All rights reserved.
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
                             <div class="text-md-right footer-links d-none d-sm-block">

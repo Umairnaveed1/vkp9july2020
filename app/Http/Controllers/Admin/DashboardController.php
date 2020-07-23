@@ -141,6 +141,7 @@ class DashboardController extends Controller
 
     }
     public function save(Request $request){
+
         //dd($request->active);
 
         $validatedData = $request->validate([
@@ -323,6 +324,26 @@ class DashboardController extends Controller
         'agentadve' => $agent_advanceable,
         'agentsever' => $request->hire_date,
         );
+        $original_date = $request->hire_date;
+        $timestamp = strtotime($original_date);
+        $n1 = date("Y/m/d", $timestamp);
+        $data['agenthiredate'] = $n1;
+        //dd($n1);
+        $original_date = $request->invoice_date;
+        $timestamp = strtotime($original_date);
+        $new_date = date("Y/m/d", $timestamp);
+        $data['invoice_date'] = $new_date;
+        // dd($new_date);
+
+        $original_date =$request->exit_date;
+        $timestamp = strtotime($original_date);
+        $n2 = date("Y/m/d", $timestamp);
+        $data['AgentDate'] = $n2;
+
+        $original_date =$request->hire_date;
+        $timestamp = strtotime($original_date);
+        $n3 = date("Y/m/d", $timestamp);
+        $data['agentsever'] = $n3;
         $Agent = new Agent();
         $ids = $request->agent_ids;
         $result = $Agent->where('id', $ids)->update($data);
@@ -342,6 +363,7 @@ class DashboardController extends Controller
         }
         $where = array('id' => $agent_id);
         //dd($where);
+        
         $data['get_agent_info'] = Agent::with('offices','users','state','city', 'country','zipcodes')->where($where)->first();
         //dd($data['get_agent_info'] );
         return view('admin.agent_edit', $data);
