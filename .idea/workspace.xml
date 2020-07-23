@@ -2,64 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c223513d-51a2-4ed6-a198-b9a5bccbdc5b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminManagement/AdminManagementController.php--15july-2020" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminManagement/AdminManagementController.php--old-10-july2020" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AutoPay/AutoPayController--old-21july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Checks/CheckController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController--old-21-july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PropertyManagement/PropertyManageController--old-21-july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Reports/ReportController.php--old-10july20" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Reports/ReportController.php-10july20" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Agent/OfficeController/OfficeController-old-21-july20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/InvoicePayment/InvoicePayment.php--old-10july20" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Admin/Checks/Check.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Agents/Agent--old-21july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Company_Managment/company_managment-old-21-july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/OfficeManager/OfficeManager--old-21-july20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Properties/Property--old-21-july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Company_Managment/company_managment_list.blade--old-21-july20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Company_Managment/compnay_managment_edit.blade-old-21-july20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/admin_management/manage_payments.blade.php--10-july20" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/admin_management/manage_payments.blade.php--15july2020" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/agent_edit.blade--old-21july20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/autopay/create.blade-old-21july20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/checks/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/property_manage/property_edit.blade--old-21-july-20.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/reports/report_property.blade.php--10july-20" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin_layouts/sidebar.blade.php--15july2020" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/adminform/agentofficedetail.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/agent/office_manager/edit.blade--old-21-july-20.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminManagement/AdminManagementController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminManagement/AdminManagementController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AutoPay/AutoPayController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AutoPay/AutoPayController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PropertyManagement/PropertyManageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PropertyManagement/PropertyManageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Reports/ReportController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Reports/ReportController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/User/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/User/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Agent/AppartmentBilling/AppartmentBillingController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Agent/AppartmentBilling/AppartmentBillingController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Agent/OfficeController/OfficeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Agent/OfficeController/OfficeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/adminform/adminformController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/adminform/adminformController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/InvoicePayment/InvoicePayment.php" afterPath="$PROJECT_DIR$/app/InvoicePayment/InvoicePayment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Agents/Agent.php" afterPath="$PROJECT_DIR$/app/Models/Agents/Agent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Company_Managment/company_managment_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/Company_Managment/company_managment_list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Company_Managment/compnay_managment_edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/Company_Managment/compnay_managment_edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin_management/manage_payments.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin_management/manage_payments.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/agent_edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/agent_edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/autopay/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/autopay/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/reports/report_property.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/reports/report_property.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin_layouts/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin_layouts/sidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/adminform/adminform_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/adminform/adminform_create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/agent/appartment_bill/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/agent/appartment_bill/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/agent/homelease/home_lease_billing.blade.php" afterPath="$PROJECT_DIR$/resources/views/agent/homelease/home_lease_billing.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/agent/homesales/home_sale _bill.blade.php" afterPath="$PROJECT_DIR$/resources/views/agent/homesales/home_sale _bill.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/agent/office_manager/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/agent/office_manager/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="vkp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,17 +39,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-              <folding>
-                <marker date="1595503165682" expanded="false" signature="9:387" placeholder="..." />
-                <marker date="1595503165682" expanded="false" signature="395:496" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="509:560" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="527:559" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="1630:1658" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="1672:1679" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="1824:1831" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="4753:4769" placeholder="..." />
-                <marker date="1595503165682" expanded="true" signature="6299:6319" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,7 +47,7 @@
       <file leaf-file-name="adminform_create.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/adminform/adminform_create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <marker date="1595501559009" expanded="true" signature="8069:9081" placeholder="..." />
@@ -131,8 +64,8 @@
       <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/agent/appartment_bill/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70542634">
-              <caret line="717" column="28" selection-start-line="717" selection-start-column="28" selection-end-line="717" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.7297297">
+              <caret line="704" column="5" selection-start-line="704" selection-start-column="5" selection-end-line="704" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -196,8 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,6 +229,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,16 +283,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27142859" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27653062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49019608" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48939642" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -400,18 +333,47 @@
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/adminform/adminform_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1595503165682" expanded="false" signature="9:387" placeholder="..." />
-            <marker date="1595503165682" expanded="false" signature="395:496" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="509:560" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="527:559" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="1630:1658" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="1672:1679" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="1824:1831" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="4753:4769" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="6299:6319" placeholder="..." />
+            <marker date="1595501559009" expanded="true" signature="8069:9081" placeholder="..." />
+            <marker date="1595501559009" expanded="true" signature="8280:9056" placeholder="..." />
+            <marker date="1595501559009" expanded="true" signature="9941:10953" placeholder="..." />
+            <marker date="1595501559009" expanded="true" signature="10152:10928" placeholder="..." />
+            <marker date="1595501559009" expanded="true" signature="12377:12405" placeholder="..." />
+            <marker date="1595501559009" expanded="true" signature="12805:12833" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/agent/appartment_bill/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -450,23 +412,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-          <folding>
-            <marker date="1595503165682" expanded="false" signature="9:387" placeholder="..." />
-            <marker date="1595503165682" expanded="false" signature="395:496" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="509:560" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="527:559" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="1630:1658" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="1672:1679" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="1824:1831" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="4753:4769" placeholder="..." />
-            <marker date="1595503165682" expanded="true" signature="6299:6319" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/adminform/adminform_create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <marker date="1595501559009" expanded="true" signature="8069:9081" placeholder="..." />
@@ -481,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/agent/appartment_bill/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70542634">
-          <caret line="717" column="28" selection-start-line="717" selection-start-column="28" selection-end-line="717" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.7297297">
+          <caret line="704" column="5" selection-start-line="704" selection-start-column="5" selection-end-line="704" selection-end-column="5" />
           <folding />
         </state>
       </provider>
