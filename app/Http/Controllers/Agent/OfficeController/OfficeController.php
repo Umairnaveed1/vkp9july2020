@@ -90,6 +90,7 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $request->validate(
                 [
                 'office_description' => 'required|max:255',
@@ -113,7 +114,7 @@ class OfficeController extends Controller
                 'co_manager' => $request->co_manager,
 
             ];
-
+            //dd($office);    
         OfficeManager::whereId($id)->update($office);
         return redirect('office/create')->with('update', 'office updated!');
 

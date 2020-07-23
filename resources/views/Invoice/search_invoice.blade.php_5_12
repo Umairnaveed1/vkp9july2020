@@ -1,0 +1,310 @@
+@extends('admin_layouts.layout')
+@section('content')
+<div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> Print Invoice Screen </h2>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                                                   
+                          <div class="mrg_addres_area">
+                          <div class="col-sm-12">
+                         
+                            <div class="row">
+                            <div class=" col-12">
+                            <div class="card card_address pl-3 pr-3 ">
+                                    <div class="card-body add_office_cardbody search_inovice_w">
+                                 
+               
+                    <div class="col-md-12 col-12">
+                        <div class="row">
+
+
+                <div class="col-lg-6 col-12">
+                    <div class="form-group">
+                        <label for="text">From Invoice # :		</label>
+                        <div class="">
+                            <input type="number" required="" id="search_from" data-parsley-maxlength="8" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                        <div class="form-group ">
+                            <label for="sel1">To Invoice # :		</label>
+                            <div class="">
+                              <input type="number" id="search_to" required="" data-parsley-maxlength="8" placeholder="" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-12 col-12">
+                             <button type="submit" id="search_btn" class="btn btn-space btn_promary_custom">Add</button>
+                            <button type="cancel" class="btn btn-space btn_promary_custom">Cancel</button>
+                        </div>
+                    
+                    
+                
+                
+                
+                
+                    
+                                    
+                                        
+                                
+                                    
+                                
+                        </div>
+                
+               
+                </div>
+                               
+
+
+
+
+                                
+     
+            
+     
+    
+                                          </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                          
+                           </div>
+                          
+                          </div>
+                          
+                          <div class="mrg_addres_area">
+                          <div class="col-sm-12">
+                         
+                            <div class="row">
+                            <div class=" col-12">
+                            <div class="card card_address pl-3 pr-3 ">
+                                    <div class="card-body add_office_cardbody search_inovice_w">
+                                 
+               
+                    <div class="col-md-12 col-12">
+                        <div class="row">
+
+
+                <div class="col-lg-6 col-12">
+                    <div class="form-group">
+                        <label for="text">Invoice # :		</label>
+                        <div class="">
+                            <input type="number" id="search" required="" data-parsley-maxlength="8" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                
+                    <div class="col-lg-12 col-12">
+                             <button type="submit" id="search_btn_one" class="btn btn-space btn_promary_custom">Add</button>
+                            <button type="submit" class="btn btn-space btn_promary_custom">Cancel</button>
+                        </div>
+                    
+                    
+                
+                
+                
+                
+                    
+                                    
+                                        
+                                
+                                    
+                                
+                        </div>
+                
+               
+                </div>
+                               
+
+
+
+
+                                
+     
+            
+     
+    
+                                          </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                          
+                           </div>
+                          
+                          </div>
+                          <div class="row search_row" style="display: none">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   <div class="mrg_addres_area">
+                          <div class="col-sm-12">
+                         <div class="row">
+                            <div class="col-sm-12 col-12">
+                            <div class="card card_address">
+                                    <div class="card-body">
+                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
+                                        <thead>
+                                            <tr>
+                                                <th width="13%" scope="col">Invoice Date</th>
+                                                <th width="18%" scope="col">Invoice No</th>
+                                                <th width="16%" scope="col">Property Name</th>
+                                                <th width="10%" scope="col">Tenant Name</th>
+                                                <th width="11%" scope="col">Tenant Unit No</th>
+                                                <th width="12%" scope="col">Rent</th>
+                                                <th width="11%" scope="col">Leaseterm</th>
+                                                <th width="11%" scope="col">Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="append_searh">
+                                          
+                                           </tbody>
+                                    </table></div>
+                                    </div>
+                                </div></div></div></div><div class="clearfix"></div>
+                          </div></div>
+                          
+                          
+                                               <!-- Six Six Section -->
+
+                  
+                          
+                          
+                          
+                          
+                          
+                          
+                    
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                       
+                          
+                          
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <script type="text/javascript">
+        $('#search_btn').on('click', function(){
+var search_from = $('#search_from').val();
+var search_to = $('#search_to').val();
+$('.append_searh').html('');
+$.ajax({
+    headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+   url:"{{ url('invoice/get_search') }}",
+   method:"POST",
+   data:{search_from:search_from,search_to:search_to},
+   success:function(data)
+   {
+    $.each(data['data'], function(i,v){
+$('.append_searh').append('<tr>'+
+                                                '<td>'+v['invoice_date']+'</td>'+
+                                                '<td>'+v['id']+'</td>'+
+                                                '<td>'+v['inv_property']['propertyName']+'</td>'+
+                                                '<td>'+v['TenantNames']+'</td>'+
+                                                '<td>'+v['TenantUnitNo']+'</td>'+
+                                                '<td>'+v['Rent']+'</td>'+
+                                                '<td>'+v['Leaseterm']+'</td>'+
+                                                '<td><a href="#">Email</a></td>'+
+                                            '</tr>');
+    });
+    $('.search_row').show();
+   }
+  });
+});
+        $('#search_btn_one').on('click', function(){
+var search_from = $('#search').val();
+$('.append_searh').html('');
+$.ajax({
+    headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+   url:"{{ url('invoice/get_search_first') }}",
+   method:"POST",
+   data:{search_from:search_from},
+   success:function(data)
+   {
+    $.each(data['data'], function(i,v){
+$('.append_searh').append('<tr>'+
+                                                '<td>'+v['invoice_date']+'</td>'+
+                                                '<td>'+v['id']+'</td>'+
+                                                '<td>'+v['inv_property']['propertyName']+'</td>'+
+                                                '<td>'+v['TenantNames']+'</td>'+
+                                                '<td>'+v['TenantUnitNo']+'</td>'+
+                                                '<td>'+v['Rent']+'</td>'+
+                                                '<td>'+v['Leaseterm']+'</td>'+
+                                                '<td><a href="#">Email</a></td>'+
+                                            '</tr>');
+    });
+    $('.search_row').show();
+   }
+  });
+});        
+    </script>
+    @endsection

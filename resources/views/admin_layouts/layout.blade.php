@@ -5,6 +5,8 @@
 </head>
 <body>
     <div class="dashboard-main-wrapper">
+    
+
 @include('admin_layouts.header')
 @include('admin_layouts.sidebar')
             @yield('content')

@@ -7,7 +7,8 @@
     
 
             @yield('content')
-            @include('layouts.footer')
+            <!-- @include('layouts.footer') -->
+            @include('admin_layouts.footer')
 
 </body>
 </html>

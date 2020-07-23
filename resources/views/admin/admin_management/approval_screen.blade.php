@@ -1,0 +1,132 @@
+        @extends('admin_layouts.layout')
+
+@section('content')
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> APPROVAL SCREEN 
+                                </h2>                          
+                                  </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                                                   
+                          <div class="mrg_addres_area">
+                          <div class="col-sm-12">
+                         
+                            <div class="row">
+                            <div class="col-sm-12 col-12">
+                            <div class="card card_address pl-3 pr-3">
+                                    <div class="card-body add_office_cardbody">
+                                 
+                                    <form action="#" id="validationform" data-parsley-validate="" novalidate="">
+                                        <div class="row justify-content-center align-center">
+
+                                            <div class="align-center">
+                                                <img src="{{asset('public/assets/images/logo.png') }}" width="100%" class="img-fluid w-50 m-0 h-auto mt-3 ml-4 text-center"><br><br>
+                                            
+
+                                            <table class="">
+                                                <tr>
+                                                    
+                                                <td>
+                                                             
+                                        <label class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" name="approval_screen" value="bx1" checked="" class="custom-control-input">
+                                            <span class="custom-control-label">Fee Reciept Screen</span>
+                                        </label>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                        <label class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" name="approval_screen" value="bx2"  class="custom-control-input">
+                                            <span class="custom-control-label">Fee Holding Screen</span>
+                                        </label>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                        <label class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" name="approval_screen" value="bx3"  class="custom-control-input">
+                                            <span class="custom-control-label">Approval Screen</span>
+                                        </label>
+                                        </td>
+                                            </tr>
+                                    
+                                </table>
+                                    </div>
+                                 </div>
+                                <div class="form-group mt-3 text-center">
+                                    <div class="col-12"> 
+                                        <button type="submit" class="btn btn-space btn_promary_custom apprScreenContinue">Continue</button>
+                                    </div>
+                                </div> 
+                                             
+
+                                    
+                                    </form>
+                               
+                   
+     
+            <div class="col-sm-12">
+            
+            </div>
+     
+    
+                                          </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                          
+                           </div>
+                          
+                          </div>
+                          <div class="clearfix"></div>
+        
+                  </div>
+                            
+                        </div>
+   
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+
+        @endsection

@@ -1,0 +1,131 @@
+<?php
+
+namespace App\Http\Controllers\Admin\AdminManagement;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
+use Session;
+use App\Models\Invoices\Invoice;
+use App\Models\Properties\Property;
+use App\Models\Countries\Country;
+use App\Models\Agents\Agent;
+use App\Models\States\State;
+use App\Models\Cities\City;
+use App\Models\ZipCodes\ZipCode;
+use Validator;
+class AdminManagementController extends Controller
+{
+	public function __construct()
+    {
+       $this->middleware('auth');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    } 
+	public function manage_invoices(){   
+		 $Invoice=New Invoice();
+		 $result = $Invoice->with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users')->paginate(10);
+		 $viewData['result']=$result;
+        return view('admin/admin_management/manage_invoices',$viewData); 
+    }
+    public function manage_payments(){
+        return view('admin/admin_management/manage_payments');
+    }  
+    public function approval_screen(){
+        return view('admin/admin_management/approval_screen'); 
+    }
+	 public function feeRecieptScreen(){
+		 $Invoice=New Invoice();
+	     $feeReciepts = $Invoice->with('inv_property','inv_agent','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users')->paginate(10);
+        //dd($feeReciepts);
+        $viewData['feeReciepts']=$feeReciepts;
+
+        return view('admin/admin_management/feeRecieptScreen',$viewData); 
+    }
+     public function feeholdScreen(){
+     $Invoice=New Invoice();
+         $result = $Invoice->with('inv_property','inv_city_list','inv_country_list','inv_state_list','inv_zipcode_list','users')->paginate(10);
+         $viewData['result']=$result;
+        return view('admin/admin_management/feeholdScreen',$viewData); 
+    }
+     public function admin_approval(){ 
+     
+        return view('admin/admin_management/admin_approval'); 
+    }
+	 public function deposit(){
+        return view('admin/admin_management/manage_deposit'); 
+    }
+}

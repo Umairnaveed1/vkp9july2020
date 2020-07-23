@@ -27,7 +27,27 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+      protected $redirectTo;
+
+     public function redirectTo()
+    {
+        switch(Auth::user()->is_admin){
+            case 1:
+            $this->redirectTo = '/dashboard';
+            return $this->redirectTo;
+                break;
+            case 0:
+                    $this->redirectTo = '/agent/default';
+                return $this->redirectTo;
+                break;
+          
+            default:
+                $this->redirectTo = '/login';
+                return $this->redirectTo;
+        }
+         
+       
+    } 
 
     /**
      * Create a new controller instance.
@@ -38,6 +58,21 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+ public function agent(Request $request)
+    {
+
+        if(auth()->user()->is_admin === 0){
+                    return view('home');
+
+        }
+        }
+
+		
+     
+         public function username()
+{
+    return 'UserName';
+}
 
    
 }

@@ -1,0 +1,330 @@
+@extends('admin_layouts.layout')
+
+@section('content')
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title"> Fee Hold Screen </h2>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                       
+                        
+                           
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                   
+                  
+                          <div class="col-xl-12 pl-0">
+                            <div class="card card_address  pl-3 pr-3">
+                                    <div class="card-body">
+                                    
+                                    <div class="col-sm-12"><h5></h5></div>
+
+                                    
+                                    <table width="100%" class="table table-bordered table_office_manage table_responsive2">
+                                        <thead>
+                                            <tr>
+                                           					
+                                                <th width="8%" scope="col">Date</th>
+                                                <th width="8%" scope="col">Reference</th>
+                                                <th width="8%" scope="col">Agent</th>
+                                                <th width="10%" scope="col">Property</th>
+                                                <th width="6%" scope="col">Unit</th>
+                                                <th width="10%" scope="col">Tenant Name</th>
+                                                <th width="7%" scope="col">Fee $</th>
+                                                <th width="8%" scope="col">Date Deposite</th>
+                                                <th width="7%" scope="col">Balance Due</th>
+                                                <th width="8%" scope="col">Move In Date</th>
+                                                <th width="7%" scope="col">View</th>
+                                                <th width="6%" scope="col">RCVD</th>
+                                                <th width="7%" scope="col">Refund</th>
+                                             
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                     
+                                                <td align="left" scope="row"> 10/08/12</td>
+                                                <td align="left">7067098</td>
+                                                <td align="left">Barbara Diles</td>
+                                                <td>Advantege Point</td>
+                                                <td align="left">2012</td>
+                                                <td align="left">Harrold Gossett</td>
+                                                <td align="left">100</td>
+                                                <td align="left">10/08/12</td>
+                                                <td align="left">307.38</td>
+                                                <td align="left">10/08/12</td>
+                                               <td align="left"> <a href="#" data-toggle="modal" data-target="#myModal_freehold_view">view</a></td>
+                                                <td align="left">
+                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-label"> </span></label>
+                                                        </td>
+                                                <td align="left">
+                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-label"> </span></label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                     
+                                                    <td align="left" scope="row"> 10/08/12</td>
+                                                    <td align="left">7067098</td>
+                                                    <td align="left">Barbara Diles</td>
+                                                    <td>Advantege Point</td>
+                                                    <td align="left">2012</td>
+                                                    <td align="left">Harrold Gossett</td>
+                                                    <td align="left">100</td>
+                                                    <td align="left">10/08/12</td>
+                                                    <td align="left">307.38</td>
+                                                    <td align="left">10/08/12</td>
+                                                   <td align="left"> <a href="#">view</a></td>
+                                                    <td align="left">
+                                                            <label class="custom-control custom-checkbox custom-control-inline">
+                                                                <input type="checkbox" class="custom-control-input">
+                                                                <span class="custom-control-label"> </span></label>
+                                                            </td>
+                                                    <td align="left">
+                                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" class="custom-control-input">
+                                                        <span class="custom-control-label"> </span></label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                     
+                                                        <td align="left" scope="row"> 10/08/12</td>
+                                                        <td align="left">7067098</td>
+                                                        <td align="left">Barbara Diles</td>
+                                                        <td>Advantege Point</td>
+                                                        <td align="left">2012</td>
+                                                        <td align="left">Harrold Gossett</td>
+                                                        <td align="left">100</td>
+                                                        <td align="left">10/08/12</td>
+                                                        <td align="left">307.38</td>
+                                                        <td align="left">10/08/12</td>
+                                                         <td align="left"> <a href="#">view</a></td>
+                                                        <td align="left">
+                                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                                    <input type="checkbox" class="custom-control-input">
+                                                                    <span class="custom-control-label"> </span></label>
+                                                                </td>
+                                                        <td align="left">
+                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-label"> </span></label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                     
+                                                            <td align="left" scope="row"> 10/08/12</td>
+                                                            <td align="left">7067098</td>
+                                                            <td align="left">Barbara Diles</td>
+                                                            <td>Advantege Point</td>
+                                                            <td align="left">2012</td>
+                                                            <td align="left">Harrold Gossett</td>
+                                                            <td align="left">100</td>
+                                                            <td align="left">10/08/12</td>
+                                                            <td align="left">307.38</td>
+                                                            <td align="left">10/08/12</td>
+                                                             <td align="left"> <a href="#">view</a></td>
+                                                            <td align="left">
+                                                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                                                        <input type="checkbox" class="custom-control-input">
+                                                                        <span class="custom-control-label"> </span></label>
+                                                                    </td>
+                                                            <td align="left">
+                                                            <label class="custom-control custom-checkbox custom-control-inline">
+                                                                <input type="checkbox" class="custom-control-input">
+                                                                <span class="custom-control-label"> </span></label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                     
+                                                                <td align="left" scope="row"> 10/08/12</td>
+                                                                <td align="left">7067098</td>
+                                                                <td align="left">Barbara Diles</td>
+                                                                <td>Advantege Point</td>
+                                                                <td align="left">2012</td>
+                                                                <td align="left">Harrold Gossett</td>
+                                                                <td align="left">100</td>
+                                                                <td align="left">10/08/12</td>
+                                                                <td align="left">307.38</td>
+                                                                <td align="left">10/08/12</td>
+                                                                 <td align="left"> <a href="#">view</a></td>
+                                                                <td align="left">
+                                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                                            <input type="checkbox" class="custom-control-input">
+                                                                            <span class="custom-control-label"> </span></label>
+                                                                        </td>
+                                                                <td align="left">
+                                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                                    <input type="checkbox" class="custom-control-input">
+                                                                    <span class="custom-control-label"> </span></label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                     
+                                                                    <td align="left" scope="row"> 10/08/12</td>
+                                                                    <td align="left">7067098</td>
+                                                                    <td align="left">Barbara Diles</td>
+                                                                    <td>Advantege Point</td>
+                                                                    <td align="left">2012</td>
+                                                                    <td align="left">Harrold Gossett</td>
+                                                                    <td align="left">100</td>
+                                                                    <td align="left">10/08/12</td>
+                                                                    <td align="left">307.38</td>
+                                                                    <td align="left">10/08/12</td>
+                                                                     <td align="left"> <a href="#">view</a></td>
+                                                                    <td align="left">
+                                                                            <label class="custom-control custom-checkbox custom-control-inline">
+                                                                                <input type="checkbox" class="custom-control-input">
+                                                                                <span class="custom-control-label"> </span></label>
+                                                                            </td>
+                                                                    <td align="left">
+                                                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                                                        <input type="checkbox" class="custom-control-input">
+                                                                        <span class="custom-control-label"> </span></label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                     
+                                                                        <td align="left" scope="row"> 10/08/12</td>
+                                                                        <td align="left">7067098</td>
+                                                                        <td align="left">Barbara Diles</td>
+                                                                        <td>Advantege Point</td>
+                                                                        <td align="left">2012</td>
+                                                                        <td align="left">Harrold Gossett</td>
+                                                                        <td align="left">100</td>
+                                                                        <td align="left">10/08/12</td>
+                                                                        <td align="left">307.38</td>
+                                                                        <td align="left">10/08/12</td>
+                                                                         <td align="left"> <a href="#">view</a></td>
+                                                                        <td align="left">
+                                                                                <label class="custom-control custom-checkbox custom-control-inline">
+                                                                                    <input type="checkbox" class="custom-control-input">
+                                                                                    <span class="custom-control-label"> </span></label>
+                                                                                </td>
+                                                                        <td align="left">
+                                                                        <label class="custom-control custom-checkbox custom-control-inline">
+                                                                            <input type="checkbox" class="custom-control-input">
+                                                                            <span class="custom-control-label"> </span></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                     
+                                                                            <td align="left" scope="row"> 10/08/12</td>
+                                                                            <td align="left">7067098</td>
+                                                                            <td align="left">Barbara Diles</td>
+                                                                            <td>Advantege Point</td>
+                                                                            <td align="left">2012</td>
+                                                                            <td align="left">Harrold Gossett</td>
+                                                                            <td align="left">100</td>
+                                                                            <td align="left">10/08/12</td>
+                                                                            <td align="left">307.38</td>
+                                                                            <td align="left">10/08/12</td>
+                                                                             <td align="left"> <a href="#">view</a></td>
+                                                                            <td align="left">
+                                                                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                                                                        <input type="checkbox" class="custom-control-input">
+                                                                                        <span class="custom-control-label"> </span></label>
+                                                                                    </td>
+                                                                            <td align="left">
+                                                                            <label class="custom-control custom-checkbox custom-control-inline">
+                                                                                <input type="checkbox" class="custom-control-input">
+                                                                                <span class="custom-control-label"> </span></label>
+                                                                            </td>
+                                                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    
+                                    <div class="row">
+                          <div class="col-sm-12">
+                                                      <div class="clear20"></div>                                     
+                          
+                          <!-- <a href="#" class="btn_general_h pull-right mr-3"> Delete</a> -->
+                             
+                          
+                          
+                          </div> 
+                          </div>
+                                    </div>
+                                    
+                                    </div></div>
+
+
+
+
+                          <!-- ******************************** -->
+                                               <!-- Six Six Section -->
+
+                                               <div class="col-12">
+                                                    <div class="row mb-4 mt-md-3">
+                                                        <div class="col-sm-12">
+                                                        
+                                                        <a href="#" class="btn_add_agent btn_add_agent_active">Print</a>
+                                                        
+                                                        <a href="#" class="btn_add_agent"> Refresh</a>
+                                                        
+                                                        <a href="#" class="btn_add_agent"> Refund</a>
+                                                        
+                                                        
+                                                        </div> 
+                                                        </div>  
+                                                </div>    
+                                                          
+                                                          
+                                                          <!-- <div class="clearfix"></div> -->
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                       
+                          
+                          
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+@endsection

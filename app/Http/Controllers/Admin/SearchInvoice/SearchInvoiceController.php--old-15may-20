@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Controllers\Admin\SearchInvoice;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Admin\SearchInvoice\SearchInvoice;
+use DB;
+use Auth;
+use App\Models\Properties\Property;
+use App\Models\Company_Managment\company_managment;
+use App\Models\Agents\Agent;
+use Illuminate\Support\Carbon;
+use App\User;
+use Input;
+use App\Models\Invoices\Invoice;
+
+
+class SearchInvoiceController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function index(Request $request)
+    {
+        $data['property'] = Property::pluck('propertyName','id');
+        $data['mgmt_company'] = company_managment::pluck('mgt_company','id');
+        $data['agent'] = Agent::pluck('agentfirstname','id');
+      
+        $input1 = $request->input('invoice_date');
+        $input2 = $request->input('LeaseStartDate');  
+        $search = $request->get('search');
+       $invoices = Invoice::latest()
+       ->where('user_id','=',Auth::user()->id)
+    ->where('invoice_date', 'like', '%' . $search . '%')
+    ->orWhere('AdjustCommission', 'like', '%' . $search . '%')
+    ->orWhere('NoPay','like','%'.$search. '%')
+    ->with('inv_property')
+    ->orWhereHas('inv_property', function($q) use($search) {
+        $q->where('propertyName', 'like', '%' . $search . '%');
+    })
+    ->paginate(1);  
+    //  dd($invoices);
+        $result = SearchInvoice::whereBetween('created_at',[$input1,$input2])->get();
+     
+        // dd($result); // this will print out the results
+
+        // dd($models);
+        return view('admin.searchinvoice.index',compact('result','input1','input2','invoices'),$data);
+    }
+      
+
+}

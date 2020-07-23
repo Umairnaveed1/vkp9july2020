@@ -1,0 +1,330 @@
+@extends('admin_layouts.layout')
+@section('content')
+        
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+               
+                    <!-- <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Management Companies </h2>
+                              
+                                
+                            </div>
+                        </div>
+                    </div> -->
+                   
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                         
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
+                                <div class="card egent_list_box">
+                                    <h5 class="card-header">Management List <img src="images/agent_list_icon.png" width="20" height="25" alt=""> </h5>
+                                    <div class="card-body agent_list_body">
+                                    
+                                    <ul>	
+                                        @foreach($get_company_data as $company_list)
+                                        <li><a href="#" class="get_company" data-attr-id="{{ $company_list['id'] }}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{ $company_list['mgt_company'] }}</a></li>
+                                        @endforeach
+                                      </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                <a href="{{ url('compnay/managment/create') }}" class="btn_add_agent btn_add_agent_active"><img src="images/ad_icon.png" alt=""> Add Management</a>
+                                <div class="clear20"></div>
+                                  <a href="#" class="btn_show_inactive m-0"><img src="images/icon1.png" alt=""> Show Inactive</a>
+                                  
+                                  </div>
+                                  <div class="clear20"></div>
+                            </div>
+                           
+                            <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
+                            
+                            
+                                
+                          
+                        
+                          <div class="col-sm-12 p-0">
+                         
+                            <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							
+                            <div class="card card_address">
+                                    <div class="card-body">
+                            
+							 <div class="row">
+                            <div class="table_companies3">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-responsive table ">
+  <tr>
+    <td colspan="2"><h5 class="black">Management Company: @if(isset($get_company_info['mgt_company'])) {{ $get_company_info['mgt_company'] }} 
+        @else 1st to Rent @endif</h5></td>
+
+  </tr>
+  <tr>
+  
+    <td colspan="2">Address:
+        @if(isset($get_company_info['office_address'])) {{ $get_company_info['office_address'] }} @else 801 E Beck Lane @endif</td>
+  </tr>
+  <tr>
+    <td width="50%">
+    <div class="row">
+    <div class="col-sm-6">City:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['city_list']['cityname']))
+        {{ $get_company_info['city_list']['cityname'] }}
+         @else Phoenix @endif</div>
+      </div>
+    
+    </td>
+    <td width="50%">
+    <div class="row">
+    <div class="col-sm-6">State:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['state_list']['statename'])) {{ $get_company_info['state_list']['statename'] }} @else Arizona @endif</div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td><div class="row">
+    <div class="col-sm-6">Zip:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['zipcode_list']['zipcode'])) {{ $get_company_info['zipcode_list']['zipcode'] }} @else 85022 @endif</div>
+      </div></td>
+    <td><div class="row">
+    <div class="col-sm-6">Country:  </div>
+      <div class="col-sm-6">@if(isset($get_company_info['country_list']['countrysh']))
+        {{ $get_company_info['country_list']['countrysh'] }}
+         @else USA @endif</div>
+      </div></td>
+  </tr>
+  <tr>
+    <td><div class="row">
+    <div class="col-sm-6">Phone  #:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['phone'])) {{ $get_company_info['phone'] }} @else 602-374-7288 @endif</div>
+      </div></td>
+    <td><div class="row">
+    <div class="col-sm-6">Fax #:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['fax'])) {{ $get_company_info['fax'] }} @else 623-321-9899 @endif</div>
+      </div></td>
+  </tr>
+  <tr>
+    <td><div class="row">
+    <div class="col-sm-6">Alternate  #:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['alt'])) {{ $get_company_info['alt'] }} @endif</div>
+      </div></td>
+    <td><div class="row">
+    <div class="col-sm-6">E-Mail:</div>
+      <div class="col-sm-6">@if(isset($get_company_info['email'])) {{ $get_company_info['email'] }} @else  @endif</div>
+      </div></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <div class="row">
+    <div class="col-sm-6">
+       
+    
+    <form class="active_1">
+                                           
+                  <label class="custom-control custom-checkbox custom-control-inline">
+                                               Active  
+                     <input type="checkbox" class="custom-control-input" 
+                      @if(isset($get_company_info['active']) == 1)
+                     checked @endif><span class="custom-control-label">
+                     </span>
+                                            </label>
+                                        </form>
+    </div>
+   <div class="col-sm-6">
+    
+    <form>
+                                           
+                                            <label class="custom-control custom-checkbox custom-control-inline">
+                                              Inactive       
+                                                <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                                                 
+                                            </label>
+                                        </form>
+    </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+									
+										</div>
+									</div>
+                                    
+                                    
+                                    </div>
+									
+                                    </div>
+									
+									
+									
+									
+									
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                          
+                           </div>
+                          
+                         
+                          
+                          
+                          <div class="clearfix"></div>
+                          
+                          <div class="row">
+                          <div class="col-sm-12">
+                          
+                          
+                          <a href="{{ url('compnay/managment/edit?') . 'id=' .  $get_company_info['id'] }}" class="btn_add_agent"><img src="images/edit_icon.png" alt=""> Edit</a>
+                          
+                          <a href="#" class="btn_add_agent"><img src="images/save_icon.png" alt=""> Save</a>
+                          
+                          <a href="#" class="btn_add_agent"><img src="images/cancel_icon.png" alt=""> Cancel</a>
+                          
+                          
+                          </div> 
+                          </div>
+                          
+                            <div class="clear20"></div>
+                          
+                          <div class="row">
+                          <div class="col-sm-12 meg_btn_general">
+                                                                                                    
+                          <a href="#" class="btn_general_h btn_general_h_active"> General</a>
+                          
+                          <a href="#" class="btn_general_h"> Properties</a>
+                           <a href="#" class="btn_general_h"> History / Notes</a>
+                           <a href="#" class="btn_general_h"> Email Invoices</a>
+                          
+                          
+                          </div> 
+                          </div>
+                          
+                          
+                          
+                          
+                  </div>
+                            
+                        </div>
+
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                             Copyright © 2020 ValleyKing.com. All rights reserved.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                               Designed & Developed by<a href="https://leadconcept.com/" target="_blank"> LEADconcept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    
+<style>
+.table_companies3
+{
+   width:600px;
+   margin:auto;	
+}
+.table_companies3 table
+{
+	border:solid 1px #000 !important;
+	width: 100% !important;
+    display: table !important;
+	    table-layout: inherit !important;
+}
+.table_companies3 table td
+{
+	border:solid 1px #000 !important;
+}
+
+@media (min-width: 320px) and   (max-width: 1330px){
+.btn_add_agent {
+    padding-left: 5px;
+    padding-right: 5px;
+	font-size:12px;
+}	
+}
+@media (min-width: 320px) and   (max-width: 1150px){
+.table_companies3
+{
+   width:90%;
+   margin:auto;	
+}	
+
+	
+	
+}
+
+
+</style>
+    
+ <script type="text/javascript">
+    $('.get_company').on('click', function(){
+     $('.zip_id').html('');
+       var get_company = $(this).attr('data-attr-id');
+       
+       $.ajaxSetup({
+         headers: {
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+       });
+       $.ajax({
+         type:"POST",
+         url: "{{ url('compnay/managment/get_list') }}",
+         data: {get_company:get_company},
+         success: function(data){
+           console.log(data);
+           $('.active_1').html('');
+          $('.mgt_company_1').text(data['mgt_company']);
+          $('.country_1').text(data['country_list']['countrysh']);
+          $('.state_1').text(data['state_list']['statename']);
+          $('.city_1').text(data['city_list']['cityname']);
+          $('.zip_1').text(data['zipcode_list']['zipcode']);
+          $('.fax_1').text(data['fax']);
+          $('.alt_1').text(data['alt']);
+          $('.email_1').text(data['email']);
+          $('.office_address_1').text(data['office_address']);
+          $('.edit_company').attr('href', url +"?id="+data['id']);
+          if(data['active'] == 1){
+           $('.active_1').append('<label class="custom-control custom-checkbox custom-control-inline">'+
+                                                 '<input type="checkbox" class="custom-control-input" checked><span class="custom-control-label"></span>'+
+                                             '</label>');
+          }
+          else{
+           $('.active_1').append('<label class="custom-control custom-checkbox custom-control-inline">'+
+                                                 '<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>'+
+                                             '</label>');
+          }
+         }
+       });
+ 
+    });
+  </script>
+
+@endsection
